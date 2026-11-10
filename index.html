@@ -1,0 +1,1054 @@
+<!doctype html><html lang="et"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>NORVO Outdoor Living</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="NORVO on Baltikumi päritolu outdoor living-bränd. Bioklimaatilised pergolad Baltikumi kliimale. Make Room for Living.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" href="img/hero.webp">
+<style>
+/* Layout: architectural 12-col grid on cool "fog" paper; dark anthracite bands carry
+   the product; warm LED-glow accent used sparingly; louvre slats as the recurring motif. */
+:root{
+  /* NORVO brand palette: Forest #26372F · Sand #E9E4DA · Graphite #30343A · Stone #B9B3A6 · White */
+  --paper:#F4F1EB;      /* light sand */
+  --paper-2:#E9E4DA;    /* Sand */
+  --ink:#1B2420;        /* deep forest-black */
+  --ral:#26372F;        /* Forest — brand primary, dark bands */
+  --ral-2:#30343A;      /* Graphite */
+  --mist:#5F625C;       /* muted text on paper */
+  --mist-d:#B9B3A6;     /* Stone — muted text on dark */
+  --glow:#E9E4DA;       /* Sand accent on dark */
+  --glow-ink:#26372F;   /* Forest accent on paper */
+  --sun:#E0AE63;        /* sunlight (demo only) */
+  --line:rgba(27,36,32,.14);
+  --line-d:rgba(233,228,218,.16);
+  --studio:#E2DED5;     /* product render backdrop */
+
+  --f-display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --f-body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --t-xs:.75rem; --t-sm:.875rem; --t-md:1.0625rem; --t-lg:1.25rem;
+  --t-h3:clamp(1.6rem,1.2rem + 1.2vw,2.1rem);
+  --t-h2:clamp(2.6rem,1.6rem + 3.6vw,4.6rem);
+  --t-h1:clamp(3.4rem,1.8rem + 6.4vw,8.2rem);
+
+  --max:1320px;
+  --gut-l:max(20px, env(safe-area-inset-left,0px));
+  --gut-r:max(20px, env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:light;
+}
+@media (min-width:760px){:root{--gut-l:max(40px, env(safe-area-inset-left,0px));--gut-r:max(40px, env(safe-area-inset-right,0px))}}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--t-md);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+::selection{background:var(--glow);color:var(--ink)}
+
+.wrap{max-width:calc(var(--max) + 80px);margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+section{scroll-margin-top:72px}
+
+/* type */
+.eyebrow{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:14px;color:var(--mist)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.dark .eyebrow{color:var(--mist-d)}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2{font-size:var(--t-h2)}
+h2 em,h1 em{font-style:italic;font-weight:400}
+h3{font-size:var(--t-h3);line-height:1.08}
+p{margin:0;text-wrap:pretty}
+.lead{font-size:var(--t-lg);line-height:1.6;color:var(--mist);max-width:36ch}
+.dark .lead{color:var(--mist-d)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.sec-head{display:grid;gap:28px 64px;grid-template-columns:1fr;align-items:end;margin-bottom:clamp(40px,6vw,80px)}
+.sec-head .eyebrow{margin-bottom:22px}
+@media (min-width:900px){.sec-head{grid-template-columns:1.2fr 1fr}}
+
+.dark{background:var(--ral);color:var(--paper)}
+.night{background:var(--ink);color:var(--paper)}
+.pad{padding-block:clamp(88px,11vw,168px)}
+
+/* buttons */
+.btn{--b:var(--ink);--c:var(--paper);display:inline-flex;align-items:center;gap:14px;padding:17px 26px;background:var(--b);color:var(--c);border:1px solid var(--b);text-decoration:none;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s}
+.btn svg{width:18px;height:10px;transition:transform .45s var(--ease)}
+.btn:hover svg{transform:translateX(5px)}
+.btn:hover{--b:var(--ral-2)}
+.btn.glow{--b:var(--glow);--c:var(--ink)}
+.btn.glow:hover{--b:#FFFFFF}
+.btn.ghost{background:transparent;color:var(--paper);border-color:rgba(241,242,239,.45)}
+.btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.line:hover{background:var(--ink);color:var(--paper)}
+.dark .btn.line{color:var(--paper);border-color:var(--line-d)}
+.dark .btn.line:hover{background:var(--paper);color:var(--ink)}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;color:var(--paper);transition:background .4s,color .4s,box-shadow .4s,transform .5s var(--ease)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+@media (min-width:1080px){.nav .wrap{height:84px;transition:height .4s var(--ease)}.nav.solid .wrap{height:68px}}
+.nav.solid{background:rgba(244,241,235,.9);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.nav.hide{transform:translateY(-110%)}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;min-height:44px}
+.logo-mark{width:38px;height:38px;border:1.5px solid currentColor;display:grid;place-items:center;font-family:var(--f-body);font-weight:700;font-size:1.05rem;letter-spacing:-.02em;line-height:1}
+.logo-word{display:grid;gap:3px;line-height:1}
+.logo-word b{font-family:var(--f-body);font-size:1.05rem;font-weight:700;letter-spacing:.42em;margin-right:-.42em}
+.logo-word small{font-family:var(--f-body);font-size:.56rem;font-weight:500;letter-spacing:.38em;opacity:.75}
+.nav ul{list-style:none;margin:0;padding:0;display:none;gap:34px}
+.nav ul a{text-decoration:none;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase;position:relative;padding-block:6px}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav ul a:hover::after,.nav ul a[aria-current]::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:13px 20px;display:none}
+.nav:not(.solid) .btn{--b:transparent;--c:var(--paper);border-color:rgba(241,242,239,.5)}
+.nav:not(.solid) .btn:hover{--b:var(--paper);--c:var(--ink)}
+.menu-btn{background:none;border:0;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;margin-right:-10px}
+.menu-btn span{display:block;width:24px;height:1.5px;background:currentColor;position:relative;transition:transform .3s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:24px;height:1.5px;background:currentColor}
+.menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
+@media (min-width:1080px){.nav ul{display:flex}.nav .btn{display:inline-flex}.menu-btn{display:none}}
+
+.drawer{position:fixed;inset:0;z-index:70;background:var(--ink);color:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 20px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 32px) var(--gut-l);display:flex;flex-direction:column;gap:40px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.drawer.open{clip-path:inset(0 0 0 0);visibility:visible}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;height:44px}
+.drawer-close{background:none;border:0;font-size:2rem;line-height:1;width:44px;height:44px;cursor:pointer;margin-right:-10px}
+.drawer nav{display:flex;flex-direction:column;gap:6px}
+.drawer nav a{font-family:var(--f-display);font-size:clamp(2.4rem,9vw,3.4rem);text-decoration:none;line-height:1.15}
+.drawer .meta{margin-top:auto;display:grid;gap:6px;color:var(--mist-d);font-size:var(--t-sm)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:clamp(620px,94vh,980px);display:flex;align-items:flex-end;color:var(--paper);background:var(--ink);overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img::after{content:"";position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;animation:settle 2.6s var(--ease) .15s both}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,19,22,.55) 0%,rgba(14,19,22,.05) 30%,rgba(14,19,22,.15) 55%,rgba(14,19,22,.86) 100%),linear-gradient(90deg,rgba(14,19,22,.55),rgba(14,19,22,0) 60%)}
+@keyframes settle{from{transform:scale(1.06)}to{transform:none}}
+/* louvre opening */
+.louvre{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;pointer-events:none}
+.louvre i{flex:1;background:var(--ink);transform-origin:50% 0;animation:slat 1.1s var(--ease) both;animation-delay:calc(var(--i) * 45ms + .1s)}
+.louvre i:nth-child(odd){background:#192025}
+@keyframes slat{to{transform:scaleY(0)}}
+.hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(36px,5vw,64px);padding-top:140px}
+.hero .eyebrow{color:rgba(241,242,239,.8);margin-bottom:28px}
+.hero h1{font-size:var(--t-h1);line-height:.9;letter-spacing:-.02em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:inline-block;animation:rise 1.2s var(--ease) both}
+.hero h1 .ln:nth-child(1)>span{animation-delay:.75s}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.9s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.fade-up{animation:fadeUp 1s var(--ease) both;animation-delay:var(--d,1.1s)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-foot{margin-top:clamp(32px,4vw,56px);padding-top:28px;border-top:1px solid rgba(241,242,239,.25);display:grid;gap:28px;grid-template-columns:1fr;align-items:end}
+.hero-foot p{font-size:var(--t-lg);max-width:34ch;color:rgba(241,242,239,.88)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+@media (min-width:900px){.hero-foot{grid-template-columns:1fr auto}}
+.scroll-cue{position:absolute;right:var(--gut-r);top:50%;z-index:2;display:none;writing-mode:vertical-rl;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;color:rgba(241,242,239,.7);gap:14px;align-items:center}
+.scroll-cue::after{content:"";width:1px;height:64px;background:linear-gradient(rgba(241,242,239,.8),transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (min-width:1080px){.scroll-cue{display:flex}}
+
+/* spec ticker */
+.ticker{background:var(--ink);color:var(--mist-d);overflow:hidden;border-top:1px solid var(--line-d)}
+.ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker ul{display:flex;list-style:none;margin:0;padding:18px 0;gap:0}
+.ticker li{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
+.ticker li::after{content:"";width:5px;height:5px;background:var(--mist-d);margin-inline:36px;transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- CATEGORIES ---------- */
+.cats{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:700px){.cats{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.cats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.cat{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(340px,40vw,480px);padding:clamp(22px,2.4vw,30px);text-decoration:none;color:#fff;background:var(--ral);isolation:isolate}
+.cat:nth-child(2){background:var(--ral-2)}
+.cat:nth-child(3){background:#B9B3A6;color:var(--ink)}
+.cat:nth-child(4){background:#3A4A40}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
+.cat.ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,36,32,0) 35%,rgba(27,36,32,.85))}
+.cat:hover img{transform:scale(1.05)}
+.cat .art{position:absolute;inset:18% 14% auto;z-index:-1;opacity:.5;transition:transform 1s var(--ease),opacity .6s}
+.cat:hover .art{transform:translateY(-6px);opacity:.75}
+.cat .art svg{width:100%;height:auto;display:block}
+.cat .num{position:absolute;top:clamp(22px,2.4vw,30px);left:clamp(22px,2.4vw,30px);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;opacity:.8}
+.cat .sub{font-family:var(--f-body);font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.8}
+.cat h3{font-size:clamp(1.9rem,1.4rem + 1.2vw,2.5rem);margin:10px 0 12px}
+.cat p{font-size:var(--t-sm);opacity:.85;max-width:30ch}
+.cat .go{margin-top:20px;display:flex;align-items:center;gap:12px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.cat .go svg{width:18px;height:10px;transition:transform .45s var(--ease)}
+.cat:hover .go svg{transform:translateX(5px)}
+
+.promise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line-d);margin-top:clamp(56px,7vw,96px)}
+@media (min-width:900px){.promise{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.promise div{padding:24px 18px 4px 0;display:grid;gap:6px;align-content:start}
+.promise .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist-d)}
+.promise .v{font-family:var(--f-display);font-size:1.35rem;line-height:1.15}
+.manifest{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width:1000px){.manifest{grid-template-columns:6fr 5fr;gap:96px;align-items:end}}
+.manifest .copy p+p{margin-top:16px}
+.manifest .copy p{color:var(--mist-d);max-width:52ch}
+.manifest .copy p.first{color:var(--paper);font-size:var(--t-lg);line-height:1.55}
+
+/* ---------- INTRO / MOUNTING ---------- */
+.intro-grid{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width:900px){.intro-grid{grid-template-columns:5fr 6fr;gap:80px}.intro-grid .copy{padding-top:12px}}
+.intro-grid .copy p+p{margin-top:18px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:44px;border-top:1px solid var(--line)}
+.facts div{padding:20px 16px 0 0}
+.facts b{display:block;font-family:var(--f-display);font-weight:500;font-size:clamp(1.8rem,1.2rem + 1.8vw,2.6rem);line-height:1}
+.facts span{display:block;margin-top:8px;font-size:var(--t-xs);color:var(--mist);line-height:1.45}
+
+.mount-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin:clamp(72px,9vw,120px) 0 28px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.mount-head h3{font-size:var(--t-h3)}
+.mounts{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:760px){.mounts{grid-template-columns:1fr 1fr}}
+.mount{position:relative;overflow:hidden;color:var(--paper);aspect-ratio:4/5;max-width:100%;background:var(--ral);text-decoration:none;display:block}
+@media (min-width:760px){.mount{aspect-ratio:5/6}}
+.mount img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.mount::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,19,22,0) 40%,rgba(14,19,22,.82))}
+.mount:hover img{transform:scale(1.05)}
+.mount-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(22px,3vw,36px);display:grid;gap:10px}
+.mount-body .eyebrow{color:rgba(241,242,239,.75)}
+.mount-body h4{margin:0;font-family:var(--f-display);font-weight:500;font-size:clamp(2rem,1.4rem + 2vw,3rem);line-height:1}
+.mount-body p{color:rgba(241,242,239,.82);max-width:34ch;font-size:var(--t-sm)}
+.mount .tag{position:absolute;top:clamp(18px,2.4vw,28px);right:clamp(18px,2.4vw,28px);z-index:1;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.12em;padding:7px 10px;background:rgba(14,19,22,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* ---------- WHY / LOUVRE DEMO ---------- */
+.why-top{display:grid;gap:56px;grid-template-columns:1fr;align-items:center}
+@media (min-width:1000px){.why-top{grid-template-columns:1fr 1.1fr;gap:88px}}
+.why-top .lead{margin-top:28px}
+.demo{background:var(--ink);border:1px solid var(--line-d);padding:clamp(20px,3vw,36px);display:grid;gap:22px}
+.demo-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.demo-head span{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist-d)}
+.demo-head output{font-family:var(--f-mono);font-size:1.5rem;color:var(--sun)}
+.demo svg{width:100%;height:auto;display:block}
+#rainG line{stroke:#8FB3C4;stroke-width:1.4;stroke-linecap:round;animation:drop 1.1s linear infinite;animation-delay:var(--dl)}
+@keyframes drop{0%{transform:translate(10px,-46px);opacity:0}15%{opacity:.9}100%{transform:translate(-4px,26px);opacity:.9}}
+#water{transition:opacity .5s}
+#water .flow{fill:none;stroke:#8FB3C4;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 9;animation:flow .9s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-14}}
+#water .pool{fill:#8FB3C4;opacity:.5;transform-box:fill-box;transform-origin:center;animation:pool 1.8s ease-in-out infinite}
+@keyframes pool{50%{transform:scaleX(1.35);opacity:.8}}
+.demo-state{display:grid;font-size:var(--t-sm);color:var(--mist-d)}
+.demo-state>span{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.demo-state>span.on{opacity:1;visibility:visible}
+.demo-state b{color:var(--paper);font-weight:600}
+.range{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+.range::-webkit-slider-runnable-track{height:1px;background:var(--line-d)}
+.range::-moz-range-track{height:1px;background:var(--line-d)}
+.range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-11px;background:var(--glow);border:0;border-radius:50%;box-shadow:0 0 0 6px rgba(233,228,218,.18)}
+.range::-moz-range-thumb{width:22px;height:22px;background:var(--glow);border:0;border-radius:50%;box-shadow:0 0 0 6px rgba(233,228,218,.18)}
+.range:focus-visible{outline-offset:6px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+.presets button{min-height:44px;background:transparent;border:1px solid var(--line-d);color:var(--mist-d);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.08em;padding:8px 12px;cursor:pointer;transition:all .3s}
+.presets button:hover,.presets button[aria-pressed="true"]{border-color:var(--glow);color:var(--paper)}
+
+.feat{display:grid;grid-template-columns:1fr;margin-top:clamp(72px,9vw,120px);border-top:1px solid var(--line-d)}
+@media (min-width:640px){.feat{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.feat{grid-template-columns:repeat(3,1fr)}}
+.feat article{padding:36px 28px 40px 0;border-bottom:1px solid var(--line-d);display:grid;gap:14px;align-content:start}
+@media (min-width:640px){.feat article{padding-right:36px}.feat article:nth-child(2n){padding-left:36px;border-left:1px solid var(--line-d)}}
+@media (min-width:1000px){.feat article:nth-child(n){padding-left:36px;border-left:1px solid var(--line-d)}.feat article:nth-child(3n+1){padding-left:0;border-left:0}}
+.ico{width:34px;height:34px;color:var(--glow)}
+.feat h3{font-size:1.75rem}
+.feat p{color:var(--mist-d);font-size:var(--t-sm);max-width:38ch}
+
+/* ---------- BENEFITS (paper) ---------- */
+.bene{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+@media (min-width:700px){.bene{grid-template-columns:1fr 1fr}}
+@media (min-width:1080px){.bene{grid-template-columns:repeat(3,1fr)}}
+.bene article{padding:34px 0 38px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:6px 20px;align-items:start}
+@media (min-width:700px){.bene article{padding-right:36px}}
+.bene .ico{color:var(--glow-ink);grid-row:span 2;width:30px;height:30px;margin-top:4px}
+.bene h3{font-size:1.6rem}
+.bene p{color:var(--mist);font-size:var(--t-sm)}
+.bene .hl h3{color:var(--glow-ink)}
+
+/* ---------- MODELS ---------- */
+.models{display:grid;grid-template-columns:1fr;gap:20px;align-items:stretch}
+@media (min-width:1000px){.models{grid-template-columns:repeat(3,1fr)}}
+.model{background:#fff;border:1px solid var(--line);padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:26px;position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.model:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(20,26,30,.35)}
+.model .tier{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--glow-ink)}
+.model h3{font-size:clamp(2.4rem,1.8rem + 1.6vw,3.2rem);display:flex;align-items:baseline;gap:12px}
+.model h3 small{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.1em;color:var(--mist);font-weight:400}
+.model ul{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.model li{padding:13px 0;border-bottom:1px solid var(--line);font-size:var(--t-sm);display:flex;gap:12px;align-items:baseline}
+.model li::before{content:"";flex:none;width:6px;height:6px;border:1px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.55}
+.model .btn{margin-top:auto;justify-content:space-between}
+.model.pick{background:var(--ral);color:var(--paper);border-color:var(--ral)}
+.model.pick .tier{color:var(--glow)}
+.model.pick h3 small{color:var(--mist-d)}
+.model.pick ul,.model.pick li{border-color:var(--line-d)}
+.model .badge{position:absolute;top:-1px;right:clamp(28px,3vw,40px);background:var(--glow);color:var(--ink);font-size:var(--t-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 10px}
+.techline{margin-top:20px;display:grid;grid-template-columns:1fr;border:1px solid var(--line);background:var(--paper)}
+@media (min-width:860px){.techline{grid-template-columns:1.3fr 1fr 1fr}}
+.techline>div{padding:24px 28px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.techline>div{border-bottom:0;border-left:1px solid var(--line)}.techline>div:first-child{border-left:0}}
+.techline .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.techline .v{font-family:var(--f-display);font-size:1.6rem;line-height:1.1}
+.techline .v small{font-family:var(--f-mono);font-size:var(--t-xs);color:var(--mist);margin-left:6px}
+.techline h3{font-size:1.6rem}
+
+/* ---------- SIZES ---------- */
+.sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (min-width:900px){.sizes{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.size{background:var(--paper);padding:clamp(14px,2.4vw,30px);display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:14px;text-align:left;border:0;cursor:pointer;transition:background .35s}
+.size:hover{background:#fff}
+.size .plan{aspect-ratio:600/400;max-width:100%;position:relative;display:grid;place-items:center}
+.size svg{width:100%;height:100%;overflow:visible}
+.size .r{fill:rgba(38,45,50,.06);stroke:var(--ral);stroke-width:1.5;transition:fill .35s}
+.size:hover .r{fill:rgba(38,55,47,.14)}
+.size .slats line{stroke:var(--ral);stroke-width:.8;opacity:.35}
+.size .dim{font-family:var(--f-mono);font-size:clamp(.82rem,.7rem + .8vw,1.3rem);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.size .hgt{color:var(--mist)}
+@media (max-width:600px){.size .hgt{display:none}}
+.size .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:var(--t-xs);color:var(--mist)}
+.size .row b{color:var(--ink);font-weight:600}
+.size.custom .plan{border:1px dashed var(--mist);color:var(--mist);font-family:var(--f-display);font-size:1.4rem;font-style:italic;text-align:center;padding:12px}
+.sizes-note{margin-top:18px;font-size:var(--t-sm);color:var(--mist)}
+
+/* ---------- ACCESSORIES ---------- */
+.acc{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,64px);align-items:start}
+@media (min-width:1000px){.acc{grid-template-columns:5fr 7fr}}
+.acc-list{display:grid;border-top:1px solid var(--line)}
+.acc-tab{background:none;border:0;border-bottom:1px solid var(--line);padding:22px 0;text-align:left;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:center;color:var(--mist);transition:color .3s}
+.acc-tab .name{font-family:var(--f-display);font-size:clamp(1.5rem,1.2rem + 1vw,2rem);line-height:1.1;color:inherit}
+.acc-tab .arr{width:34px;height:34px;border:1px solid var(--line);display:grid;place-items:center;transition:all .35s var(--ease)}
+.acc-tab .arr svg{width:14px;height:8px}
+.acc-tab:hover,.acc-tab[aria-selected="true"]{color:var(--ink)}
+.acc-tab[aria-selected="true"] .arr{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.acc-tab .bar{grid-column:1/-1;height:1px;background:var(--line);overflow:hidden;margin-top:12px;display:none}
+.acc-tab[aria-selected="true"] .bar{display:block}
+.acc-tab .bar i{display:block;height:100%;background:var(--glow-ink);transform-origin:left;transform:scaleX(0)}
+.acc-tab[aria-selected="true"].run .bar i{animation:prog 7s linear forwards}
+@keyframes prog{to{transform:scaleX(1)}}
+.acc-stage{background:var(--studio);position:relative;overflow:hidden}
+@media (max-width:999px){#accList #accPanel{margin:4px 0 24px}#accList .acc-info h3{display:none}.acc-tab .bar{display:none!important}.acc-tab .arr svg{transition:transform .35s var(--ease)}.acc-tab[aria-selected="true"] .arr svg{transform:rotate(90deg)}}
+.acc-stage .frame{aspect-ratio:3/2;max-width:100%;position:relative}
+.acc-stage .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+.acc-stage .frame img.on{opacity:1;transform:none}
+.acc-info{background:#fff;padding:clamp(22px,3vw,36px);display:grid;gap:14px;border:1px solid var(--line);border-top:0}
+.acc-info p{color:var(--mist);max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:2px 0 0;padding:0}
+.chips li{font-size:.75rem;font-weight:500;line-height:1.3;padding:5px 10px;background:var(--paper);color:var(--ink);white-space:nowrap}
+
+/* ---------- PROJECTS ---------- */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;grid-auto-rows:clamp(52px,5.6vw,80px)}}
+.shot{position:relative;overflow:hidden;background:var(--ral-2);border:0;padding:0;cursor:zoom-in;display:block;width:100%;text-align:left;color:var(--paper)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.shot:hover img{transform:scale(1.045)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;display:flex;justify-content:space-between;gap:10px;align-items:end;background:linear-gradient(transparent,rgba(14,19,22,.75));font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;transform:translateY(8px);opacity:.92;transition:all .5s var(--ease)}
+.shot:hover figcaption{transform:none;opacity:1}
+.shot figcaption b{font-weight:700}
+@media (max-width:899px){.shot figcaption{padding:12px;font-size:.75rem}.shot figure{position:relative;height:100%}.shot figcaption span{display:none}}
+.shot figcaption>*{min-width:0;overflow-wrap:anywhere}
+.shot figcaption span{font-family:var(--f-mono);color:rgba(241,242,239,.75);letter-spacing:.06em}
+.shot figure{margin:0;height:100%}
+.gallery .shot{aspect-ratio:3/4;max-width:100%;min-width:0}
+.gallery .shot.w{grid-column:span 2;aspect-ratio:16/9}
+.gallery .shot.g1,.gallery .shot.g7{grid-column:span 2;aspect-ratio:4/3}
+@media (min-width:900px){
+  .gallery .shot.g1,.gallery .shot.g2,.gallery .shot.g3,.gallery .shot.g4,.gallery .shot.g5,.gallery .shot.g6,.gallery .shot.g7{aspect-ratio:auto}
+  .gallery .shot.g1{grid-column:1/5;grid-row:1/8}
+  .gallery .shot.g2{grid-column:5/13;grid-row:1/5}
+  .gallery .shot.g3{grid-column:5/9;grid-row:5/8}
+  .gallery .shot.g4{grid-column:9/13;grid-row:5/8}
+  .gallery .shot.g5{grid-column:1/5;grid-row:8/14}
+  .gallery .shot.g6{grid-column:5/9;grid-row:8/14}
+  .gallery .shot.g7{grid-column:9/13;grid-row:8/14}
+}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,13,15,.96);display:grid;grid-template-rows:auto 1fr auto;padding:calc(env(safe-area-inset-top,0px) + 16px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 16px) var(--gut-l);color:var(--paper);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.lightbox.open{opacity:1;visibility:visible}
+.lb-top,.lb-bot{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:48px}
+.lb-top .mono{font-size:var(--t-xs);letter-spacing:.14em;color:var(--mist-d)}
+.lb-x,.lb-nav button{background:none;border:1px solid var(--line-d);color:var(--paper);width:48px;height:48px;display:grid;place-items:center;cursor:pointer;transition:background .3s}
+.lb-x:hover,.lb-nav button:hover{background:rgba(241,242,239,.1)}
+.lb-img{display:grid;place-items:center;min-height:0;padding-block:12px}
+.lb-img img{max-height:100%;max-width:100%;object-fit:contain}
+.lb-bot p{font-size:var(--t-sm);color:var(--mist-d)}
+.lb-bot b{color:var(--paper);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:var(--t-xs);margin-right:10px}
+.lb-nav{display:flex;gap:8px}
+
+/* ---------- QUALITY ---------- */
+.q{display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,80px)}
+@media (min-width:1000px){.q{grid-template-columns:5fr 7fr}.q-img{position:sticky;top:96px;align-self:start}}
+.q-img{position:relative;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.q-img img{width:100%;height:100%;object-fit:cover}
+.q-img .stamp{position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.12em;color:var(--paper);text-transform:uppercase}
+.q-img::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(14,19,22,.6))}
+.q-img .stamp{z-index:1}
+.q-list{border-top:1px solid var(--line)}
+.q-item{display:grid;grid-template-columns:1fr;gap:10px 40px;padding:30px 0;border-bottom:1px solid var(--line)}
+@media (min-width:700px){.q-item{grid-template-columns:minmax(0,15rem) 1fr}}
+.q-item h3{font-size:1.8rem}
+.q-item p{color:var(--mist);font-size:var(--t-sm)}
+.q-item .mono{color:var(--glow-ink)}
+
+/* ---------- CONTACT ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(40px,6vw,96px)}
+@media (min-width:1000px){.contact{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.contact .lead{margin-top:26px}
+.direct{margin-top:44px;display:grid;gap:22px}
+.direct div{display:grid;gap:4px}
+.direct .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist-d)}
+.direct .v{font-family:var(--f-display);font-size:1.7rem;line-height:1.15;user-select:all}
+.direct .v a{display:inline-block;padding-block:6px;text-decoration:none;border-bottom:1px solid var(--line-d);transition:border-color .3s}
+.direct .v a:hover{border-color:var(--glow)}
+form.quote{background:var(--paper);color:var(--ink);padding:clamp(22px,4vw,52px);display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:26px 28px}
+@media (min-width:700px){form.quote{grid-template-columns:repeat(2,minmax(0,1fr))}.full{grid-column:1/-1}}
+.field{display:grid;gap:8px;min-width:0}
+.field label,.field legend{font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0}
+.field label .req{color:var(--glow-ink)}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:var(--t-md);color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(20,26,30,.3);padding:10px 0 12px;border-radius:0;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23141A1E' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:24px;cursor:pointer}
+.field textarea{resize:vertical;min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.field input::placeholder,.field textarea::placeholder{color:#646E73}
+.field .err{font-size:var(--t-xs);color:#A3361F;min-height:0}
+.field.bad input,.field.bad select{border-color:#A3361F}
+fieldset.field{border:0;margin:0;padding:0}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{min-height:44px;display:inline-flex;align-items:center;font-size:var(--t-sm);font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);border:1px solid rgba(20,26,30,.25);padding:10px 16px;cursor:pointer;transition:all .3s}
+.seg input:checked+label{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg input:focus-visible+label{outline:2px solid var(--glow-ink);outline-offset:2px}
+.form-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.form-foot small{color:var(--mist);font-size:var(--t-xs);max-width:40ch}
+.sent{grid-column:1/-1;display:grid;gap:14px;padding:12px 0}
+.sent h3{font-size:2.4rem}
+.sent p{color:var(--mist)}
+
+/* ---------- CTA + FOOTER ---------- */
+.cta{position:relative;overflow:hidden;color:var(--paper);background:var(--ink);isolation:isolate;text-align:left}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55;transform:scale(1.1);will-change:transform}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,19,22,.85),rgba(14,19,22,.3))}
+.cta .wrap{padding-block:clamp(110px,14vw,200px);display:grid;gap:36px;justify-items:start}
+.cta h2{font-size:clamp(3rem,2rem + 5vw,7rem)}
+footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
+.foot{display:grid;grid-template-columns:1fr;gap:40px;padding-block:72px 40px;border-bottom:1px solid var(--line-d)}
+@media (min-width:860px){.foot{grid-template-columns:2fr 1fr 1fr 1fr}}
+.foot .logo{color:var(--paper);margin-bottom:20px}
+.foot .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--paper);margin-bottom:12px}
+.foot a,.foot-bot a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.foot a:hover{color:var(--paper)}
+.foot p{max-width:30ch}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:24px calc(24px + env(safe-area-inset-bottom,0px));font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* sticky mobile CTA */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px var(--gut-r) calc(12px + env(safe-area-inset-bottom,0px)) var(--gut-l);background:rgba(244,241,235,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--line);transform:translateY(110%);transition:transform .5s var(--ease)}
+.mcta .btn{width:100%;justify-content:space-between}
+.mcta .btn.glow{--b:var(--ral);--c:#fff}
+.mcta.show{transform:none}
+@media (min-width:1080px){.mcta{display:none}}
+
+/* reveal (only elements below the fold at load are hidden) */
+.rv.pre{opacity:0;transform:translateY(28px)}
+.rv{transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--rd,0s)}
+.img-rv{overflow:hidden}
+.img-rv.pre img{transform:scale(1.12)}
+.img-rv img{transition:transform 1.6s var(--ease)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .louvre{display:none}
+  .ticker-track{animation:none}
+}
+</style>
+
+</head>
+<body>
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="NORVO – avalehele"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></a>
+    <nav aria-label="Peamenüü">
+      <ul>
+        <li><a href="#pergolad">Pergolad</a></li>
+        <li><a href="#mudelid">Mudelid</a></li>
+        <li><a href="#tehtud-tood">Projektid</a></li>
+        <li><a href="#brand">NORVO</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#kontakt">Küsi pakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Ava menüü" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="logo"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></span>
+    <button class="drawer-close" id="drawerClose" aria-label="Sulge menüü">×</button>
+  </div>
+  <nav aria-label="Mobiilimenüü">
+    <a href="#pergolad">Pergolad</a>
+    <a href="#mudelid">Mudelid</a>
+    <a href="#tehtud-tood">Projektid</a>
+    <a href="#brand">NORVO</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <div class="meta"><a href="tel:+37253450781" style="text-decoration:none">+372 5345 0781</a><a href="mailto:info@norvo.ee" style="text-decoration:none">info@norvo.ee</a></div>
+</div>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Sissejuhatus">
+  <div class="hero-img"><img src="img/hero.webp" alt="NORVO pergola klaasseintega õhtuses aias" fetchpriority="high"></div>
+  <div class="louvre" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i></div>
+  <div class="hero-inner wrap">
+    <p class="eyebrow fade-up" style="--d:.6s">NORVO · Outdoor Living</p>
+    <h1><span class="ln"><span>Make Room</span></span><span class="ln"><span><em>for Living.</em></span></span></h1>
+    <div class="hero-foot fade-up" style="--d:1.15s">
+      <p>Bioklimaatilised pergolad, mis muudavad sinu terrassi aastaringseks eluruumiks.</p>
+      <div class="hero-cta">
+        <a class="btn glow" href="#pergolad">Avasta pergolad <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="#kontakt">Küsi pakkumist</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Keri</div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <ul><li>Make Room for Living</li><li>Bioklimaatilised pergolad</li><li>Põhjamaine disain</li><li>6063-T6 alumiinium</li><li>Reguleeritavad lamellid 0–135°</li><li>Integreeritud LED-valgustus</li><li>Professionaalne paigaldus</li></ul>
+    <ul><li>Make Room for Living</li><li>Bioklimaatilised pergolad</li><li>Põhjamaine disain</li><li>6063-T6 alumiinium</li><li>Reguleeritavad lamellid 0–135°</li><li>Integreeritud LED-valgustus</li><li>Professionaalne paigaldus</li></ul>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section id="pergolad" class="pad">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">NORVO Pergolas</p>
+        <h2>Loodud igaks <em>aastaajaks.</em></h2>
+      </div>
+      <div class="copy rv" style="--rd:.1s">
+        <p class="lead" style="max-width:44ch;color:var(--ink)">NORVO bioklimaatilised pergolad on loodud spetsiaalselt taluma Baltikumi karmi kliimat.</p>
+        <p style="color:var(--mist);max-width:52ch;margin-top:18px">Silikoonivaba paigaldus tagab puhta, kiire ja lihtsa tulemuse. Premium-kvaliteet konkurentsivõimelise hinnaga.</p>
+        <div class="facts">
+          <div><b class="mono" style="font-family:var(--f-display)">5</b><span>standardsuurust ja eritellimus</span></div>
+          <div><b style="font-family:var(--f-display)">T6</b><span>sertifitseeritud alumiiniumraam</span></div>
+          <div><b style="font-family:var(--f-display)">−20%</b><span>soodustus eeltellimustele</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mount-head rv">
+      <h3>Paigaldusviisid</h3>
+      <span class="eyebrow">Vali oma ruumile sobiv</span>
+    </div>
+    <div class="mounts">
+      <a class="mount img-rv rv" href="#kontakt" data-mount="Eraldiseisev">
+        <img src="img/p3.webp" alt="Eraldiseisev pergola lilledega ümbritsetud terrassil" loading="lazy">
+        <span class="tag">A</span>
+        <div class="mount-body">
+          <span class="eyebrow">Eraldiseisev</span>
+          <h4>Eraldiseisev</h4>
+          <p>Ideaalne avatud aedade ja eraldiseisvate õuealade jaoks.</p>
+        </div>
+      </a>
+      <a class="mount img-rv rv" style="--rd:.12s" href="#kontakt" data-mount="Seinakinnitusega">
+        <img src="img/p2.webp" alt="Maja külge paigaldatud pergola puitterrassil" loading="lazy">
+        <span class="tag">B</span>
+        <div class="mount-body">
+          <span class="eyebrow">Maja külge</span>
+          <h4>Seinakinnitusega</h4>
+          <p>Sobitub sujuvalt hoone fassaadiga ja pikendab siseruumi õue.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY + LOUVRE DEMO -->
+<section class="dark pad" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="why-top">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">Stiil. Funktsioon. Vastupidavus.</p>
+        <h2 id="why-h">Miks valida <em>pergola?</em></h2>
+        <p class="lead">Kaasaegne alternatiiv traditsioonilistele varjualustele ja autokatustele. Ühendab stiili, funktsionaalsuse ja vastupidavuse.</p>
+      </div>
+      <div class="demo rv" style="--rd:.1s">
+        <div class="demo-head"><span>Proovi: lamellide nurk · otsene päike <b id="sunPct" class="mono" style="color:var(--paper);font-weight:500">0%</b></span><output id="angOut" for="ang">45°</output></div>
+        <svg id="louvreSvg" viewBox="0 0 560 300" role="img" aria-label="Pergola katuse lõige: päikesekiired läbi lamellide vastavalt nende nurgale">
+          <defs>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0AE63" stop-opacity=".42"/><stop offset=".6" stop-color="#E0AE63" stop-opacity=".16"/><stop offset="1" stop-color="#E0AE63" stop-opacity=".08"/></linearGradient>
+            <linearGradient id="amb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0AE63" stop-opacity=".5"/><stop offset="1" stop-color="#E0AE63" stop-opacity=".15"/></linearGradient>
+            <filter id="soft" filterUnits="userSpaceOnUse" x="-60" y="110" width="680" height="200"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="softG" filterUnits="userSpaceOnUse" x="-60" y="270" width="680" height="40"><feGaussianBlur stdDeviation="3"/></filter>
+            <linearGradient id="rain" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AA4A9" stop-opacity="0"/><stop offset="1" stop-color="#9AA4A9" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <radialGradient id="halo"><stop offset="0" stop-color="#E0AE63" stop-opacity=".35"/><stop offset=".45" stop-color="#E0AE63" stop-opacity=".12"/><stop offset="1" stop-color="#E0AE63" stop-opacity="0"/></radialGradient>
+          <g id="sunRays" style="transition:opacity .5s"><circle cx="470" cy="58" r="52" fill="url(#halo)"/></g>
+          <circle id="sunC" cx="470" cy="58" r="16" fill="#E0AE63" style="transition:opacity .5s"/>
+          <g id="rainG" opacity="0" style="transition:opacity .5s"></g>
+                    <rect id="ambient" x="34" y="156" width="492" height="134" fill="url(#amb)" opacity="0" style="transition:opacity .4s"/>
+          <g id="beams" filter="url(#soft)"></g>
+          <rect x="16" y="128" width="528" height="28" fill="#323A40"/>
+          <g id="slats"></g>
+          <rect x="16" y="128" width="18" height="162" fill="#4A535A"/>
+          <rect x="526" y="128" width="18" height="162" fill="#4A535A"/>
+          <g id="water" opacity="0"><path class="flow" d="M280 131 H25 V290"/><path class="flow" d="M280 131 H535 V290"/><ellipse class="pool" cx="25" cy="290" rx="20" ry="2.5"/><ellipse class="pool" cx="535" cy="290" rx="20" ry="2.5"/></g>
+          <line x1="0" y1="290" x2="560" y2="290" stroke="rgba(241,242,239,.2)"/>
+          <g id="litGround" stroke="#E0AE63" stroke-width="4" stroke-opacity=".6" filter="url(#softG)"></g>
+        </svg>
+        <input class="range" type="range" id="ang" min="0" max="135" value="45" step="1" aria-label="Lamellide nurk kraadides">
+        <div class="demo-state" id="angState" aria-live="polite"><span data-k="closed"><b>Suletud.</b> Katus on vihmakindel: vesi voolab peidetud rennidesse ja postide kaudu maha.</span><span data-k="sun"><b>Päike sisse.</b> Lamellid on päikesekiirtega samas suunas, nii jõuavad valgus ja soojus terrassile.</span><span data-k="part"><b>Osaline vari.</b> Osa päikesest pääseb lamellide vahelt läbi, ülejäänu jääb varju.</span><span data-k="shade"><b>Vari ja õhk.</b> Lamellid varjavad otsese päikese, kuid õhk liigub nende vahelt vabalt.</span></div>
+        <div class="presets" role="group" aria-label="Kiirvalikud">
+          <button type="button" data-a="0">0° Suletud</button>
+          <button type="button" data-a="45" aria-pressed="true">45° Päike sisse</button>
+          <button type="button" data-a="90">90° Avatud</button>
+          <button type="button" data-a="135">135° Vari ja õhk</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9h28M3 15l6-3M11 15l6-3M19 15l6-3M27 15l4-2"/><path d="M5 9v22M29 9v22"/></svg><h3>Reguleeritav katus</h3><p>Alumiiniumlamellid võimaldavad reguleerida valgust ja õhuringlust, tagades mugavuse igas ilmas.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h18a4 4 0 1 0-4-4M4 18h24a4 4 0 1 1-4 4M4 24h12"/></svg><h3>Ilmastikukindlus</h3><p>Loodud taluma tugevat tuult ja lumekoormust ning pakkuma kaitset vihma ja tuule eest.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="5" width="24" height="24"/><path d="M5 12h24M12 12v17"/></svg><h3>Moodne disain</h3><p>Kaasaegne minimalistlik välimus sobib harmooniliselt erinevate arhitektuuristiilidega.</p></article>
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 4v4M6 9l3 3M28 9l-3 3M4 20h4M26 20h4"/><path d="M11 21a6 6 0 1 1 12 0c0 3-3 4-3 7h-6c0-3-3-4-3-7zM14 31h6"/></svg><h3>Innovatsioon</h3><p>Integreeritud LED-valgustus ja motoriseeritud lamellide juhtimine loovad nutika õueruumi.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="17" cy="17" r="12"/><path d="M11 17l4 4 8-8"/></svg><h3>Praktiline lahendus</h3><p>Vähene hooldusvajadus ja pikaajaline vastupidavus teevad sellest praktilise valiku.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="6" y="5" width="22" height="24"/><path d="M6 11h22M6 17h22M6 23h22M13 5v24M21 5v24"/></svg><h3>Kaitse putukate eest</h3><p>Mootoriga võrkrulood tagavad mugava õuesoleku ilma soovimatute putukateta.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="eelised" class="pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">NORVO pergolate eelised</p><h2>Ilus, kuid <em>praktiline.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Avasta, miks meie kliendid eelistavad just seda nutikat õuelahendust: kvaliteetne konstruktsioon, paindlik paigaldus ja mugav kasutus aastaringselt.</p>
+    </div>
+    <div class="bene">
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 10h18v14H3zM21 15h6l4 5v4h-10"/><circle cx="9" cy="26" r="2.5"/><circle cx="25" cy="26" r="2.5"/></svg><h3>Tarne üle Eesti</h3><p>Toimetame tellimused üle Eesti otse teie koju.</p></article>
+      <article class="rv hl" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 26L26 8"/><circle cx="10" cy="10" r="3.5"/><circle cx="24" cy="24" r="3.5"/></svg><h3>Eeltellimustele −20%</h3><p>Planeeri ette ja säästa: eeltellimustele kehtib 20% soodustus.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="7" y="7" width="20" height="20"/><rect x="12" y="12" width="10" height="10"/></svg><h3>T6 alumiiniumraam</h3><p>Tugev konstruktsioon peab vastu korrosioonile ja karmidele ilmastikutingimustele.</p></article>
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12l6-4M12 12l6-4M20 12l6-4M4 12h26"/><path d="M8 18c2 2 4 2 6 0s4-2 6 0 4 2 6 0M8 24c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/></svg><h3>Bioklimaatiline funktsioon</h3><p>Nutikad lamellid aitavad luua optimaalse mikrokliima.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 4l11 4v8c0 7-5 12-11 14C11 28 6 23 6 16V8z"/><path d="M12 17l4 4 7-7"/></svg><h3>Ilmastikukindlus</h3><p>Sertifitseeritud konstruktsioon pakub kaitset tuule, vihma ja lume eest.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 4v26M4 10h22v20M10 10v20"/></svg><h3>Mitmekülgne paigaldus</h3><p>Paigaldatav nii seinale kinnitatuna kui eraldiseisva konstruktsioonina.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section id="mudelid" class="pad" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Mudelid</p><h2>Leia enda elustiiliga <em>sobiv.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Valige mudel, mis sobib kõige paremini teie elustiili ja ootustega.</p>
+    </div>
+    <div class="models">
+      <article class="model rv">
+        <span class="tier">Parim hinna ja kvaliteedi suhe</span>
+        <h3>Z188</h3>
+        <ul><li>Manuaalne lamellide juhtimine</li><li>Töötab ilma elektrita</li><li>5 standardsuurust</li><li>Seinale kinnitatud või eraldiseisev</li></ul>
+        <a class="btn line" href="#kontakt" data-model="Z188">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+      </article>
+      <article class="model pick rv" style="--rd:.08s">
+        <span class="badge">Populaarseim</span>
+        <span class="tier">Premium-klassi valik</span>
+        <h3>Z128</h3>
+        <ul><li>Automaatne lamellide juhtimine</li><li>Perimeetri LED-valgustus</li><li>5 standardsuurust</li><li>Seinale kinnitatud või eraldiseisev</li></ul>
+        <a class="btn glow" href="#kontakt" data-model="Z128">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+      </article>
+      <article class="model rv" style="--rd:.16s">
+        <span class="tier">Eritellimus</span>
+        <h3>Z168</h3>
+        <ul><li>Ultra-premium mudel</li><li>Automaatne juhtimine</li><li>Integreeritud lamellide LED-valgustus</li><li>Vihmaandur</li><li>Mootoriga võrkrulood ja soojendid</li><li>Mõõdud kuni <span class="mono">400 × 800 cm</span></li><li>Modulaarne disain</li></ul>
+        <a class="btn line" href="#kontakt" data-model="Z168">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+      </article>
+    </div>
+    <div class="techline rv">
+      <div><span class="k">Tehnilised andmed</span><h3>Kindlus, mida saad <em>mõõta.</em></h3></div>
+      <div><span class="k">Tuulekindlus</span><span class="v">Mudelipõhine<small>m/s</small></span></div>
+      <div><span class="k">Lumekoormus</span><span class="v">Mudelipõhine<small>kg/m²</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZES -->
+<section class="pad" aria-labelledby="size-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Mõõdud</p><h2 id="size-h">Saadaval <em>suurused.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Erinevad suurused erinevatele vajadustele. Võimalik on tellida ka eritellimuslahendusi.</p>
+    </div>
+    <div class="sizes" id="sizes"></div>
+    <p class="sizes-note rv">Plaanid on joonistatud ühes mõõtkavas. Kõikide standardmudelite kõrgus on 275&nbsp;cm. Vali suurus, et lisada see päringusse.</p>
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section class="pad" style="background:#fff" aria-labelledby="acc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Eraldi tellitavad lisatarvikud</p><h2 id="acc-h">Rohkem mugavust, kaitset ja <em>stiili.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Innovatiivsed lisatarvikud, mis muudavad väliruumi veel paindlikumaks ning võimaldavad seda nautida igas ilmas.</p>
+    </div>
+    <div class="acc" id="accHome">
+      <div class="acc-list rv" role="tablist" aria-label="Lisatarvikud" id="accList"></div>
+      <div class="rv" style="--rd:.1s" id="accPanel">
+        <div class="acc-stage"><div class="frame" id="accFrame"></div></div>
+        <div class="acc-info" id="accInfo" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="tehtud-tood" class="pad night">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Valminud projektid</p><h2>Inspiratsioon päris <em>kodudest.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s"><span class="mono" style="color:var(--glow)">07</span>&nbsp; vaadet valminud töödest Eestis. Klõpsa pildil, et vaadata suuremalt.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Projektide galerii" aria-hidden="true">
+  <div class="lb-top"><span class="mono" id="lbCount">01 / 07</span><button class="lb-x" id="lbX" aria-label="Sulge galerii">✕</button></div>
+  <div class="lb-img"><img id="lbImg" alt=""></div>
+  <div class="lb-bot"><p id="lbCap"></p><div class="lb-nav"><button id="lbPrev" aria-label="Eelmine pilt">←</button><button id="lbNext" aria-label="Järgmine pilt">→</button></div></div>
+</div>
+
+<!-- QUALITY -->
+<section class="pad" aria-labelledby="q-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Miks valida NORVO?</p><h2 id="q-h">Kvaliteet peitub <em>detailides.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Iga lahendus on viimistletud täiuslikkuseni, alates sertifitseeritud materjalidest kuni puhta silikoonivaba paigalduseni.</p>
+    </div>
+    <div class="q">
+      <div class="q-img img-rv rv"><img src="img/p7.webp" alt="Valgustatud bioklimaatiline pergola õhtul" loading="lazy"><div class="stamp"><span>Integreeritud LED</span><span class="mono">RAL 7016</span></div></div>
+      <div class="q-list">
+        <div class="q-item rv"><h3>Põhjamaine disain</h3><p>Baltikumi ja Põhjamaade elustiilist inspireeritud elegantne minimalism ja praktiline funktsionaalsus. Selged jooned võimaldavad pergolal sobituda sujuvalt erinevatesse keskkondadesse.</p></div>
+        <div class="q-item rv"><h3>Premium-kvaliteet</h3><p>Sertifitseeritud <span class="mono">6063-T6</span> anodeeritud alumiinium tagab töökindluse, korrosioonikindluse ja laitmatu toimimise aastateks.</p></div>
+        <div class="q-item rv"><h3>Sertifitseeritud vastupidavus</h3><p>Sisseehitatud äravoolusüsteem kogub vihmavee ning suunab selle peidetud vihmaveerennide kaudu eemale.</p></div>
+        <div class="q-item rv"><h3>Silikoonivaba paigaldus</h3><p>Täiustatud kinnitussüsteem tagab lekkekindla konstruktsiooni, kiirema paigalduse ja puhta välimuse.</p></div>
+        <div class="q-item rv"><h3>Pikk kasutusiga</h3><p>Pulbervärvitud alumiinium on lihtsasti puhastatav ning vastupidav korrosioonile, pleekimisele ja keskkonnamõjudele.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section id="brand" class="dark pad" aria-labelledby="brand-h">
+  <div class="wrap">
+    <div class="manifest">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">NORVO · Outdoor Living</p>
+        <h2 id="brand-h">Muudame väliruumid kodu <em>loomulikuks osaks.</em></h2>
+      </div>
+      <div class="copy rv" style="--rd:.1s">
+        <p class="first">NORVO ühendab kaasaegse disaini, funktsionaalsuse ja välielu vabaduse.</p>
+        <p>Usume, et väliruum on rohkem kui kodu jätk. See on koht, kus puhata, koos olla ja nautida elu igal aastaajal.</p>
+        <p>Meie valikus on kaasaegsed bioklimaatilised pergolad ja hoolikalt valitud lisalahendused, mis muudavad välielu mugavamaks. Baltikumi ja Põhjamaade elustiilist inspireerituna ühendame puhta esteetika, praktilise funktsionaalsuse ja püsiva kvaliteedi.</p>
+      </div>
+    </div>
+    <div class="promise">
+      <div class="rv"><span class="k">Tooted</span><span class="v">Modernne disain</span></div>
+      <div class="rv" style="--rd:.04s"><span class="k">Hind</span><span class="v">Premium, kuid mõistlik</span></div>
+      <div class="rv" style="--rd:.08s"><span class="k">Teenindus</span><span class="v">Kohalik ja personaalne</span></div>
+      <div class="rv" style="--rd:.12s"><span class="k">Paigaldus</span><span class="v">Professionaalne</span></div>
+      <div class="rv" style="--rd:.16s"><span class="k">Garantii</span><span class="v">Selged tingimused</span></div>
+      <div class="rv" style="--rd:.2s"><span class="k">Kogemus</span><span class="v">Ühest kohast kogu lahendus</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="night pad">
+  <div class="wrap contact">
+    <div class="rv">
+      <p class="eyebrow" style="margin-bottom:22px">Kontakt</p>
+      <h2>Võta <em>ühendust.</em></h2>
+      <p class="lead">Räägi meile oma väliruumist. Pakume terviklahendust: pergola, külgseinad, valgustus ja paigaldus.</p>
+      <div class="direct">
+        <div><span class="k">Telefon</span><span class="v"><a href="tel:+37253450781">+372 5345 0781</a></span></div>
+        <div><span class="k">E-post</span><span class="v"><a href="mailto:info@norvo.ee">info@norvo.ee</a></span></div>
+      </div>
+    </div>
+    <form class="quote rv" id="quote" novalidate style="--rd:.1s">
+      <div class="field"><label for="f-name">Sinu nimi</label><input id="f-name" name="name" autocomplete="name" placeholder="Mari Maasikas"></div>
+      <div class="field"><label for="f-email">Sinu e-post <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="mari@näide.ee"><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-phone">Telefoninumber <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+372 5xxx xxxx"><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-city">Linn</label><input id="f-city" name="city" autocomplete="address-level2" placeholder="Tallinn"></div>
+      <div class="field"><label for="f-model">Pergola mudel</label>
+        <select id="f-model" name="model"><option value="">Pole veel kindel</option><option>Z188</option><option>Z128</option><option>Z168</option></select></div>
+      <div class="field"><label for="f-size">Pergola suurus <span class="req">*</span></label>
+        <select id="f-size" name="size" required><option value="">Vali soovitud mõõdud</option><option>300×300×275 cm</option><option>400×300×275 cm</option><option>600×300×275 cm</option><option>400×400×275 cm</option><option>600×400×275 cm</option><option>Eritellimus</option></select><span class="err" aria-live="polite"></span></div>
+      <fieldset class="field full"><legend>Paigalduskoht</legend>
+        <div class="seg">
+          <input type="radio" name="mount" id="m1" value="Seinakinnitusega"><label for="m1">Seinakinnitusega</label>
+          <input type="radio" name="mount" id="m2" value="Eraldiseisev"><label for="m2">Eraldiseisev</label>
+          <input type="radio" name="mount" id="m3" value="Vajan nõustamist" checked><label for="m3">Vajan nõustamist</label>
+        </div>
+      </fieldset>
+      <div class="field full"><label for="f-msg">Kommentaar</label><textarea id="f-msg" name="msg" placeholder="Kas teil on küsimusi? Saatke meile sõnum ja vastame esimesel võimalusel."></textarea></div>
+      <div class="form-foot full">
+        <small>Väljad tähisega * on kohustuslikud. Päring saadetakse aadressile info@norvo.ee.</small>
+        <button class="btn" type="submit">Saada päring <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" aria-labelledby="cta-h">
+  <img src="img/p4.webp" alt="" loading="lazy" id="ctaImg">
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(241,242,239,.8)">NORVO · Outdoor Living</p>
+    <h2 id="cta-h">Tee ruumi <em>elule.</em></h2>
+    <a class="btn glow" href="#kontakt">Küsi pakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><span class="logo"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></span><p>Põhjamaine disain, kvaliteetsed materjalid ja kaasaegne välielu. Make Room for Living.</p></div>
+      <div><p class="k">Kontakt</p><p><a href="tel:+37253450781">+372 5345 0781</a><br><a href="mailto:info@norvo.ee">info@norvo.ee</a></p></div>
+      <div><p class="k">Pergolad</p><p><a href="#mudelid">Mudelid</a><br><a href="#pergolad">Paigaldusviisid</a><br><a href="#tehtud-tood">Projektid</a></p></div>
+      <div><p class="k">Jälgi meid</p><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></p></div>
+    </div>
+    <div class="foot-bot"><span>© 2026 NORVO Outdoor Living · Lavrek Solutions OÜ</span><a href="#top" style="text-decoration:none">Privaatsuspoliitika</a></div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a class="btn glow" href="#kontakt">Küsi pakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var arrow = '<svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg>';
+
+  /* ---- nav ---- */
+  var nav = $('#nav'), mcta = $('#mcta'), lastY = 0;
+  function onScroll(){
+    var y = window.scrollY || 0, hero = $('.hero').offsetHeight;
+    nav.classList.toggle('solid', y > hero - 90);
+    var dy = y - lastY;
+    nav.classList.remove('hide'); // menu stays visible at all times
+    var k = $('#kontakt').getBoundingClientRect();
+    mcta.classList.toggle('show', y > hero * .8 && !(k.top < innerHeight && k.bottom > 0));
+    lastY = y;
+    if (!reduce){ var c = $('#ctaImg'), r = c.parentNode.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0){ c.style.transform = 'scale(1.1) translateY(' + ((r.top + r.height/2 - innerHeight/2) * -0.06) + 'px)'; } }
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // active section
+  if ('IntersectionObserver' in window){
+    var links = $$('.nav ul a');
+    var so = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){ a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id); }); } }); }, {rootMargin:'-45% 0px -50% 0px'});
+    ['pergolad','mudelid','tehtud-tood','brand','kontakt'].forEach(function(id){ so.observe(document.getElementById(id)); });
+  }
+
+  /* ---- drawer ---- */
+  var drawer = $('#drawer'), mb = $('#menuBtn');
+  function setDrawer(o){ drawer.classList.toggle('open', o); drawer.setAttribute('aria-hidden', !o); mb.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; if(o) $('#drawerClose').focus(); }
+  mb.addEventListener('click', function(){ setDrawer(true); });
+  $('#drawerClose').addEventListener('click', function(){ setDrawer(false); mb.focus(); });
+  $$('#drawer nav a').forEach(function(a){ a.addEventListener('click', function(){ setDrawer(false); }); });
+
+  /* ---- reveal: hide only what starts below the fold ---- */
+  if (!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    window.__rv = function(){ $$('.rv:not(.seen)').forEach(function(el){ el.classList.add('seen'); if (el.getBoundingClientRect().top > innerHeight){ el.classList.add('pre'); io.observe(el); } }); };
+  } else { window.__rv = function(){}; }
+
+  /* ---- louvre demo: sun rays traced through the slat gaps ---- */
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(n, at){ var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
+  var slatsG = $('#slats'), beamsG = $('#beams'), litG = $('#litGround'), N = 11, x0 = 44, x1 = 516, step = (x1 - x0) / N, sw = step * 1.04, cy = 143, G = 290;
+  var PHI = 58 * Math.PI / 180, dx = -Math.cos(PHI), dy = Math.sin(PHI);   // sun ray direction (down-left)
+  var sun = $('#sunC'), sx = +sun.getAttribute('cx'), sy = +sun.getAttribute('cy');
+  var slatEls = [];
+  for (var i = 0; i < N; i++){
+    var cx = x0 + step * i + step / 2;
+    var r = el('rect', {x: cx - sw / 2, y: cy - 3, width: sw, height: 6, fill: '#8C969C'});
+    r.dataset.cx = cx; slatsG.appendChild(r); slatEls.push(r);
+  }
+  var rainG = $('#rainG');
+  for (var j = 0; j < 30; j++){ var xx = 44 + j * 16 + (j % 3) * 3, ln = el('line', {x1: xx, x2: xx - 4, y1: 100, y2: 112}); ln.style.setProperty('--dl', (-((j * 0.37) % 1.1)).toFixed(2) + 's'); rainG.appendChild(ln); }
+  function toGround(x, y){ return x + (G - y) * dx / dy; }
+  var angIn = $('#ang'), out = $('#angOut'), st = $('#angState');
+  function setAng(a){
+    a = +a; out.textContent = a + '°';
+    var rad = a * Math.PI / 180, ux = Math.cos(rad), uy = -Math.sin(rad), h = sw / 2;
+    slatEls.forEach(function(r){ r.setAttribute('transform', 'rotate(' + (-a) + ' ' + r.dataset.cx + ' ' + cy + ')'); });
+    var sh = slatEls.map(function(r){ var c = +r.dataset.cx, g1 = toGround(c - h * ux, cy - h * uy), g2 = toGround(c + h * ux, cy + h * uy); return [Math.min(g1, g2), Math.max(g1, g2)]; }).sort(function(p, q){ return p[0] - q[0]; });
+    var lo = toGround(x0, cy), hi = toGround(x1, cy), lit = [], pos = lo;
+    sh.forEach(function(s){ if (s[0] > pos) lit.push([pos, Math.min(s[0], hi)]); pos = Math.max(pos, s[1]); });
+    if (pos < hi) lit.push([pos, hi]);
+    lit = lit.filter(function(l){ return l[1] - l[0] > .5; });
+    var litLen = lit.reduce(function(t, l){ return t + l[1] - l[0]; }, 0), frac = litLen / (hi - lo);
+    beamsG.innerHTML = ''; litG.innerHTML = '';
+    var back = (G - cy) * dx / dy;
+    lit.forEach(function(l){
+      beamsG.appendChild(el('polygon', {points: (l[0] - back) + ',' + cy + ' ' + (l[1] - back) + ',' + cy + ' ' + (l[1] + 8) + ',' + G + ' ' + (l[0] - 8) + ',' + G, fill: 'url(#beam)'}));
+      litG.appendChild(el('line', {x1: Math.max(l[0], 30), x2: Math.min(l[1], 530), y1: G, y2: G}));
+    });
+    var wet = a < 5; rainG.setAttribute('opacity', wet ? 1 : 0); $('#water').setAttribute('opacity', wet ? 1 : 0); sun.style.opacity = wet ? .25 : 1; $('#sunRays').style.opacity = wet ? 0 : 1;
+    var pct = Math.round(frac * 100); $('#sunPct').textContent = pct + '%';
+    $('#ambient').setAttribute('opacity', (a < 5 ? 0 : 0.06 + frac * 0.22).toFixed(3));
+    var k = a < 5 ? 'closed' : pct >= 60 ? 'sun' : pct >= 15 ? 'part' : 'shade';
+    $$('span', st).forEach(function(x){ x.classList.toggle('on', x.dataset.k === k); });
+    $$('.presets button').forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.a === a); });
+  }
+  angIn.addEventListener('input', function(){ setAng(angIn.value); });
+  var anim;
+  $$('.presets button').forEach(function(b){ b.addEventListener('click', function(){
+    var from = +angIn.value, to = +b.dataset.a, t0 = performance.now(), dur = reduce ? 1 : 700;
+    cancelAnimationFrame(anim);
+    (function f(t){ var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3), v = Math.round(from + (to - from) * e); angIn.value = v; setAng(v); if (p < 1) anim = requestAnimationFrame(f); })(t0);
+  }); });
+  setAng(45);
+
+  /* ---- sizes (plans to one scale: 600 cm = full width) ---- */
+  var sizes = [[300,300],[400,300],[600,300],[400,400],[600,400]];
+  var sz = $('#sizes');
+  sizes.forEach(function(s, k){
+    var L = s[0], W = s[1], w = L / 600 * 560, h = W / 400 * 360, x = (600 - w) / 2, y = (400 - h) / 2;
+    var lines = ''; for (var q = 1; q < Math.round(L / 25); q++){ var lx = x + q * (w / Math.round(L / 25)); lines += '<line x1="' + lx.toFixed(1) + '" y1="' + y + '" x2="' + lx.toFixed(1) + '" y2="' + (y + h) + '"/>'; }
+    var label = L + '×' + W + '×275 cm';
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'size rv'; b.style.setProperty('--rd', (k % 3) * 0.06 + 's');
+    b.setAttribute('aria-label', 'Vali suurus ' + label);
+    b.innerHTML = '<div class="plan"><svg viewBox="0 0 600 400" aria-hidden="true"><rect class="r" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"/><g class="slats">' + lines + '</g></svg></div>' +
+      '<span class="dim">' + L + ' × ' + W + ' <span class="hgt">× 275 cm</span></span>' +
+      '<span class="row"><span>Pikkus × laius × kõrgus</span><b class="mono">' + (L * W / 10000) + ' m²</b></span>';
+    b.addEventListener('click', function(){ pickSize(label); });
+    sz.appendChild(b);
+  });
+  var cb = document.createElement('button'); cb.type = 'button'; cb.className = 'size custom rv'; cb.style.setProperty('--rd', '.12s');
+  cb.innerHTML = '<div class="plan">Sinu mõõdud.<br>Kuni 400 × 800 cm</div><span class="dim">Eritellimus</span><span class="row"><span>Mudel Z168, modulaarne</span><b>→</b></span>';
+  cb.addEventListener('click', function(){ pickSize('Eritellimus'); });
+  sz.appendChild(cb);
+  function goForm(){ $('#kontakt').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); }
+  function pickSize(v){ $('#f-size').value = v; $('#f-size').closest('.field').classList.remove('bad'); goForm(); }
+  $$('[data-model]').forEach(function(a){ a.addEventListener('click', function(){ $('#f-model').value = a.dataset.model; }); });
+  $$('[data-mount]').forEach(function(a){ a.addEventListener('click', function(){ var r = $$('input[name=mount]').filter(function(i){ return i.value === a.dataset.mount; })[0]; if (r) r.checked = true; }); });
+
+  /* ---- accessories ---- */
+  var acc = [
+    ['zip-screens', 'ZIP-sirmid (rulood)', 'Kaitsevad kuumuse, tuule ja putukate eest ning pakuvad elegantset privaatsust.', ['Sujuv liugsüsteem','Rohkem privaatsust','Kaitse kuumuse eest','Kaitse putukate eest']],
+    ['frameless-glass-doors', 'Raamita lükandklaasuksed', 'Minimalistlik lahendus säilitab läbipaistvuse, hoiab ruumi valgusküllasena ja kaitseb tuule eest.', ['Sujuv liugsüsteem','Raamita vaade','Ilmastikukaitse']],
+    ['framed-glass-doors', 'Raamiga lükandklaasuksed', 'Tugev raam tagab pikaajalise vastupidavuse, stabiilsuse ja suurepärase valguse läbilaskvuse.', ['Sujuv liugsüsteem','Tugev konstruktsioon','Ilmastikukaitse']],
+    ['sliding-louvre-doors', 'Lamell-lükanduksed', 'Reguleeri valgust, loomulikku õhuliikumist ja privaatsust vastavalt soovile.', ['Sujuv liugsüsteem','Reguleeritavad lamellid','Rohkem privaatsust']],
+    ['fixed-louvre-doors', 'Fikseeritud lamelluksed', 'Püsiv kaitse päikese, tuule ja võõraste pilkude eest koos loomuliku ventilatsiooniga.', ['Reguleeritavad lamellid','Rohkem privaatsust','Ilmastikukaitse']]
+  ];
+  var list = $('#accList'), frame = $('#accFrame'), info = $('#accInfo'), cur = 0, timer, userPicked = false;
+  acc.forEach(function(a, k){
+    var im = new Image(); im.src = 'img/' + a[0] + '.webp'; im.alt = a[1]; im.loading = 'lazy'; frame.appendChild(im);
+    var t = document.createElement('button'); t.className = 'acc-tab'; t.type = 'button'; t.setAttribute('role', 'tab'); t.id = 'acc-t' + k;
+    t.innerHTML = '<span class="name">' + a[1] + '</span><span class="arr">' + arrow + '</span><span class="bar"><i></i></span>';
+    t.addEventListener('click', function(){ userPicked = true; showAcc(k); });
+    t.addEventListener('keydown', function(e){ var n = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0; if (n){ e.preventDefault(); userPicked = true; var m = (k + n + acc.length) % acc.length; showAcc(m); $('#acc-t' + m).focus(); } });
+    list.appendChild(t);
+  });
+  function placeAcc(keep){
+    var panel = $('#accPanel'), tabEl = $('#acc-t' + cur), before = tabEl.getBoundingClientRect().top;
+    if (innerWidth < 1000){ if (tabEl.nextSibling !== panel){ list.insertBefore(panel, tabEl.nextSibling); if (keep) scrollBy(0, tabEl.getBoundingClientRect().top - before); } }
+    else if (panel.parentNode !== $('#accHome')) $('#accHome').appendChild(panel);
+  }
+  addEventListener('resize', function(){ placeAcc(false); });
+  function showAcc(k){
+    cur = k; var a = acc[k];
+    $$('.acc-tab').forEach(function(t, i){ t.setAttribute('aria-selected', i === k); t.tabIndex = i === k ? 0 : -1; t.classList.remove('run'); });
+    $$('img', frame).forEach(function(im, i){ im.classList.toggle('on', i === k); });
+    info.setAttribute('aria-labelledby', 'acc-t' + k);
+    info.innerHTML = '<h3>' + a[1] + '</h3><p>' + a[2] + '</p><ul class="chips">' + a[3].map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>';
+    placeAcc(userPicked);
+    clearTimeout(timer);
+    if (!userPicked && !reduce && innerWidth >= 1000){ var tab = $('#acc-t' + k); void tab.offsetWidth; tab.classList.add('run'); timer = setTimeout(function(){ if (!userPicked) showAcc((k + 1) % acc.length); }, 7000); }
+  }
+  showAcc(0);
+
+  /* ---- gallery + lightbox ---- */
+  var shots = [
+    ['p1','Seinapergola','Integreeritud LED-valgustus','Valgustatud lamellkatusega seinapergola'],
+    ['p2','Seinapergola','Puitterrass','Seinapergola puitfassaadiga eramu terrassil'],
+    ['p3','Eraldiseisev pergola','Avatud lahendus','Eraldiseisev pergola lilledega ümbritsetud terrassil'],
+    ['p4','Eraldiseisev pergola','Bioklimaatiline katus','Avar eraldiseisev pergola aias'],
+    ['p5','Klaasruum','Liugklaasid','Klaasseintega pergola modernse eramu juures'],
+    ['p6','Klaasruum','Aastaringne kasutus','Klaasseintega pergola eestvaates'],
+    ['p7','Valgustatud pergola','Integreeritud LED','Õhtuse valgustusega pergola']
+  ];
+  var g = $('#gallery');
+  shots.forEach(function(s, k){
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'shot img-rv rv g' + (k + 1) + (k === 1 ? ' w' : ''); b.style.setProperty('--rd', (k % 3) * 0.07 + 's');
+    b.setAttribute('aria-label', 'Ava pilt: ' + s[3]);
+    b.innerHTML = '<figure><img src="img/' + s[0] + '.webp" alt="' + s[3] + '" loading="lazy"><figcaption><b>' + s[1] + '</b><span>' + s[2] + '</span></figcaption></figure>';
+    b.addEventListener('click', function(){ openLb(k, b); });
+    g.appendChild(b);
+  });
+  var lb = $('#lb'), li = 0, opener;
+  function renderLb(){ var s = shots[li]; $('#lbImg').src = 'img/' + s[0] + '.webp'; $('#lbImg').alt = s[3]; $('#lbCap').innerHTML = '<b>' + s[1] + '</b>' + s[3]; $('#lbCount').textContent = String(li + 1).padStart(2, '0') + ' / ' + String(shots.length).padStart(2, '0'); }
+  function openLb(k, from){ li = k; opener = from; renderLb(); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; document.body.classList.add('lock'); $('#lbX').focus(); }
+  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; document.body.classList.remove('lock'); if (opener) opener.focus(); }
+  function mv(d){ li = (li + d + shots.length) % shots.length; renderLb(); }
+  $('#lbX').addEventListener('click', closeLb);
+  $('#lbPrev').addEventListener('click', function(){ mv(-1); });
+  $('#lbNext').addEventListener('click', function(){ mv(1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target.classList.contains('lb-img')) closeLb(); });
+  addEventListener('keydown', function(e){
+    if (lb.classList.contains('open')){ if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') mv(1); if (e.key === 'ArrowLeft') mv(-1); }
+    else if (drawer.classList.contains('open') && e.key === 'Escape'){ setDrawer(false); mb.focus(); }
+  });
+  var tx = null; lb.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){ if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) mv(dx < 0 ? 1 : -1); tx = null; });
+
+  /* ---- form ---- */
+  var form = $('#quote');
+  function check(id, ok, msg){ var f = $('#' + id).closest('.field'); f.classList.toggle('bad', !ok); $('.err', f).textContent = ok ? '' : msg; return ok; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var em = $('#f-email').value.trim(), ph = $('#f-phone').value.replace(/[\s-]/g, '');
+    var a = check('f-email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em), 'Sisesta e-post kujul nimi@domeen.ee');
+    var b = check('f-phone', /^\+?\d{7,15}$/.test(ph), 'Sisesta telefoninumber, nt +372 5555 5555');
+    var c = check('f-size', !!$('#f-size').value, 'Vali sobiv suurus või „Eritellimus“');
+    if (!(a && b && c)){ var first = $('.field.bad input, .field.bad select', form); if (first) first.focus(); return; }
+    var name = $('#f-name').value.trim(), esc = function(v){ return v.replace(/[<>&"]/g, ''); };
+    var mount = $('input[name=mount]:checked');
+    var data = {
+      _subject: 'NORVO päring: ' + (name || em),
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: em,
+      'Nimi': name, 'E-post': em, 'Telefon': $('#f-phone').value.trim(), 'Linn': $('#f-city').value.trim(),
+      'Mudel': $('#f-model').value || 'Pole veel kindel', 'Suurus': $('#f-size').value,
+      'Paigalduskoht': mount ? mount.value : '', 'Kommentaar': $('#f-msg').value.trim()
+    };
+    var btn = $('button[type=submit]', form); btn.disabled = true; btn.firstChild.textContent = 'Saadan… ';
+    fetch('https://formsubmit.co/ajax/info@norvo.ee', {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(data)})
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(){
+        form.innerHTML = '<div class="sent"><p class="eyebrow">Päring saadetud</p><h3>Aitäh' + (name ? ', ' + esc(name) : '') + '!</h3><p>Saadame hinnapakkumise aadressile <b>' + esc(em) + '</b> ühe tööpäeva jooksul.</p></div>';
+      })
+      .catch(function(){
+        btn.disabled = false; btn.firstChild.textContent = 'Saada päring ';
+        var f = $('.form-foot small', form); f.innerHTML = '<span style="color:#A3361F">Päringu saatmine ebaõnnestus.</span> Palun proovi uuesti või kirjuta <a href="mailto:info@norvo.ee">info@norvo.ee</a> / helista <a href="tel:+37253450781">+372 5345 0781</a>.';
+      });
+  });
+  $$('#quote input, #quote select').forEach(function(el){ el.addEventListener('input', function(){ el.closest('.field').classList.remove('bad'); var er = $('.err', el.closest('.field')); if (er) er.textContent = ''; }); });
+
+  window.__rv();
+})();
+</script>
+
+</body></html>

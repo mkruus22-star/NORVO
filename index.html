@@ -113,6 +113,23 @@ p{margin:0;text-wrap:pretty}
 .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:24px;height:1.5px;background:currentColor}
 .menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
 @media (min-width:1080px){.nav ul{display:flex}.nav .btn{display:inline-flex}.menu-btn{display:none}}
+.nav-esto{display:inline-flex;align-items:center;gap:8px}
+.nav-esto svg{height:11px;width:auto;margin-top:-1px}
+.drawer-esto{height:.42em;width:auto;vertical-align:middle;margin-left:.15em}
+/* ---------- ESTO järelmaks ---------- */
+.esto-logo{width:150px;height:auto;margin-bottom:22px}
+.esto-cards{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:900px){.esto-cards{grid-template-columns:1fr 1fr}}
+.esto-card{background:#fff;border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:18px}
+.esto-card .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.esto-card h3 b{font-weight:500}
+.esto-card .big{font-family:var(--f-display);font-size:clamp(2.6rem,2rem + 2vw,3.6rem);line-height:1}
+.esto-card ol,.esto-card ul{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--mist)}
+.esto-card .fine{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:var(--t-xs);line-height:1.6;color:var(--mist)}
+.esto-about{margin-top:clamp(36px,5vw,64px);display:grid;gap:20px 64px;grid-template-columns:1fr;align-items:start}
+@media (min-width:900px){.esto-about{grid-template-columns:minmax(0,15rem) 1fr}}
+.esto-about p{color:var(--mist);max-width:70ch}
+.esto-about a{color:var(--ink)}
 
 .drawer{position:fixed;inset:0;z-index:70;background:var(--ink);color:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 20px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 32px) var(--gut-l);display:flex;flex-direction:column;gap:40px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
 .drawer.open{clip-path:inset(0 0 0 0);visibility:visible}
@@ -467,6 +484,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
 </head>
 <body>
 <!-- NAV -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="esto-mark" viewBox="0 0 277 97"><path fill="currentColor" transform="translate(-287 -522)" d="M525.7,540.3c10.2,0,19.7,4,27,11.4c7.2,7.5,11.2,17.3,11.2,27.9c0,10.6-3.9,20.6-11.2,28.1c-7.3,7.5-16.7,11.4-27,11.4c-10.2,0-19.5-4-26.8-11.4c-7.4-7.6-11.3-17.5-11.3-28.1c0-10.6,3.9-20.3,11.3-27.9C506.2,544.3,515.5,540.3,525.7,540.3z M525.7,554.7c-6.3,0-11.9,2.7-16.1,7.2c-4.1,4.5-6.6,10.6-6.6,17.6c0,7,2.5,13.2,6.6,17.7c4.1,4.5,9.8,7.3,16,7.3c6.2,0,11.9-2.8,16-7.3c4.1-4.5,6.6-10.7,6.6-17.7c0-7-2.5-13.2-6.6-17.6C537.7,557.4,532,554.7,525.7,554.7z M324,540.2c6.4,0,12.2,1.4,17.2,4.2c5.1,2.8,9.1,6.7,12.1,11.7c3,5,4.5,10.7,4.5,17.2c0,1.1-0.1,4.9-0.2,11.3l0,0.4l-54.5,0c1.2,5.7,3.6,9.8,7.5,12.9c4.1,3.2,9.6,4.9,16.6,5.2l0.6,0l1.7,0h24.2v14.6h-24.3c-13.3,0-23.6-3.5-31-10.4c-7.5-6.9-11.3-15.7-11.3-29c0-6.7,1.5-12.9,4.6-18.7c3.1-5.8,7.3-10.5,12.8-14.1C309.9,542.1,316.5,540.2,324,540.2z M324.7,555.3c-6,0-10.9,1.6-15.5,5.6c-2.8,2.7-4.6,6.1-5.7,10.6l0,0l40.1-0.3l0-0.5l0-0.4c-0.2-2.3-1-4.5-2.2-6.5c-1.5-2.6-3.7-4.6-6.5-6.2C332.1,556.1,328.7,555.3,324.7,555.3z M420.5,541.7v14.2h-31.7c-2.3,0-4.1,0.5-5.3,1.5c-1.2,0.9-1.8,2.3-1.8,4c0,1.3,0.5,2.4,1.5,3.4c1.2,1.2,3.1,2.3,5.7,3.4l0,0l13.6,5.6c7.4,3.1,13.1,5.9,16.7,9.7c3.2,3.4,4.9,7.5,4.9,13.2c0,7.2-2.6,12.5-7.8,16c-5.1,3.4-12.9,5.2-23.4,5.2l0,0l-0.6,0h-24.7v-14.5h31.7c3,0,5.4-0.6,7.1-1.7c1.5-1.1,2.4-2.6,2.4-4.5c0-1.7-0.6-3-1.8-4.1c-1.5-1.4-3.9-2.6-7.1-4l0,0l-13-5.3c-7.1-2.9-12.2-5.7-15.5-9.3c-3.1-3.4-4.6-7.5-4.6-12.9c0-6.2,2.3-11.2,6.6-14.5c4.2-3.2,10.4-5.1,18.5-5.1l0,0l0.5,0H420.5z M435,522h15v19.7h29.2v14.4H450V587c0,5.6,1.2,9.7,4,12.4c2.8,2.7,7,3.9,12.9,4l0,0l12.3,0v14.5h-12.1c-10.6,0-18.5-2.4-23.9-7c-5.4-4.7-8.2-11.6-8.3-21l0,0l0-0.6V522z"/></symbol></svg>
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="NORVO – avalehele"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></a>
@@ -476,6 +494,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
         <li><a href="#mudelid">Mudelid</a></li>
         <li><a href="#tehtud-tood">Projektid</a></li>
         <li><a href="#brand">NORVO</a></li>
+        <li><a href="#jarelmaks" class="nav-esto" aria-label="ESTO järelmaks">Järelmaks <svg viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg></a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </nav>
@@ -494,6 +513,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
     <a href="#mudelid">Mudelid</a>
     <a href="#tehtud-tood">Projektid</a>
     <a href="#brand">NORVO</a>
+    <a href="#jarelmaks">Järelmaks <svg class="drawer-esto" viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg></a>
     <a href="#kontakt">Kontakt</a>
   </nav>
   <div class="meta"><a href="tel:+37253450781" style="text-decoration:none">+372 5345 0781</a><a href="mailto:info@norvo.ee" style="text-decoration:none">info@norvo.ee</a></div>
@@ -771,6 +791,54 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
   </div>
 </section>
 
+<!-- ESTO JÄRELMAKS -->
+<section id="jarelmaks" class="pad" style="background:var(--paper-2)" aria-labelledby="esto-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv">
+        <img class="esto-logo" src="img/esto.svg" alt="ESTO – vabadus omada">
+        <p class="eyebrow">Järelmaks</p>
+        <h2 id="esto-h" style="margin-top:22px">Maksa pergola eest <em>osade kaupa.</em></h2>
+      </div>
+      <p class="lead rv" style="--rd:.1s">Tasu NORVO pergola eest mugavalt ESTO kaudu: kolmes võrdses osas ilma lisatasudeta või järelmaksuga 3–60 kuu peale.</p>
+    </div>
+    <div class="esto-cards">
+      <article class="esto-card rv">
+        <span class="k">ESTO 3</span>
+        <div class="big">3 osas, 0 € lisatasu</div>
+        <p>ESTO 3 on innovatiivne lahendus, mis võimaldab ostu kinnitada ja tasuda mugavalt ning kiirelt – kolmes võrdses osas, ilma lisatasudeta.</p>
+        <ul>
+          <li>Ühtegi lisatasu ei lisandu.</li>
+          <li>Lihtsalt kolm võrdset makset kolme kuu jooksul.</li>
+          <li>Esimene makse on alles järgmise kuu 15. kuupäeval.</li>
+        </ul>
+        <p>Anna meie müügispetsialistile teada, et soovid oma ostu eest tasuda ESTO 3 makseviisiga.</p>
+        <p class="fine">ESTO 3 makseviisi pakub ja haldab ESTO AS. Tutvu tingimustega: <a href="https://www.esto.ee" target="_blank" rel="noopener">www.esto.ee</a></p>
+      </article>
+      <article class="esto-card rv" style="--rd:.08s">
+        <span class="k">ESTO järelmaks</span>
+        <div class="big">3–60 kuud</div>
+        <p>ESTO järelmaks on paindlik makselahendus, mis võimaldab jaotada ostusumma mugavalt igakuisteks osamakseteks. Perioodi ja sissemakse suuruse saad valida ostu vormistamisel.</p>
+        <ol>
+          <li>Võta meiega ühendust ja ütle, et soovid maksta ESTO järelmaksuga.</li>
+          <li>Vali soovitud periood vahemikus 3–60 kuud.</li>
+          <li>Otsuse saad teada reaalajas.</li>
+          <li>Positiivse otsuse korral allkirjastad lepingu digitaalselt ID-kaardi, Smart-ID või Mobiil-ID abil.</li>
+        </ol>
+        <p class="fine">ESTO järelmaksu pakub ja haldab ESTO AS. ESTO AS järelmaksu krediidi kulukuse määr on 23.63% aastas järgmistel näidistingimustel: krediidi summa 1490 EUR, kauba/teenuse maksumus 1490 EUR, sissemakse 0%, fikseeritud intressimäär 11.90%, lepingutasu 0 EUR, krediidi kogusumma ja tagasimaksete summa 1844.64 EUR eeldusel, et krediit tagastatakse 24 kuu jooksul igakuiste võrdsete osamaksetena suuruses 76.86 EUR. Tutvu enne lepingu sõlmimist tingimustega ja vajadusel konsulteeri spetsialistiga. Järelmaksu pakub ja haldab ESTO AS.</p>
+      </article>
+    </div>
+    <div class="esto-about">
+      <p class="eyebrow rv">Mis on ESTO?</p>
+      <div class="rv" style="display:grid;gap:14px">
+        <p>ESTO on eelistatuim makselahenduste pakkuja Baltikumis, muutes kaupmeeste müügi- ja tarbijate ostukogemuse lihtsaks ning sujuvaks. ESTO-l on üle Baltikumi pea 700 000 aktiivset klienti ning üle 6000 partnerpoe.</p>
+        <p>Kui vajad abi, võta ühendust ESTO AS-iga: <a href="mailto:info@esto.ee">info@esto.ee</a> või <a href="https://www.esto.ee" target="_blank" rel="noopener">www.esto.ee</a> (LIVE chat).</p>
+        <div style="margin-top:8px"><a class="btn" href="#kontakt">Küsi järelmaksuga pakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="kontakt" class="night pad">
   <div class="wrap contact">
@@ -858,7 +926,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
   if ('IntersectionObserver' in window){
     var links = $$('.nav ul a');
     var so = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){ a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id); }); } }); }, {rootMargin:'-45% 0px -50% 0px'});
-    ['pergolad','mudelid','tehtud-tood','brand','kontakt'].forEach(function(id){ so.observe(document.getElementById(id)); });
+    ['pergolad','mudelid','tehtud-tood','brand','jarelmaks','kontakt'].forEach(function(id){ so.observe(document.getElementById(id)); });
   }
 
   /* ---- drawer ---- */

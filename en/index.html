@@ -1,0 +1,1135 @@
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>NORVO Outdoor Living</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="NORVO is an outdoor living brand from the Baltics. Bioclimatic pergolas built for the Baltic climate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" href="../img/hero.webp">
+<link rel="alternate" hreflang="et" href="https://norvo.ee/">
+<link rel="alternate" hreflang="en" href="https://norvo.ee/en/">
+<link rel="alternate" hreflang="x-default" href="https://norvo.ee/">
+<style>
+/* Layout: architectural 12-col grid on cool "fog" paper; dark anthracite bands carry
+   the product; warm LED-glow accent used sparingly; louvre slats as the recurring motif. */
+:root{
+  /* NORVO brand palette: Forest #26372F · Sand #E9E4DA · Graphite #30343A · Stone #B9B3A6 · White */
+  --paper:#F4F1EB;      /* light sand */
+  --paper-2:#E9E4DA;    /* Sand */
+  --ink:#1B2420;        /* deep forest-black */
+  --ral:#26372F;        /* Forest — brand primary, dark bands */
+  --ral-2:#30343A;      /* Graphite */
+  --mist:#5F625C;       /* muted text on paper */
+  --mist-d:#B9B3A6;     /* Stone — muted text on dark */
+  --glow:#E9E4DA;       /* Sand accent on dark */
+  --glow-ink:#26372F;   /* Forest accent on paper */
+  --sun:#E0AE63;        /* sunlight (demo only) */
+  --line:rgba(27,36,32,.14);
+  --line-d:rgba(233,228,218,.16);
+  --studio:#E2DED5;     /* product render backdrop */
+
+  --f-display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --f-body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --t-xs:.75rem; --t-sm:.875rem; --t-md:1.0625rem; --t-lg:1.25rem;
+  --t-h3:clamp(1.6rem,1.2rem + 1.2vw,2.1rem);
+  --t-h2:clamp(2.6rem,1.6rem + 3.6vw,4.6rem);
+  --t-h1:clamp(3.4rem,1.8rem + 6.4vw,8.2rem);
+
+  --max:1320px;
+  --gut-l:max(20px, env(safe-area-inset-left,0px));
+  --gut-r:max(20px, env(safe-area-inset-right,0px));
+  --ease:cubic-bezier(.2,.7,.1,1);
+  color-scheme:light;
+}
+@media (min-width:760px){:root{--gut-l:max(40px, env(safe-area-inset-left,0px));--gut-r:max(40px, env(safe-area-inset-right,0px))}}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--t-md);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+::selection{background:var(--glow);color:var(--ink)}
+
+.wrap{max-width:calc(var(--max) + 80px);margin-inline:auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+section{scroll-margin-top:72px}
+
+/* type */
+.eyebrow{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:14px;color:var(--mist)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+.dark .eyebrow{color:var(--mist-d)}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h2{font-size:var(--t-h2)}
+h2 em,h1 em{font-style:italic;font-weight:400}
+h3{font-size:var(--t-h3);line-height:1.08}
+p{margin:0;text-wrap:pretty}
+.lead{font-size:var(--t-lg);line-height:1.6;color:var(--mist);max-width:36ch}
+.dark .lead{color:var(--mist-d)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+
+.sec-head{display:grid;gap:28px 64px;grid-template-columns:1fr;align-items:end;margin-bottom:clamp(40px,6vw,80px)}
+.sec-head .eyebrow{margin-bottom:22px}
+@media (min-width:900px){.sec-head{grid-template-columns:1.2fr 1fr}}
+
+.dark{background:var(--ral);color:var(--paper)}
+.night{background:var(--ink);color:var(--paper)}
+.pad{padding-block:clamp(88px,11vw,168px)}
+
+/* buttons */
+.btn{--b:var(--ink);--c:var(--paper);display:inline-flex;align-items:center;gap:14px;padding:17px 26px;background:var(--b);color:var(--c);border:1px solid var(--b);text-decoration:none;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s}
+.btn svg{width:18px;height:10px;transition:transform .45s var(--ease)}
+.btn:hover svg{transform:translateX(5px)}
+.btn:hover{--b:var(--ral-2)}
+.btn.glow{--b:var(--glow);--c:var(--ink)}
+.btn.glow:hover{--b:#FFFFFF}
+.btn.ghost{background:transparent;color:var(--paper);border-color:rgba(241,242,239,.45)}
+.btn.ghost:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.line:hover{background:var(--ink);color:var(--paper)}
+.dark .btn.line{color:var(--paper);border-color:var(--line-d)}
+.dark .btn.line:hover{background:var(--paper);color:var(--ink)}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;color:var(--paper);transition:background .4s,color .4s,box-shadow .4s,transform .5s var(--ease)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
+@media (min-width:1080px){.nav .wrap{height:84px;transition:height .4s var(--ease)}.nav.solid .wrap{height:68px}}
+.nav.solid{background:rgba(244,241,235,.9);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+.nav.hide{transform:translateY(-110%)}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none;min-height:44px}
+.logo-mark{width:38px;height:38px;border:1.5px solid currentColor;display:grid;place-items:center;font-family:var(--f-body);font-weight:700;font-size:1.05rem;letter-spacing:-.02em;line-height:1}
+.logo-word{display:grid;gap:3px;line-height:1}
+.logo-word b{font-family:var(--f-body);font-size:1.05rem;font-weight:700;letter-spacing:.42em;margin-right:-.42em}
+.logo-word small{font-family:var(--f-body);font-size:.56rem;font-weight:500;letter-spacing:.38em;opacity:.75}
+.nav ul{list-style:none;margin:0;padding:0;display:none;gap:34px}
+.nav ul a{text-decoration:none;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase;position:relative;padding-block:6px}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav ul a:hover::after,.nav ul a[aria-current]::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:13px 20px;display:none}
+.nav:not(.solid) .btn{--b:transparent;--c:var(--paper);border-color:rgba(241,242,239,.5)}
+.nav:not(.solid) .btn:hover{--b:var(--paper);--c:var(--ink)}
+.menu-btn{background:none;border:0;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;margin-right:-10px}
+.menu-btn span{display:block;width:24px;height:1.5px;background:currentColor;position:relative;transition:transform .3s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:24px;height:1.5px;background:currentColor}
+.menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
+@media (min-width:1080px){.nav ul{display:flex}.nav .btn{display:inline-flex}.menu-btn{display:none}}
+.nav-esto{display:inline-flex;align-items:center;gap:8px}
+.nav-esto svg{height:11px;width:auto;margin-top:-1px}
+.drawer-esto{height:.5em;width:auto;vertical-align:middle;margin-right:.1em}
+.nav-end{display:flex;align-items:center;gap:22px}
+@media (max-width:1079px){.nav-end{margin-left:auto}}
+.lang{display:flex;gap:2px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em}
+.lang a{text-decoration:none;padding:8px 6px;opacity:.55;transition:opacity .2s}
+.lang a:hover{opacity:1}
+.lang a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.drawer .lang{font-size:var(--t-sm);margin-left:-6px}
+/* ---------- ESTO järelmaks ---------- */
+.esto-logo{width:150px;height:auto;margin-bottom:22px}
+.esto-cards{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:900px){.esto-cards{grid-template-columns:1fr 1fr}}
+.esto-card{background:#fff;border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:18px}
+.esto-card .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.esto-card h3 b{font-weight:500}
+.esto-card .big{font-family:var(--f-display);font-size:clamp(2.6rem,2rem + 2vw,3.6rem);line-height:1}
+.esto-card ol,.esto-card ul{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--mist)}
+.esto-card .fine{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font-size:var(--t-xs);line-height:1.6;color:var(--mist)}
+.esto-about{margin-top:clamp(36px,5vw,64px);display:grid;gap:20px 64px;grid-template-columns:1fr;align-items:start}
+@media (min-width:900px){.esto-about{grid-template-columns:minmax(0,15rem) 1fr}}
+.esto-about p{color:var(--mist);max-width:70ch}
+.esto-about a{color:var(--ink)}
+
+.drawer{position:fixed;inset:0;z-index:70;background:var(--ink);color:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 20px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 32px) var(--gut-l);display:flex;flex-direction:column;gap:40px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.drawer.open{clip-path:inset(0 0 0 0);visibility:visible}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;height:44px}
+.drawer-close{background:none;border:0;font-size:2rem;line-height:1;width:44px;height:44px;cursor:pointer;margin-right:-10px}
+.drawer nav{display:flex;flex-direction:column;gap:6px}
+.drawer nav a{font-family:var(--f-display);font-size:clamp(2.4rem,9vw,3.4rem);text-decoration:none;line-height:1.15}
+.drawer .meta{margin-top:auto;display:grid;gap:6px;color:var(--mist-d);font-size:var(--t-sm)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:clamp(620px,94vh,980px);display:flex;align-items:flex-end;color:var(--paper);background:var(--ink);overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img::after{content:"";position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;animation:settle 2.6s var(--ease) .15s both}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,19,22,.55) 0%,rgba(14,19,22,.05) 30%,rgba(14,19,22,.15) 55%,rgba(14,19,22,.86) 100%),linear-gradient(90deg,rgba(14,19,22,.55),rgba(14,19,22,0) 60%)}
+@keyframes settle{from{transform:scale(1.06)}to{transform:none}}
+/* louvre opening */
+.louvre{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;pointer-events:none}
+.louvre i{flex:1;background:var(--ink);transform-origin:50% 0;animation:slat 1.1s var(--ease) both;animation-delay:calc(var(--i) * 45ms + .1s)}
+.louvre i:nth-child(odd){background:#192025}
+@keyframes slat{to{transform:scaleY(0)}}
+.hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(36px,5vw,64px);padding-top:140px}
+.hero .eyebrow{color:rgba(241,242,239,.8);margin-bottom:28px}
+.hero h1{font-size:var(--t-h1);line-height:.9;letter-spacing:-.02em}
+.hero h1.h1-long{font-size:clamp(2rem,1.2rem + 2.4vw,4rem);line-height:1;max-width:20ch}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:inline-block;animation:rise 1.2s var(--ease) both}
+.hero h1 .ln:nth-child(1)>span{animation-delay:.75s}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.9s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.fade-up{animation:fadeUp 1s var(--ease) both;animation-delay:var(--d,1.1s)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-foot{margin-top:clamp(32px,4vw,56px);padding-top:28px;border-top:1px solid rgba(241,242,239,.25);display:grid;gap:28px;grid-template-columns:1fr;align-items:end}
+.hero-foot p{font-size:var(--t-lg);max-width:34ch;color:rgba(241,242,239,.88)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+@media (min-width:900px){.hero-foot{grid-template-columns:1fr auto}}
+.scroll-cue{position:absolute;right:var(--gut-r);top:50%;z-index:2;display:none;writing-mode:vertical-rl;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.2em;text-transform:uppercase;color:rgba(241,242,239,.7);gap:14px;align-items:center}
+.scroll-cue::after{content:"";width:1px;height:64px;background:linear-gradient(rgba(241,242,239,.8),transparent);animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (min-width:1080px){.scroll-cue{display:flex}}
+
+/* spec ticker */
+.ticker{background:var(--ink);color:var(--mist-d);overflow:hidden;border-top:1px solid var(--line-d)}
+.ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker ul{display:flex;list-style:none;margin:0;padding:18px 0;gap:0}
+.ticker li{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center}
+.ticker li::after{content:"";width:5px;height:5px;background:var(--mist-d);margin-inline:36px;transform:rotate(45deg)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- CATEGORIES ---------- */
+.cats{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:700px){.cats{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.cats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.cat{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(340px,40vw,480px);padding:clamp(22px,2.4vw,30px);text-decoration:none;color:#fff;background:var(--ral);isolation:isolate}
+.cat:nth-child(2){background:var(--ral-2)}
+.cat:nth-child(3){background:#B9B3A6;color:var(--ink)}
+.cat:nth-child(4){background:#3A4A40}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
+.cat.ph::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(27,36,32,0) 35%,rgba(27,36,32,.85))}
+.cat:hover img{transform:scale(1.05)}
+.cat .art{position:absolute;inset:18% 14% auto;z-index:-1;opacity:.5;transition:transform 1s var(--ease),opacity .6s}
+.cat:hover .art{transform:translateY(-6px);opacity:.75}
+.cat .art svg{width:100%;height:auto;display:block}
+.cat .num{position:absolute;top:clamp(22px,2.4vw,30px);left:clamp(22px,2.4vw,30px);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;opacity:.8}
+.cat .sub{font-family:var(--f-body);font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.8}
+.cat h3{font-size:clamp(1.9rem,1.4rem + 1.2vw,2.5rem);margin:10px 0 12px}
+.cat p{font-size:var(--t-sm);opacity:.85;max-width:30ch}
+.cat .go{margin-top:20px;display:flex;align-items:center;gap:12px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.cat .go svg{width:18px;height:10px;transition:transform .45s var(--ease)}
+.cat:hover .go svg{transform:translateX(5px)}
+
+.promise{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line-d);margin-top:clamp(56px,7vw,96px)}
+@media (min-width:900px){.promise{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.promise div{padding:24px 18px 4px 0;display:grid;gap:6px;align-content:start}
+.promise .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist-d)}
+.promise .v{font-family:var(--f-display);font-size:1.35rem;line-height:1.15}
+.manifest{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width:1000px){.manifest{grid-template-columns:6fr 5fr;gap:96px;align-items:end}}
+.manifest .copy p+p{margin-top:16px}
+.manifest .copy p{color:var(--mist-d);max-width:52ch}
+.manifest .copy p.first{color:var(--paper);font-size:var(--t-lg);line-height:1.55}
+
+/* ---------- INTRO / MOUNTING ---------- */
+.intro-grid{display:grid;gap:40px;grid-template-columns:1fr}
+@media (min-width:900px){.intro-grid{grid-template-columns:5fr 6fr;gap:80px}.intro-grid .copy{padding-top:12px}}
+.intro-grid .copy p+p{margin-top:18px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:44px;border-top:1px solid var(--line)}
+.facts div{padding:20px 16px 0 0}
+.facts b{display:block;font-family:var(--f-display);font-weight:500;font-size:clamp(1.8rem,1.2rem + 1.8vw,2.6rem);line-height:1}
+.facts span{display:block;margin-top:8px;font-size:var(--t-xs);color:var(--mist);line-height:1.45}
+
+.mount-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin:clamp(72px,9vw,120px) 0 28px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.mount-head h3{font-size:var(--t-h3)}
+.mounts{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:760px){.mounts{grid-template-columns:1fr 1fr}}
+.mount{position:relative;overflow:hidden;color:var(--paper);aspect-ratio:4/5;max-width:100%;background:var(--ral);text-decoration:none;display:block}
+@media (min-width:760px){.mount{aspect-ratio:5/6}}
+.mount img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.mount::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,19,22,0) 40%,rgba(14,19,22,.82))}
+.mount:hover img{transform:scale(1.05)}
+.mount-body{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(22px,3vw,36px);display:grid;gap:10px}
+.mount-body .eyebrow{color:rgba(241,242,239,.75)}
+.mount-body h4{margin:0;font-family:var(--f-display);font-weight:500;font-size:clamp(2rem,1.4rem + 2vw,3rem);line-height:1}
+.mount-body p{color:rgba(241,242,239,.82);max-width:34ch;font-size:var(--t-sm)}
+.mount .tag{position:absolute;top:clamp(18px,2.4vw,28px);right:clamp(18px,2.4vw,28px);z-index:1;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.12em;padding:7px 10px;background:rgba(14,19,22,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+
+/* ---------- WHY / LOUVRE DEMO ---------- */
+.why-top{display:grid;gap:56px;grid-template-columns:1fr;align-items:center}
+@media (min-width:1000px){.why-top{grid-template-columns:1fr 1.1fr;gap:88px}}
+.why-top .lead{margin-top:28px}
+.demo{background:var(--ink);border:1px solid var(--line-d);padding:clamp(20px,3vw,36px);display:grid;gap:22px}
+.demo-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.demo-head span{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist-d)}
+.demo-head output{font-family:var(--f-mono);font-size:1.5rem;color:var(--sun)}
+.demo svg{width:100%;height:auto;display:block}
+#rainG line{stroke:#8FB3C4;stroke-width:1.4;stroke-linecap:round;animation:drop 1.1s linear infinite;animation-delay:var(--dl)}
+@keyframes drop{0%{transform:translate(10px,-46px);opacity:0}15%{opacity:.9}100%{transform:translate(-4px,26px);opacity:.9}}
+#water{transition:opacity .5s}
+#water .flow{fill:none;stroke:#8FB3C4;stroke-width:2;stroke-linecap:round;stroke-dasharray:5 9;animation:flow .9s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-14}}
+#water .pool{fill:#8FB3C4;opacity:.5;transform-box:fill-box;transform-origin:center;animation:pool 1.8s ease-in-out infinite}
+@keyframes pool{50%{transform:scaleX(1.35);opacity:.8}}
+.demo-state{display:grid;font-size:var(--t-sm);color:var(--mist-d)}
+.demo-state>span{grid-area:1/1;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.demo-state>span.on{opacity:1;visibility:visible}
+.demo-state b{color:var(--paper);font-weight:600}
+.range{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer}
+.range::-webkit-slider-runnable-track{height:1px;background:var(--line-d)}
+.range::-moz-range-track{height:1px;background:var(--line-d)}
+.range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-11px;background:var(--glow);border:0;border-radius:50%;box-shadow:0 0 0 6px rgba(233,228,218,.18)}
+.range::-moz-range-thumb{width:22px;height:22px;background:var(--glow);border:0;border-radius:50%;box-shadow:0 0 0 6px rgba(233,228,218,.18)}
+.range:focus-visible{outline-offset:6px}
+.presets{display:flex;gap:8px;flex-wrap:wrap}
+.presets button{min-height:44px;background:transparent;border:1px solid var(--line-d);color:var(--mist-d);font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.08em;padding:8px 12px;cursor:pointer;transition:all .3s}
+.presets button:hover,.presets button[aria-pressed="true"]{border-color:var(--glow);color:var(--paper)}
+
+.feat{display:grid;grid-template-columns:1fr;margin-top:clamp(72px,9vw,120px);border-top:1px solid var(--line-d)}
+@media (min-width:640px){.feat{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.feat{grid-template-columns:repeat(3,1fr)}}
+.feat article{padding:36px 28px 40px 0;border-bottom:1px solid var(--line-d);display:grid;gap:14px;align-content:start}
+@media (min-width:640px){.feat article{padding-right:36px}.feat article:nth-child(2n){padding-left:36px;border-left:1px solid var(--line-d)}}
+@media (min-width:1000px){.feat article:nth-child(n){padding-left:36px;border-left:1px solid var(--line-d)}.feat article:nth-child(3n+1){padding-left:0;border-left:0}}
+.ico{width:34px;height:34px;color:var(--glow)}
+.feat h3{font-size:1.75rem}
+.feat p{color:var(--mist-d);font-size:var(--t-sm);max-width:38ch}
+
+/* ---------- BENEFITS (paper) ---------- */
+.bene{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+@media (min-width:700px){.bene{grid-template-columns:1fr 1fr}}
+@media (min-width:1080px){.bene{grid-template-columns:repeat(3,1fr)}}
+.bene article{padding:34px 0 38px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:6px 20px;align-items:start}
+@media (min-width:700px){.bene article{padding-right:36px}}
+.bene .ico{color:var(--glow-ink);grid-row:span 2;width:30px;height:30px;margin-top:4px}
+.bene h3{font-size:1.6rem}
+.bene p{color:var(--mist);font-size:var(--t-sm)}
+.bene .hl h3{color:var(--glow-ink)}
+
+/* ---------- MODELS ---------- */
+.models{display:grid;grid-template-columns:1fr;gap:20px;align-items:stretch}
+@media (min-width:1000px){.models{grid-template-columns:repeat(3,1fr)}}
+.model{background:#fff;border:1px solid var(--line);padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:26px;position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.model:hover{transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(20,26,30,.35)}
+.model .tier{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--glow-ink)}
+.model h3{font-size:clamp(2.4rem,1.8rem + 1.6vw,3.2rem);display:flex;align-items:baseline;gap:12px}
+.model h3 small{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.1em;color:var(--mist);font-weight:400}
+.model ul{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
+.model li{padding:13px 0;border-bottom:1px solid var(--line);font-size:var(--t-sm);display:flex;gap:12px;align-items:baseline}
+.model li::before{content:"";flex:none;width:6px;height:6px;border:1px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.55}
+.model .btn{margin-top:auto;justify-content:space-between}
+.model.pick{background:var(--ral);color:var(--paper);border-color:var(--ral)}
+.model.pick .tier{color:var(--glow)}
+.model.pick h3 small{color:var(--mist-d)}
+.model.pick ul,.model.pick li{border-color:var(--line-d)}
+.model .badge{position:absolute;top:-1px;right:clamp(28px,3vw,40px);background:var(--glow);color:var(--ink);font-size:var(--t-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 10px}
+.techline{margin-top:20px;display:grid;grid-template-columns:1fr;border:1px solid var(--line);background:var(--paper)}
+@media (min-width:860px){.techline{grid-template-columns:1.3fr 1fr 1fr}}
+.techline>div{padding:24px 28px;display:grid;gap:6px;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.techline>div{border-bottom:0;border-left:1px solid var(--line)}.techline>div:first-child{border-left:0}}
+.techline .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.techline .v{font-family:var(--f-display);font-size:1.6rem;line-height:1.1}
+.techline .v small{font-family:var(--f-mono);font-size:var(--t-xs);color:var(--mist);margin-left:6px}
+.techline h3{font-size:1.6rem}
+
+/* ---------- SIZES ---------- */
+.sizes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (min-width:900px){.sizes{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.size{background:var(--paper);padding:clamp(14px,2.4vw,30px);display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:14px;text-align:left;border:0;cursor:pointer;transition:background .35s}
+.size:hover{background:#fff}
+.size .plan{aspect-ratio:600/400;max-width:100%;position:relative;display:grid;place-items:center}
+.size svg{width:100%;height:100%;overflow:visible}
+.size .r{fill:rgba(38,45,50,.06);stroke:var(--ral);stroke-width:1.5;transition:fill .35s}
+.size:hover .r{fill:rgba(38,55,47,.14)}
+.size .slats line{stroke:var(--ral);stroke-width:.8;opacity:.35}
+.size .dim{font-family:var(--f-mono);font-size:clamp(.82rem,.7rem + .8vw,1.3rem);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.size .hgt{color:var(--mist)}
+@media (max-width:600px){.size .hgt{display:none}}
+.size .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:var(--t-xs);color:var(--mist)}
+.size .row b{color:var(--ink);font-weight:600}
+.size.custom .plan{border:1px dashed var(--mist);color:var(--mist);font-family:var(--f-display);font-size:1.4rem;font-style:italic;text-align:center;padding:12px}
+.sizes-note{margin-top:18px;font-size:var(--t-sm);color:var(--mist)}
+
+/* ---------- ACCESSORIES ---------- */
+.acc{display:grid;grid-template-columns:1fr;gap:clamp(24px,4vw,64px);align-items:start}
+@media (min-width:1000px){.acc{grid-template-columns:5fr 7fr}}
+.acc-list{display:grid;border-top:1px solid var(--line)}
+.acc-tab{background:none;border:0;border-bottom:1px solid var(--line);padding:22px 0;text-align:left;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:center;color:var(--mist);transition:color .3s}
+.acc-tab .name{font-family:var(--f-display);font-size:clamp(1.5rem,1.2rem + 1vw,2rem);line-height:1.1;color:inherit}
+.acc-tab .arr{width:34px;height:34px;border:1px solid var(--line);display:grid;place-items:center;transition:all .35s var(--ease)}
+.acc-tab .arr svg{width:14px;height:8px}
+.acc-tab:hover,.acc-tab[aria-selected="true"]{color:var(--ink)}
+.acc-tab[aria-selected="true"] .arr{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.acc-tab .bar{grid-column:1/-1;height:1px;background:var(--line);overflow:hidden;margin-top:12px;display:none}
+.acc-tab[aria-selected="true"] .bar{display:block}
+.acc-tab .bar i{display:block;height:100%;background:var(--glow-ink);transform-origin:left;transform:scaleX(0)}
+.acc-tab[aria-selected="true"].run .bar i{animation:prog 7s linear forwards}
+@keyframes prog{to{transform:scaleX(1)}}
+.acc-stage{background:var(--studio);position:relative;overflow:hidden}
+@media (max-width:999px){#accList #accPanel{margin:4px 0 24px}#accList .acc-info h3{display:none}.acc-tab .bar{display:none!important}.acc-tab .arr svg{transition:transform .35s var(--ease)}.acc-tab[aria-selected="true"] .arr svg{transform:rotate(90deg)}}
+.acc-stage .frame{aspect-ratio:3/2;max-width:100%;position:relative}
+.acc-stage .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.03);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
+.acc-stage .frame img.on{opacity:1;transform:none}
+.acc-info{background:#fff;padding:clamp(22px,3vw,36px);display:grid;gap:14px;border:1px solid var(--line);border-top:0}
+.acc-info p{color:var(--mist);max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:2px 0 0;padding:0}
+.chips li{font-size:.75rem;font-weight:500;line-height:1.3;padding:5px 10px;background:var(--paper);color:var(--ink);white-space:nowrap}
+
+/* ---------- PROJECTS ---------- */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;grid-auto-rows:clamp(52px,5.6vw,80px)}}
+.shot{position:relative;overflow:hidden;background:var(--ral-2);border:0;padding:0;cursor:zoom-in;display:block;width:100%;text-align:left;color:var(--paper)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.shot:hover img{transform:scale(1.045)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;display:flex;justify-content:space-between;gap:10px;align-items:end;background:linear-gradient(transparent,rgba(14,19,22,.75));font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;transform:translateY(8px);opacity:.92;transition:all .5s var(--ease)}
+.shot:hover figcaption{transform:none;opacity:1}
+.shot figcaption b{font-weight:700}
+@media (max-width:899px){.shot figcaption{padding:12px;font-size:.75rem}.shot figure{position:relative;height:100%}.shot figcaption span{display:none}}
+.shot figcaption>*{min-width:0;overflow-wrap:anywhere}
+.shot figcaption span{font-family:var(--f-mono);color:rgba(241,242,239,.75);letter-spacing:.06em}
+.shot figure{margin:0;height:100%}
+.gallery .shot{aspect-ratio:3/4;max-width:100%;min-width:0}
+.gallery .shot.w{grid-column:span 2;aspect-ratio:16/9}
+.gallery .shot.g1,.gallery .shot.g7{grid-column:span 2;aspect-ratio:4/3}
+@media (min-width:900px){
+  .gallery .shot.g1,.gallery .shot.g2,.gallery .shot.g3,.gallery .shot.g4,.gallery .shot.g5,.gallery .shot.g6,.gallery .shot.g7{aspect-ratio:auto}
+  .gallery .shot.g1{grid-column:1/5;grid-row:1/8}
+  .gallery .shot.g2{grid-column:5/13;grid-row:1/5}
+  .gallery .shot.g3{grid-column:5/9;grid-row:5/8}
+  .gallery .shot.g4{grid-column:9/13;grid-row:5/8}
+  .gallery .shot.g5{grid-column:1/5;grid-row:8/14}
+  .gallery .shot.g6{grid-column:5/9;grid-row:8/14}
+  .gallery .shot.g7{grid-column:9/13;grid-row:8/14}
+}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,13,15,.96);display:grid;grid-template-rows:auto 1fr auto;padding:calc(env(safe-area-inset-top,0px) + 16px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 16px) var(--gut-l);color:var(--paper);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.lightbox.open{opacity:1;visibility:visible}
+.lb-top,.lb-bot{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:48px}
+.lb-top .mono{font-size:var(--t-xs);letter-spacing:.14em;color:var(--mist-d)}
+.lb-x,.lb-nav button{background:none;border:1px solid var(--line-d);color:var(--paper);width:48px;height:48px;display:grid;place-items:center;cursor:pointer;transition:background .3s}
+.lb-x:hover,.lb-nav button:hover{background:rgba(241,242,239,.1)}
+.lb-img{display:grid;place-items:center;min-height:0;padding-block:12px}
+.lb-img img{max-height:100%;max-width:100%;object-fit:contain}
+.lb-bot p{font-size:var(--t-sm);color:var(--mist-d)}
+.lb-bot b{color:var(--paper);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:var(--t-xs);margin-right:10px}
+.lb-nav{display:flex;gap:8px}
+
+/* ---------- QUALITY ---------- */
+.q{display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,80px)}
+@media (min-width:1000px){.q{grid-template-columns:5fr 7fr}.q-img{position:sticky;top:96px;align-self:start}}
+.q-img{position:relative;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.q-img img{width:100%;height:100%;object-fit:cover}
+.q-img .stamp{position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.12em;color:var(--paper);text-transform:uppercase}
+.q-img::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(14,19,22,.6))}
+.q-img .stamp{z-index:1}
+.q-list{border-top:1px solid var(--line)}
+.q-item{display:grid;grid-template-columns:1fr;gap:10px 40px;padding:30px 0;border-bottom:1px solid var(--line)}
+@media (min-width:700px){.q-item{grid-template-columns:minmax(0,15rem) 1fr}}
+.q-item h3{font-size:1.8rem}
+.q-item p{color:var(--mist);font-size:var(--t-sm)}
+.q-item .mono{color:var(--glow-ink)}
+
+/* ---------- CONTACT ---------- */
+.contact{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(40px,6vw,96px)}
+@media (min-width:1000px){.contact{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.contact .lead{margin-top:26px}
+.direct{margin-top:44px;display:grid;gap:22px}
+.direct div{display:grid;gap:4px}
+.direct .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mist-d)}
+.direct .v{font-family:var(--f-display);font-size:1.7rem;line-height:1.15;user-select:all}
+.direct .v a{display:inline-block;padding-block:6px;text-decoration:none;border-bottom:1px solid var(--line-d);transition:border-color .3s}
+.direct .v a:hover{border-color:var(--glow)}
+form.quote{background:var(--paper);color:var(--ink);padding:clamp(22px,4vw,52px);display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:26px 28px}
+@media (min-width:700px){form.quote{grid-template-columns:repeat(2,minmax(0,1fr))}.full{grid-column:1/-1}}
+.field{display:grid;gap:8px;min-width:0}
+.field label,.field legend{font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);padding:0}
+.field label .req{color:var(--glow-ink)}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:var(--t-md);color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(20,26,30,.3);padding:10px 0 12px;border-radius:0;transition:border-color .3s;-webkit-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23141A1E' stroke-width='1.4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:24px;cursor:pointer}
+.field textarea{resize:vertical;min-height:96px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink)}
+.field input::placeholder,.field textarea::placeholder{color:#646E73}
+.field .err{font-size:var(--t-xs);color:#A3361F;min-height:0}
+.field.bad input,.field.bad select{border-color:#A3361F}
+fieldset.field{border:0;margin:0;padding:0}
+.seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{min-height:44px;display:inline-flex;align-items:center;font-size:var(--t-sm);font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);border:1px solid rgba(20,26,30,.25);padding:10px 16px;cursor:pointer;transition:all .3s}
+.seg input:checked+label{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.seg input:focus-visible+label{outline:2px solid var(--glow-ink);outline-offset:2px}
+.form-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.form-foot small{color:var(--mist);font-size:var(--t-xs);max-width:40ch}
+.sent{grid-column:1/-1;display:grid;gap:14px;padding:12px 0}
+.sent h3{font-size:2.4rem}
+.sent p{color:var(--mist)}
+
+/* ---------- CTA + FOOTER ---------- */
+.cta{position:relative;overflow:hidden;color:var(--paper);background:var(--ink);isolation:isolate;text-align:left}
+.cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.55;transform:scale(1.1);will-change:transform}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,19,22,.85),rgba(14,19,22,.3))}
+.cta .wrap{padding-block:clamp(110px,14vw,200px);display:grid;gap:36px;justify-items:start}
+.cta h2{font-size:clamp(3rem,2rem + 5vw,7rem)}
+.cta h2.h2-long{font-size:clamp(2rem,1.2rem + 2.4vw,4rem);line-height:1;max-width:20ch}
+footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
+.foot{display:grid;grid-template-columns:1fr;gap:40px;padding-block:72px 40px;border-bottom:1px solid var(--line-d)}
+@media (min-width:860px){.foot{grid-template-columns:2fr 1fr 1fr 1fr}}
+.foot .logo{color:var(--paper);margin-bottom:20px}
+.foot .k{font-family:var(--f-mono);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--paper);margin-bottom:12px}
+.foot a,.foot-bot a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.foot a:hover{color:var(--paper)}
+.foot p{max-width:30ch}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:24px calc(24px + env(safe-area-inset-bottom,0px));font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+
+/* sticky mobile CTA */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px var(--gut-r) calc(12px + env(safe-area-inset-bottom,0px)) var(--gut-l);background:rgba(244,241,235,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -1px 0 var(--line);transform:translateY(110%);transition:transform .5s var(--ease)}
+.mcta .btn{width:100%;justify-content:space-between}
+.mcta .btn.glow{--b:var(--ral);--c:#fff}
+.mcta.show{transform:none}
+@media (min-width:1080px){.mcta{display:none}}
+
+/* reveal (only elements below the fold at load are hidden) */
+.rv.pre{opacity:0;transform:translateY(28px)}
+.rv{transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--rd,0s)}
+.img-rv{overflow:hidden}
+.img-rv.pre img{transform:scale(1.12)}
+.img-rv img{transition:transform 1.6s var(--ease)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .louvre{display:none}
+  .ticker-track{animation:none}
+}
+</style>
+
+</head>
+<body>
+<!-- NAV -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="esto-mark" viewBox="0 0 277 97"><path fill="currentColor" transform="translate(-287 -522)" d="M525.7,540.3c10.2,0,19.7,4,27,11.4c7.2,7.5,11.2,17.3,11.2,27.9c0,10.6-3.9,20.6-11.2,28.1c-7.3,7.5-16.7,11.4-27,11.4c-10.2,0-19.5-4-26.8-11.4c-7.4-7.6-11.3-17.5-11.3-28.1c0-10.6,3.9-20.3,11.3-27.9C506.2,544.3,515.5,540.3,525.7,540.3z M525.7,554.7c-6.3,0-11.9,2.7-16.1,7.2c-4.1,4.5-6.6,10.6-6.6,17.6c0,7,2.5,13.2,6.6,17.7c4.1,4.5,9.8,7.3,16,7.3c6.2,0,11.9-2.8,16-7.3c4.1-4.5,6.6-10.7,6.6-17.7c0-7-2.5-13.2-6.6-17.6C537.7,557.4,532,554.7,525.7,554.7z M324,540.2c6.4,0,12.2,1.4,17.2,4.2c5.1,2.8,9.1,6.7,12.1,11.7c3,5,4.5,10.7,4.5,17.2c0,1.1-0.1,4.9-0.2,11.3l0,0.4l-54.5,0c1.2,5.7,3.6,9.8,7.5,12.9c4.1,3.2,9.6,4.9,16.6,5.2l0.6,0l1.7,0h24.2v14.6h-24.3c-13.3,0-23.6-3.5-31-10.4c-7.5-6.9-11.3-15.7-11.3-29c0-6.7,1.5-12.9,4.6-18.7c3.1-5.8,7.3-10.5,12.8-14.1C309.9,542.1,316.5,540.2,324,540.2z M324.7,555.3c-6,0-10.9,1.6-15.5,5.6c-2.8,2.7-4.6,6.1-5.7,10.6l0,0l40.1-0.3l0-0.5l0-0.4c-0.2-2.3-1-4.5-2.2-6.5c-1.5-2.6-3.7-4.6-6.5-6.2C332.1,556.1,328.7,555.3,324.7,555.3z M420.5,541.7v14.2h-31.7c-2.3,0-4.1,0.5-5.3,1.5c-1.2,0.9-1.8,2.3-1.8,4c0,1.3,0.5,2.4,1.5,3.4c1.2,1.2,3.1,2.3,5.7,3.4l0,0l13.6,5.6c7.4,3.1,13.1,5.9,16.7,9.7c3.2,3.4,4.9,7.5,4.9,13.2c0,7.2-2.6,12.5-7.8,16c-5.1,3.4-12.9,5.2-23.4,5.2l0,0l-0.6,0h-24.7v-14.5h31.7c3,0,5.4-0.6,7.1-1.7c1.5-1.1,2.4-2.6,2.4-4.5c0-1.7-0.6-3-1.8-4.1c-1.5-1.4-3.9-2.6-7.1-4l0,0l-13-5.3c-7.1-2.9-12.2-5.7-15.5-9.3c-3.1-3.4-4.6-7.5-4.6-12.9c0-6.2,2.3-11.2,6.6-14.5c4.2-3.2,10.4-5.1,18.5-5.1l0,0l0.5,0H420.5z M435,522h15v19.7h29.2v14.4H450V587c0,5.6,1.2,9.7,4,12.4c2.8,2.7,7,3.9,12.9,4l0,0l12.3,0v14.5h-12.1c-10.6,0-18.5-2.4-23.9-7c-5.4-4.7-8.2-11.6-8.3-21l0,0l0-0.6V522z"/></symbol></svg>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="NORVO – home"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></a>
+    <nav aria-label="Main menu">
+      <ul>
+        <li><a href="#pergolad">Pergolas</a></li>
+        <li><a href="#mudelid">Models</a></li>
+        <li><a href="#tehtud-tood">Projects</a></li>
+        <li><a href="#brand">NORVO</a></li>
+        <li><a href="#jarelmaks" class="nav-esto" aria-label="ESTO instalments"><svg viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> instalments</a></li>
+        <li><a href="#kontakt">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-end">
+      <div class="lang" role="group" aria-label="Language / Keel"><a href="../" lang="et" hreflang="et">ET</a><a href="./" lang="en" aria-current="true">EN</a></div>
+      <a class="btn" href="#kontakt">Request a quote <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="logo"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></span>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">×</button>
+  </div>
+  <nav aria-label="Mobile menu">
+    <a href="#pergolad">Pergolas</a>
+    <a href="#mudelid">Models</a>
+    <a href="#tehtud-tood">Projects</a>
+    <a href="#brand">NORVO</a>
+    <a href="#jarelmaks" aria-label="ESTO instalments"><svg class="drawer-esto" viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> instalments</a>
+    <a href="#kontakt">Contact</a>
+  </nav>
+  <div class="meta"><div class="lang" role="group" aria-label="Language / Keel"><a href="../" lang="et" hreflang="et">ET</a><a href="./" lang="en" aria-current="true">EN</a></div><a href="tel:+37253450781" style="text-decoration:none">+372 5345 0781</a><a href="mailto:info@norvo.ee" style="text-decoration:none">info@norvo.ee</a></div>
+</div>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero-img"><img src="../img/hero.webp" alt="NORVO pergola with glass walls in an evening garden" fetchpriority="high"></div>
+  <div class="louvre" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i></div>
+  <div class="hero-inner wrap">
+    <p class="eyebrow fade-up" style="--d:.6s">NORVO · Outdoor Living</p>
+    <h1 class="h1-long"><span class="ln"><span>Bioclimatic pergolas</span></span><span class="ln"><span>that turn your terrace into a year-round living space.</span></span></h1>
+    <div class="hero-foot fade-up" style="--d:1.15s">
+      <span></span>
+      <div class="hero-cta">
+        <a class="btn glow" href="#pergolad">Explore pergolas <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+        <a class="btn ghost" href="#kontakt">Request a quote</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <ul><li>Bioclimatic pergolas</li><li>Nordic design</li><li>6063-T6 aluminium</li><li>Adjustable louvres 0–90°</li><li>Integrated LED lighting</li><li>Professional installation</li></ul>
+    <ul><li>Bioclimatic pergolas</li><li>Nordic design</li><li>6063-T6 aluminium</li><li>Adjustable louvres 0–90°</li><li>Integrated LED lighting</li><li>Professional installation</li></ul>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section id="pergolad" class="pad">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">NORVO Pergolas</p>
+        <h2>Made for every <em>season.</em></h2>
+      </div>
+      <div class="copy rv" style="--rd:.1s">
+        <p class="lead" style="max-width:44ch;color:var(--ink)">NORVO bioclimatic pergolas are designed specifically to withstand the harsh Baltic climate.</p>
+        <p style="color:var(--mist);max-width:52ch;margin-top:18px">Premium quality at a competitive price.</p>
+        <div class="facts">
+          <div><b class="mono" style="font-family:var(--f-display)">5</b><span>standard sizes plus custom orders</span></div>
+          <div><b style="font-family:var(--f-display)">T6</b><span>certified aluminium frame</span></div>
+          <div><b style="font-family:var(--f-display)">−20%</b><span>discount on pre-orders</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mount-head rv">
+      <h3>Mounting options</h3>
+      <span class="eyebrow">Choose what suits your space</span>
+    </div>
+    <div class="mounts">
+      <a class="mount img-rv rv" href="#kontakt" data-mount="Freestanding">
+        <img src="../img/p3.webp" alt="Freestanding pergola on a terrace surrounded by flowers" loading="lazy">
+        <span class="tag">A</span>
+        <div class="mount-body">
+          <span class="eyebrow">Stands alone</span>
+          <h4>Freestanding</h4>
+          <p>Ideal for open gardens and detached outdoor areas.</p>
+        </div>
+      </a>
+      <a class="mount img-rv rv" style="--rd:.12s" href="#kontakt" data-mount="Wall-mounted">
+        <img src="../img/p2.webp" alt="Pergola attached to a house on a wooden terrace" loading="lazy">
+        <span class="tag">B</span>
+        <div class="mount-body">
+          <span class="eyebrow">Attached to the house</span>
+          <h4>Wall-mounted</h4>
+          <p>Blends seamlessly with the façade and extends your indoor space outdoors.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY + LOUVRE DEMO -->
+<section class="dark pad" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="why-top">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">Style. Function. Durability.</p>
+        <h2 id="why-h">Why choose a <em>pergola?</em></h2>
+        <p class="lead">A modern alternative to traditional shelters and carports, combining style, functionality and durability.</p>
+      </div>
+      <div class="demo rv" style="--rd:.1s">
+        <div class="demo-head"><span>Try it: louvre angle · direct sun <b id="sunPct" class="mono" style="color:var(--paper);font-weight:500">0%</b></span><output id="angOut" for="ang">45°</output></div>
+        <svg id="louvreSvg" viewBox="0 0 560 300" role="img" aria-label="Pergola roof cross-section: sunlight passing through the louvres depending on their angle">
+          <defs>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0AE63" stop-opacity=".42"/><stop offset=".6" stop-color="#E0AE63" stop-opacity=".16"/><stop offset="1" stop-color="#E0AE63" stop-opacity=".08"/></linearGradient>
+            <linearGradient id="amb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E0AE63" stop-opacity=".5"/><stop offset="1" stop-color="#E0AE63" stop-opacity=".15"/></linearGradient>
+            <filter id="soft" filterUnits="userSpaceOnUse" x="-60" y="110" width="680" height="200"><feGaussianBlur stdDeviation="6"/></filter>
+            <filter id="softG" filterUnits="userSpaceOnUse" x="-60" y="270" width="680" height="40"><feGaussianBlur stdDeviation="3"/></filter>
+            <linearGradient id="rain" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AA4A9" stop-opacity="0"/><stop offset="1" stop-color="#9AA4A9" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <radialGradient id="halo"><stop offset="0" stop-color="#E0AE63" stop-opacity=".35"/><stop offset=".45" stop-color="#E0AE63" stop-opacity=".12"/><stop offset="1" stop-color="#E0AE63" stop-opacity="0"/></radialGradient>
+          <g id="sunRays" style="transition:opacity .5s"><circle cx="470" cy="58" r="52" fill="url(#halo)"/></g>
+          <circle id="sunC" cx="470" cy="58" r="16" fill="#E0AE63" style="transition:opacity .5s"/>
+          <g id="rainG" opacity="0" style="transition:opacity .5s"></g>
+                    <rect id="ambient" x="34" y="156" width="492" height="134" fill="url(#amb)" opacity="0" style="transition:opacity .4s"/>
+          <g id="beams" filter="url(#soft)"></g>
+          <rect x="16" y="128" width="528" height="28" fill="#323A40"/>
+          <g id="slats"></g>
+          <rect x="16" y="128" width="18" height="162" fill="#4A535A"/>
+          <rect x="526" y="128" width="18" height="162" fill="#4A535A"/>
+          <g id="water" opacity="0"><path class="flow" d="M280 131 H25 V290"/><path class="flow" d="M280 131 H535 V290"/><ellipse class="pool" cx="25" cy="290" rx="20" ry="2.5"/><ellipse class="pool" cx="535" cy="290" rx="20" ry="2.5"/></g>
+          <line x1="0" y1="290" x2="560" y2="290" stroke="rgba(241,242,239,.2)"/>
+          <g id="litGround" stroke="#E0AE63" stroke-width="4" stroke-opacity=".6" filter="url(#softG)"></g>
+        </svg>
+        <input class="range" type="range" id="ang" min="0" max="90" value="45" step="1" aria-label="Louvre angle in degrees">
+        <div class="demo-state" id="angState" aria-live="polite"><span data-k="closed"><b>Closed.</b> The roof is rainproof: water runs into hidden gutters and down through the posts.</span><span data-k="sun"><b>Sun in.</b> The louvres line up with the sun's rays, so light and warmth reach the terrace.</span><span data-k="part"><b>Partial shade.</b> Some sunlight passes between the louvres, the rest stays in shade.</span><span data-k="shade"><b>Shade and air.</b> The louvres block direct sunlight while air flows freely between them.</span></div>
+        <div class="presets" role="group" aria-label="Presets">
+          <button type="button" data-a="0">0° Closed</button>
+          <button type="button" data-a="45" aria-pressed="true">45° Sun in</button>
+          <button type="button" data-a="90">90° Open</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat">
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9h28M3 15l6-3M11 15l6-3M19 15l6-3M27 15l4-2"/><path d="M5 9v22M29 9v22"/></svg><h3>Adjustable roof</h3><p>Aluminium louvres let you control light and airflow for comfort in any weather.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12h18a4 4 0 1 0-4-4M4 18h24a4 4 0 1 1-4 4M4 24h12"/></svg><h3>Weatherproof</h3><p>Built to withstand strong winds and snow loads, and to protect you from rain and wind.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="5" width="24" height="24"/><path d="M5 12h24M12 12v17"/></svg><h3>Modern design</h3><p>A contemporary minimalist look that fits harmoniously with a range of architectural styles.</p></article>
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 4v4M6 9l3 3M28 9l-3 3M4 20h4M26 20h4"/><path d="M11 21a6 6 0 1 1 12 0c0 3-3 4-3 7h-6c0-3-3-4-3-7zM14 31h6"/></svg><h3>Innovation</h3><p>Integrated LED lighting and motorised louvre control create a smart outdoor space.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="17" cy="17" r="12"/><path d="M11 17l4 4 8-8"/></svg><h3>Practical choice</h3><p>Low maintenance and long-lasting durability make it a practical choice.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="6" y="5" width="22" height="24"/><path d="M6 11h22M6 17h22M6 23h22M13 5v24M21 5v24"/></svg><h3>Insect protection</h3><p>Motorised screen blinds let you enjoy the outdoors without unwanted insects.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="eelised" class="pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Benefits of NORVO pergolas</p><h2>Beautiful, yet <em>practical.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Discover why our customers choose this smart outdoor solution: quality construction, flexible installation and year-round comfort.</p>
+    </div>
+    <div class="bene">
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 10h18v14H3zM21 15h6l4 5v4h-10"/><circle cx="9" cy="26" r="2.5"/><circle cx="25" cy="26" r="2.5"/></svg><h3>Delivery across Estonia</h3><p>We deliver orders anywhere in Estonia, right to your home.</p></article>
+      <article class="rv hl" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 26L26 8"/><circle cx="10" cy="10" r="3.5"/><circle cx="24" cy="24" r="3.5"/></svg><h3>−20% on pre-orders</h3><p>Plan ahead and save: pre-orders get a 20% discount.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="7" y="7" width="20" height="20"/><rect x="12" y="12" width="10" height="10"/></svg><h3>T6 aluminium frame</h3><p>The sturdy structure resists corrosion and harsh weather conditions.</p></article>
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 12l6-4M12 12l6-4M20 12l6-4M4 12h26"/><path d="M8 18c2 2 4 2 6 0s4-2 6 0 4 2 6 0M8 24c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/></svg><h3>Bioclimatic function</h3><p>Smart louvres help create the ideal microclimate.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 4l11 4v8c0 7-5 12-11 14C11 28 6 23 6 16V8z"/><path d="M12 17l4 4 7-7"/></svg><h3>Weather protection</h3><p>The certified structure protects against wind, rain and snow.</p></article>
+      <article class="rv" style="--rd:.12s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 4v26M4 10h22v20M10 10v20"/></svg><h3>Versatile installation</h3><p>Can be mounted on a wall or installed as a freestanding structure.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- MODELS -->
+<section id="mudelid" class="pad" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Models</p><h2>Find the one that fits your <em>lifestyle.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Choose the model that best suits your lifestyle and expectations.</p>
+    </div>
+    <div class="models">
+      <article class="model rv">
+        <span class="tier">Best value for money</span>
+        <h3>Z188</h3>
+        <ul><li>Manual louvre control</li><li>Works without electricity</li><li>5 standard sizes</li><li>Wall-mounted or freestanding</li></ul>
+        <a class="btn line" href="#kontakt" data-model="Z188">Request a quote <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+      </article>
+      <article class="model pick rv" style="--rd:.08s">
+        <span class="badge">Most popular</span>
+        <span class="tier">Premium choice</span>
+        <h3>Z128</h3>
+        <ul><li>Automatic louvre control</li><li>Perimeter LED lighting</li><li>5 standard sizes</li><li>Wall-mounted or freestanding</li></ul>
+        <a class="btn glow" href="#kontakt" data-model="Z128">Request a quote <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+      </article>
+      <article class="model rv" style="--rd:.16s">
+        <span class="tier">Custom order</span>
+        <h3>Z168</h3>
+        <ul><li>Ultra-premium model</li><li>Automatic control</li><li>Integrated louvre LED lighting</li><li>Rain sensor</li><li>Motorised screen blinds and heaters</li><li>Sizes up to <span class="mono">400 × 800 cm</span></li><li>Modular design</li></ul>
+        <a class="btn line" href="#kontakt" data-model="Z168">Request a quote <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+      </article>
+    </div>
+    <div class="techline rv">
+      <div><span class="k">Technical data</span><h3>Strength you can <em>measure.</em></h3></div>
+      <div><span class="k">Wind resistance</span><span class="v">Model-specific<small>m/s</small></span></div>
+      <div><span class="k">Snow load</span><span class="v">Model-specific<small>kg/m²</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIZES -->
+<section class="pad" aria-labelledby="size-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Dimensions</p><h2 id="size-h">Available <em>sizes.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Different sizes for different needs. Custom-made solutions are also available.</p>
+    </div>
+    <div class="sizes" id="sizes"></div>
+    <p class="sizes-note rv">Plans are drawn to the same scale. All standard models are 275&nbsp;cm high. Choose a size to add it to your enquiry.</p>
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section class="pad" style="background:#fff" aria-labelledby="acc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Accessories, ordered separately</p><h2 id="acc-h">More comfort, protection and <em>style.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Innovative accessories that make your outdoor space even more flexible and let you enjoy it in any weather.</p>
+    </div>
+    <div class="acc" id="accHome">
+      <div class="acc-list rv" role="tablist" aria-label="Accessories" id="accList"></div>
+      <div class="rv" style="--rd:.1s" id="accPanel">
+        <div class="acc-stage"><div class="frame" id="accFrame"></div></div>
+        <div class="acc-info" id="accInfo" role="tabpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="tehtud-tood" class="pad night">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Completed projects</p><h2>Inspiration from real <em>homes.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s"><span class="mono" style="color:var(--glow)">07</span>&nbsp; views of completed projects in Estonia. Click an image to enlarge it.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Project gallery" aria-hidden="true">
+  <div class="lb-top"><span class="mono" id="lbCount">01 / 07</span><button class="lb-x" id="lbX" aria-label="Close gallery">✕</button></div>
+  <div class="lb-img"><img id="lbImg" alt=""></div>
+  <div class="lb-bot"><p id="lbCap"></p><div class="lb-nav"><button id="lbPrev" aria-label="Previous image">←</button><button id="lbNext" aria-label="Next image">→</button></div></div>
+</div>
+
+<!-- QUALITY -->
+<section class="pad" aria-labelledby="q-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Why choose NORVO?</p><h2 id="q-h">Quality is in the <em>details.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Every solution is refined to perfection, from certified materials to professional installation.</p>
+    </div>
+    <div class="q">
+      <div class="q-img img-rv rv"><img src="../img/p7.webp" alt="Illuminated bioclimatic pergola in the evening" loading="lazy"><div class="stamp"><span>Integrated LED</span><span class="mono">RAL 7016</span></div></div>
+      <div class="q-list">
+        <div class="q-item rv"><h3>Nordic design</h3><p>Elegant minimalism and practical functionality inspired by the Baltic and Nordic way of life. Clean lines let the pergola blend seamlessly into any setting.</p></div>
+        <div class="q-item rv"><h3>Premium quality</h3><p>Certified <span class="mono">6063-T6</span> anodised aluminium ensures reliability, corrosion resistance and flawless performance for years to come.</p></div>
+        <div class="q-item rv"><h3>Certified durability</h3><p>The built-in drainage system collects rainwater and channels it away through hidden gutters.</p></div>
+        <div class="q-item rv"><h3>Long service life</h3><p>Powder-coated aluminium is easy to clean and resists corrosion, fading and the elements.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND -->
+<section id="brand" class="dark pad" aria-labelledby="brand-h">
+  <div class="wrap">
+    <div class="manifest">
+      <div class="rv">
+        <p class="eyebrow" style="margin-bottom:22px">NORVO · Outdoor Living</p>
+        <h2 id="brand-h">Making outdoor spaces a <em>natural part of home.</em></h2>
+      </div>
+      <div class="copy rv" style="--rd:.1s">
+        <p class="first">NORVO brings together contemporary design, functionality and the freedom of outdoor living.</p>
+        <p>We believe an outdoor space is more than an extension of your home. It is a place to relax, spend time together and enjoy life in every season.</p>
+        <p>Our range includes modern bioclimatic pergolas and carefully selected add-ons that make outdoor living more comfortable. Inspired by the Baltic and Nordic way of life, we combine clean aesthetics, practical functionality and lasting quality.</p>
+      </div>
+    </div>
+    <div class="promise">
+      <div class="rv"><span class="k">Products</span><span class="v">Modern design</span></div>
+      <div class="rv" style="--rd:.04s"><span class="k">Price</span><span class="v">Premium, yet reasonable</span></div>
+      <div class="rv" style="--rd:.08s"><span class="k">Service</span><span class="v">Local and personal</span></div>
+      <div class="rv" style="--rd:.12s"><span class="k">Installation</span><span class="v">Professional</span></div>
+      <div class="rv" style="--rd:.16s"><span class="k">Warranty</span><span class="v">Clear terms</span></div>
+      <div class="rv" style="--rd:.2s"><span class="k">Experience</span><span class="v">The complete solution from one place</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTO JÄRELMAKS -->
+<section id="jarelmaks" class="pad" style="background:var(--paper-2)" aria-labelledby="esto-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv">
+        <img class="esto-logo" src="../img/esto.svg" alt="ESTO">
+        <p class="eyebrow">Instalments</p>
+        <h2 id="esto-h" style="margin-top:22px">Pay for your pergola <em>in parts.</em></h2>
+      </div>
+      <p class="lead rv" style="--rd:.1s">Pay for your NORVO pergola conveniently with ESTO: in three equal parts with no extra fees, or in instalments over 3–60 months.</p>
+    </div>
+    <div class="esto-cards">
+      <article class="esto-card rv">
+        <span class="k">ESTO 3</span>
+        <div class="big">3 parts, €0 extra fees</div>
+        <p>ESTO 3 is an innovative solution that lets you confirm and pay for your purchase quickly and conveniently – in three equal parts, with no extra fees.</p>
+        <ul>
+          <li>No extra fees are added.</li>
+          <li>Simply three equal payments over three months.</li>
+          <li>The first payment is not due until the 15th of the following month.</li>
+        </ul>
+        <p>Let our sales specialist know that you would like to pay with ESTO 3.</p>
+        <p class="fine">The ESTO 3 payment method is provided and managed by ESTO AS. See the terms: <a href="https://www.esto.ee" target="_blank" rel="noopener">www.esto.ee</a></p>
+      </article>
+      <article class="esto-card rv" style="--rd:.08s">
+        <span class="k">ESTO instalments</span>
+        <div class="big">3–60 months</div>
+        <p>ESTO instalments is a flexible payment solution that lets you split the purchase amount into convenient monthly payments. You choose the period and the down payment when completing the purchase.</p>
+        <ol>
+          <li>Contact us and let us know you would like to pay with ESTO instalments.</li>
+          <li>Choose a period between 3 and 60 months.</li>
+          <li>You get the decision in real time.</li>
+          <li>If approved, you sign the contract digitally with your ID card, Smart-ID or Mobile-ID.</li>
+        </ol>
+        <p class="fine">ESTO instalments are provided and managed by ESTO AS. The annual percentage rate of charge (APR) of ESTO AS instalment credit is 23.63% under the following representative example: credit amount EUR 1490, price of goods/services EUR 1490, down payment 0%, fixed interest rate 11.90%, contract fee EUR 0, total amount of credit and total amount repayable EUR 1844.64, provided the credit is repaid over 24 months in equal monthly instalments of EUR 76.86. Read the terms before signing the contract and, if necessary, consult a specialist. Instalments are provided and managed by ESTO AS.</p>
+      </article>
+    </div>
+    <div class="esto-about">
+      <p class="eyebrow rv">What is ESTO?</p>
+      <div class="rv" style="display:grid;gap:14px">
+        <p>ESTO is the most preferred payment solutions provider in the Baltics, making selling simple for merchants and buying smooth for consumers. ESTO has nearly 700,000 active customers and more than 6,000 partner stores across the Baltics.</p>
+        <p>If you need help, contact ESTO AS: <a href="mailto:info@esto.ee">info@esto.ee</a> or <a href="https://www.esto.ee" target="_blank" rel="noopener">www.esto.ee</a> (live chat).</p>
+        <div style="margin-top:8px"><a class="btn" href="#kontakt">Request a quote with instalments <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt" class="night pad">
+  <div class="wrap contact">
+    <div class="rv">
+      <p class="eyebrow" style="margin-bottom:22px">Contact</p>
+      <h2>Get in <em>touch.</em></h2>
+      <p class="lead">Tell us about your outdoor space. We offer a complete solution: pergola, side walls, lighting and installation.</p>
+      <div class="direct">
+        <div><span class="k">Phone</span><span class="v"><a href="tel:+37253450781">+372 5345 0781</a></span></div>
+        <div><span class="k">Email</span><span class="v"><a href="mailto:info@norvo.ee">info@norvo.ee</a></span></div>
+      </div>
+    </div>
+    <form class="quote rv" id="quote" novalidate style="--rd:.1s">
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Smith"></div>
+      <div class="field"><label for="f-email">Your email <span class="req">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="jane@example.com"><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-phone">Phone number <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+372 5xxx xxxx"><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-city">City</label><input id="f-city" name="city" autocomplete="address-level2" placeholder="Tallinn"></div>
+      <div class="field"><label for="f-model">Pergola model</label>
+        <select id="f-model" name="model"><option value="">Not sure yet</option><option>Z188</option><option>Z128</option><option>Z168</option></select></div>
+      <div class="field"><label for="f-size">Pergola size <span class="req">*</span></label>
+        <select id="f-size" name="size" required><option value="">Choose dimensions</option><option>300×300×275 cm</option><option>400×300×275 cm</option><option>600×300×275 cm</option><option>400×400×275 cm</option><option>600×400×275 cm</option><option>Custom order</option></select><span class="err" aria-live="polite"></span></div>
+      <fieldset class="field full"><legend>Installation type</legend>
+        <div class="seg">
+          <input type="radio" name="mount" id="m1" value="Wall-mounted"><label for="m1">Wall-mounted</label>
+          <input type="radio" name="mount" id="m2" value="Freestanding"><label for="m2">Freestanding</label>
+          <input type="radio" name="mount" id="m3" value="I need advice" checked><label for="m3">I need advice</label>
+        </div>
+      </fieldset>
+      <div class="field full"><label for="f-msg">Comment</label><textarea id="f-msg" name="msg" placeholder="Any questions? Send us a message and we will get back to you as soon as possible."></textarea></div>
+      <div class="form-foot full">
+        <small>Fields marked with * are required. Your enquiry will be sent to info@norvo.ee.</small>
+        <button class="btn" type="submit">Send enquiry <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" aria-labelledby="cta-h">
+  <img src="../img/p4.webp" alt="" loading="lazy" id="ctaImg">
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(241,242,239,.8)">NORVO · Outdoor Living</p>
+    <h2 id="cta-h" class="h2-long">Bioclimatic pergolas that turn your terrace into a year-round living space.</h2>
+    <a class="btn glow" href="#kontakt">Request a quote <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><span class="logo"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></span><p>Nordic design, quality materials and modern outdoor living.</p></div>
+      <div><p class="k">Contact</p><p><a href="tel:+37253450781">+372 5345 0781</a><br><a href="mailto:info@norvo.ee">info@norvo.ee</a></p></div>
+      <div><p class="k">Pergolas</p><p><a href="#mudelid">Models</a><br><a href="#pergolad">Mounting options</a><br><a href="#tehtud-tood">Projects</a></p></div>
+      <div><p class="k">Follow us</p><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></p></div>
+    </div>
+    <div class="foot-bot"><span>© 2026 NORVO Outdoor Living · Lavrek Solutions OÜ</span><a href="#top" style="text-decoration:none">Privacy policy</a></div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a class="btn glow" href="#kontakt">Request a quote <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,r){return (r||document).querySelector(s)};
+  var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var arrow = '<svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg>';
+
+  /* ---- nav ---- */
+  var nav = $('#nav'), mcta = $('#mcta'), lastY = 0;
+  function onScroll(){
+    var y = window.scrollY || 0, hero = $('.hero').offsetHeight;
+    nav.classList.toggle('solid', y > hero - 90);
+    var dy = y - lastY;
+    nav.classList.remove('hide'); // menu stays visible at all times
+    var k = $('#kontakt').getBoundingClientRect();
+    mcta.classList.toggle('show', y > hero * .8 && !(k.top < innerHeight && k.bottom > 0));
+    lastY = y;
+    if (!reduce){ var c = $('#ctaImg'), r = c.parentNode.getBoundingClientRect(); if (r.top < innerHeight && r.bottom > 0){ c.style.transform = 'scale(1.1) translateY(' + ((r.top + r.height/2 - innerHeight/2) * -0.06) + 'px)'; } }
+  }
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  // active section
+  if ('IntersectionObserver' in window){
+    var links = $$('.nav ul a');
+    var so = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){ a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id); }); } }); }, {rootMargin:'-45% 0px -50% 0px'});
+    ['pergolad','mudelid','tehtud-tood','brand','jarelmaks','kontakt'].forEach(function(id){ so.observe(document.getElementById(id)); });
+  }
+
+  /* ---- drawer ---- */
+  var drawer = $('#drawer'), mb = $('#menuBtn');
+  function setDrawer(o){ drawer.classList.toggle('open', o); drawer.setAttribute('aria-hidden', !o); mb.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; if(o) $('#drawerClose').focus(); }
+  mb.addEventListener('click', function(){ setDrawer(true); });
+  $('#drawerClose').addEventListener('click', function(){ setDrawer(false); mb.focus(); });
+  $$('#drawer nav a').forEach(function(a){ a.addEventListener('click', function(){ setDrawer(false); }); });
+
+  /* ---- reveal: hide only what starts below the fold ---- */
+  if (!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('pre'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px'});
+    window.__rv = function(){ $$('.rv:not(.seen)').forEach(function(el){ el.classList.add('seen'); if (el.getBoundingClientRect().top > innerHeight){ el.classList.add('pre'); io.observe(el); } }); };
+  } else { window.__rv = function(){}; }
+
+  /* ---- louvre demo: sun rays traced through the slat gaps ---- */
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(n, at){ var e = document.createElementNS(NS, n); for (var k in at) e.setAttribute(k, at[k]); return e; }
+  var slatsG = $('#slats'), beamsG = $('#beams'), litG = $('#litGround'), N = 11, x0 = 44, x1 = 516, step = (x1 - x0) / N, sw = step * 1.04, cy = 143, G = 290;
+  var PHI = 58 * Math.PI / 180, dx = -Math.cos(PHI), dy = Math.sin(PHI);   // sun ray direction (down-left)
+  var sun = $('#sunC'), sx = +sun.getAttribute('cx'), sy = +sun.getAttribute('cy');
+  var slatEls = [];
+  for (var i = 0; i < N; i++){
+    var cx = x0 + step * i + step / 2;
+    var r = el('rect', {x: cx - sw / 2, y: cy - 3, width: sw, height: 6, fill: '#8C969C'});
+    r.dataset.cx = cx; slatsG.appendChild(r); slatEls.push(r);
+  }
+  var rainG = $('#rainG');
+  for (var j = 0; j < 30; j++){ var xx = 44 + j * 16 + (j % 3) * 3, ln = el('line', {x1: xx, x2: xx - 4, y1: 100, y2: 112}); ln.style.setProperty('--dl', (-((j * 0.37) % 1.1)).toFixed(2) + 's'); rainG.appendChild(ln); }
+  function toGround(x, y){ return x + (G - y) * dx / dy; }
+  var angIn = $('#ang'), out = $('#angOut'), st = $('#angState');
+  function setAng(a){
+    a = +a; out.textContent = a + '°';
+    var rad = a * Math.PI / 180, ux = Math.cos(rad), uy = -Math.sin(rad), h = sw / 2;
+    slatEls.forEach(function(r){ r.setAttribute('transform', 'rotate(' + (-a) + ' ' + r.dataset.cx + ' ' + cy + ')'); });
+    var sh = slatEls.map(function(r){ var c = +r.dataset.cx, g1 = toGround(c - h * ux, cy - h * uy), g2 = toGround(c + h * ux, cy + h * uy); return [Math.min(g1, g2), Math.max(g1, g2)]; }).sort(function(p, q){ return p[0] - q[0]; });
+    var lo = toGround(x0, cy), hi = toGround(x1, cy), lit = [], pos = lo;
+    sh.forEach(function(s){ if (s[0] > pos) lit.push([pos, Math.min(s[0], hi)]); pos = Math.max(pos, s[1]); });
+    if (pos < hi) lit.push([pos, hi]);
+    lit = lit.filter(function(l){ return l[1] - l[0] > .5; });
+    var litLen = lit.reduce(function(t, l){ return t + l[1] - l[0]; }, 0), frac = litLen / (hi - lo);
+    beamsG.innerHTML = ''; litG.innerHTML = '';
+    var back = (G - cy) * dx / dy;
+    lit.forEach(function(l){
+      beamsG.appendChild(el('polygon', {points: (l[0] - back) + ',' + cy + ' ' + (l[1] - back) + ',' + cy + ' ' + (l[1] + 8) + ',' + G + ' ' + (l[0] - 8) + ',' + G, fill: 'url(#beam)'}));
+      litG.appendChild(el('line', {x1: Math.max(l[0], 30), x2: Math.min(l[1], 530), y1: G, y2: G}));
+    });
+    var wet = a < 5; rainG.setAttribute('opacity', wet ? 1 : 0); $('#water').setAttribute('opacity', wet ? 1 : 0); sun.style.opacity = wet ? .25 : 1; $('#sunRays').style.opacity = wet ? 0 : 1;
+    var pct = Math.round(frac * 100); $('#sunPct').textContent = pct + '%';
+    $('#ambient').setAttribute('opacity', (a < 5 ? 0 : 0.06 + frac * 0.22).toFixed(3));
+    var k = a < 5 ? 'closed' : pct >= 60 ? 'sun' : pct >= 15 ? 'part' : 'shade';
+    $$('span', st).forEach(function(x){ x.classList.toggle('on', x.dataset.k === k); });
+    $$('.presets button').forEach(function(b){ b.setAttribute('aria-pressed', +b.dataset.a === a); });
+  }
+  angIn.addEventListener('input', function(){ setAng(angIn.value); });
+  var anim;
+  $$('.presets button').forEach(function(b){ b.addEventListener('click', function(){
+    var from = +angIn.value, to = +b.dataset.a, t0 = performance.now(), dur = reduce ? 1 : 700;
+    cancelAnimationFrame(anim);
+    (function f(t){ var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3), v = Math.round(from + (to - from) * e); angIn.value = v; setAng(v); if (p < 1) anim = requestAnimationFrame(f); })(t0);
+  }); });
+  setAng(45);
+
+  /* ---- sizes (plans to one scale: 600 cm = full width) ---- */
+  var sizes = [[300,300],[400,300],[600,300],[400,400],[600,400]];
+  var sz = $('#sizes');
+  sizes.forEach(function(s, k){
+    var L = s[0], W = s[1], w = L / 600 * 560, h = W / 400 * 360, x = (600 - w) / 2, y = (400 - h) / 2;
+    var lines = ''; for (var q = 1; q < Math.round(L / 25); q++){ var lx = x + q * (w / Math.round(L / 25)); lines += '<line x1="' + lx.toFixed(1) + '" y1="' + y + '" x2="' + lx.toFixed(1) + '" y2="' + (y + h) + '"/>'; }
+    var label = L + '×' + W + '×275 cm';
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'size rv'; b.style.setProperty('--rd', (k % 3) * 0.06 + 's');
+    b.setAttribute('aria-label', 'Choose size ' + label);
+    b.innerHTML = '<div class="plan"><svg viewBox="0 0 600 400" aria-hidden="true"><rect class="r" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"/><g class="slats">' + lines + '</g></svg></div>' +
+      '<span class="dim">' + L + ' × ' + W + ' <span class="hgt">× 275 cm</span></span>' +
+      '<span class="row"><span>Length × width × height</span><b class="mono">' + (L * W / 10000) + ' m²</b></span>';
+    b.addEventListener('click', function(){ pickSize(label); });
+    sz.appendChild(b);
+  });
+  var cb = document.createElement('button'); cb.type = 'button'; cb.className = 'size custom rv'; cb.style.setProperty('--rd', '.12s');
+  cb.innerHTML = '<div class="plan">Your dimensions.<br>Up to 400 × 800 cm</div><span class="dim">Custom order</span><span class="row"><span>Model Z168, modular</span><b>→</b></span>';
+  cb.addEventListener('click', function(){ pickSize('Custom order'); });
+  sz.appendChild(cb);
+  function goForm(){ $('#kontakt').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); }
+  function pickSize(v){ $('#f-size').value = v; $('#f-size').closest('.field').classList.remove('bad'); goForm(); }
+  $$('[data-model]').forEach(function(a){ a.addEventListener('click', function(){ $('#f-model').value = a.dataset.model; }); });
+  $$('[data-mount]').forEach(function(a){ a.addEventListener('click', function(){ var r = $$('input[name=mount]').filter(function(i){ return i.value === a.dataset.mount; })[0]; if (r) r.checked = true; }); });
+
+  /* ---- accessories ---- */
+  var acc = [
+    ['zip-screens', 'ZIP screens (blinds)', 'Protect against heat, wind and insects while offering elegant privacy.', ['Smooth sliding system','More privacy','Heat protection','Insect protection']],
+    ['frameless-glass-doors', 'Frameless sliding glass doors', 'A minimalist solution that keeps the view open and the space bright, while protecting against wind.', ['Smooth sliding system','Frameless view','Weather protection']],
+    ['framed-glass-doors', 'Framed sliding glass doors', 'A sturdy frame provides long-lasting durability, stability and excellent light transmission.', ['Smooth sliding system','Sturdy construction','Weather protection']],
+    ['sliding-louvre-doors', 'Sliding louvre doors', 'Adjust light, natural airflow and privacy as you like.', ['Smooth sliding system','Adjustable louvres','More privacy']],
+    ['fixed-louvre-doors', 'Fixed louvre doors', 'Lasting protection from sun, wind and prying eyes, with natural ventilation.', ['Adjustable louvres','More privacy','Weather protection']]
+  ];
+  var list = $('#accList'), frame = $('#accFrame'), info = $('#accInfo'), cur = 0, timer, userPicked = false;
+  acc.forEach(function(a, k){
+    var im = new Image(); im.src = '../img/' + a[0] + '.webp'; im.alt = a[1]; im.loading = 'lazy'; frame.appendChild(im);
+    var t = document.createElement('button'); t.className = 'acc-tab'; t.type = 'button'; t.setAttribute('role', 'tab'); t.id = 'acc-t' + k;
+    t.innerHTML = '<span class="name">' + a[1] + '</span><span class="arr">' + arrow + '</span><span class="bar"><i></i></span>';
+    t.addEventListener('click', function(){ userPicked = true; showAcc(k); });
+    t.addEventListener('keydown', function(e){ var n = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0; if (n){ e.preventDefault(); userPicked = true; var m = (k + n + acc.length) % acc.length; showAcc(m); $('#acc-t' + m).focus(); } });
+    list.appendChild(t);
+  });
+  function placeAcc(keep){
+    var panel = $('#accPanel'), tabEl = $('#acc-t' + cur), before = tabEl.getBoundingClientRect().top;
+    if (innerWidth < 1000){ if (tabEl.nextSibling !== panel){ list.insertBefore(panel, tabEl.nextSibling); if (keep) scrollBy(0, tabEl.getBoundingClientRect().top - before); } }
+    else if (panel.parentNode !== $('#accHome')) $('#accHome').appendChild(panel);
+  }
+  addEventListener('resize', function(){ placeAcc(false); });
+  function showAcc(k){
+    cur = k; var a = acc[k];
+    $$('.acc-tab').forEach(function(t, i){ t.setAttribute('aria-selected', i === k); t.tabIndex = i === k ? 0 : -1; t.classList.remove('run'); });
+    $$('img', frame).forEach(function(im, i){ im.classList.toggle('on', i === k); });
+    info.setAttribute('aria-labelledby', 'acc-t' + k);
+    info.innerHTML = '<h3>' + a[1] + '</h3><p>' + a[2] + '</p><ul class="chips">' + a[3].map(function(c){ return '<li>' + c + '</li>'; }).join('') + '</ul>';
+    placeAcc(userPicked);
+    clearTimeout(timer);
+    if (!userPicked && !reduce && innerWidth >= 1000){ var tab = $('#acc-t' + k); void tab.offsetWidth; tab.classList.add('run'); timer = setTimeout(function(){ if (!userPicked) showAcc((k + 1) % acc.length); }, 7000); }
+  }
+  showAcc(0);
+
+  /* ---- gallery + lightbox ---- */
+  var shots = [
+    ['p1','Wall-mounted pergola','Integrated LED lighting','Illuminated wall-mounted pergola with a louvred roof'],
+    ['p2','Wall-mounted pergola','Wooden terrace','Wall-mounted pergola on the terrace of a timber-clad house'],
+    ['p3','Freestanding pergola','Open design','Freestanding pergola on a terrace surrounded by flowers'],
+    ['p4','Freestanding pergola','Bioclimatic roof','Spacious freestanding pergola in a garden'],
+    ['p5','Glass room','Sliding glass','Glass-walled pergola next to a modern house'],
+    ['p6','Glass room','Year-round use','Glass-walled pergola, front view'],
+    ['p7','Illuminated pergola','Integrated LED','Pergola with evening lighting']
+  ];
+  var g = $('#gallery');
+  shots.forEach(function(s, k){
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'shot img-rv rv g' + (k + 1) + (k === 1 ? ' w' : ''); b.style.setProperty('--rd', (k % 3) * 0.07 + 's');
+    b.setAttribute('aria-label', 'Open image: ' + s[3]);
+    b.innerHTML = '<figure><img src="../img/' + s[0] + '.webp" alt="' + s[3] + '" loading="lazy"><figcaption><b>' + s[1] + '</b><span>' + s[2] + '</span></figcaption></figure>';
+    b.addEventListener('click', function(){ openLb(k, b); });
+    g.appendChild(b);
+  });
+  var lb = $('#lb'), li = 0, opener;
+  function renderLb(){ var s = shots[li]; $('#lbImg').src = '../img/' + s[0] + '.webp'; $('#lbImg').alt = s[3]; $('#lbCap').innerHTML = '<b>' + s[1] + '</b>' + s[3]; $('#lbCount').textContent = String(li + 1).padStart(2, '0') + ' / ' + String(shots.length).padStart(2, '0'); }
+  function openLb(k, from){ li = k; opener = from; renderLb(); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; document.body.classList.add('lock'); $('#lbX').focus(); }
+  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; document.body.classList.remove('lock'); if (opener) opener.focus(); }
+  function mv(d){ li = (li + d + shots.length) % shots.length; renderLb(); }
+  $('#lbX').addEventListener('click', closeLb);
+  $('#lbPrev').addEventListener('click', function(){ mv(-1); });
+  $('#lbNext').addEventListener('click', function(){ mv(1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target.classList.contains('lb-img')) closeLb(); });
+  addEventListener('keydown', function(e){
+    if (lb.classList.contains('open')){ if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') mv(1); if (e.key === 'ArrowLeft') mv(-1); }
+    else if (drawer.classList.contains('open') && e.key === 'Escape'){ setDrawer(false); mb.focus(); }
+  });
+  var tx = null; lb.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){ if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) mv(dx < 0 ? 1 : -1); tx = null; });
+
+  /* ---- form ---- */
+  var form = $('#quote');
+  function check(id, ok, msg){ var f = $('#' + id).closest('.field'); f.classList.toggle('bad', !ok); $('.err', f).textContent = ok ? '' : msg; return ok; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var em = $('#f-email').value.trim(), ph = $('#f-phone').value.replace(/[\s-]/g, '');
+    var a = check('f-email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em), 'Enter an email address like name@example.com');
+    var b = check('f-phone', /^\+?\d{7,15}$/.test(ph), 'Enter a phone number, e.g. +372 5555 5555');
+    var c = check('f-size', !!$('#f-size').value, 'Choose a size or “Custom order”');
+    if (!(a && b && c)){ var first = $('.field.bad input, .field.bad select', form); if (first) first.focus(); return; }
+    var name = $('#f-name').value.trim(), esc = function(v){ return v.replace(/[<>&"]/g, ''); };
+    var mount = $('input[name=mount]:checked');
+    var data = {
+      _subject: 'NORVO päring (inglise keeles): ' + (name || em),
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: em,
+      'Nimi': name, 'E-post': em, 'Telefon': $('#f-phone').value.trim(), 'Linn': $('#f-city').value.trim(),
+      'Keel': 'inglise (EN)', 'Mudel': $('#f-model').value || 'Not sure yet', 'Suurus': $('#f-size').value,
+      'Paigalduskoht': mount ? mount.value : '', 'Kommentaar': $('#f-msg').value.trim()
+    };
+    var btn = $('button[type=submit]', form); btn.disabled = true; btn.firstChild.textContent = 'Sending… ';
+    fetch('https://formsubmit.co/ajax/info@norvo.ee', {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify(data)})
+      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(){
+        form.innerHTML = '<div class="sent"><p class="eyebrow">Enquiry sent</p><h3>Thank you' + (name ? ', ' + esc(name) : '') + '!</h3><p>We will send a quote to <b>' + esc(em) + '</b> within one business day.</p></div>';
+      })
+      .catch(function(){
+        btn.disabled = false; btn.firstChild.textContent = 'Send enquiry ';
+        var f = $('.form-foot small', form); f.innerHTML = '<span style="color:#A3361F">Sending the enquiry failed.</span> Please try again, email <a href="mailto:info@norvo.ee">info@norvo.ee</a> or call <a href="tel:+37253450781">+372 5345 0781</a>.';
+      });
+  });
+  $$('#quote input, #quote select').forEach(function(el){ el.addEventListener('input', function(){ el.closest('.field').classList.remove('bad'); var er = $('.err', el.closest('.field')); if (er) er.textContent = ''; }); });
+
+  window.__rv();
+})();
+</script>
+
+</body></html>

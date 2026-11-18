@@ -58,9 +58,7 @@ export async function onRequestPost({request, env}) {
     subject: `NORVO hinnapakkumine nr ${no}`,
     html: wrap(`<p>Tere${name ? ', ' + esc(name) : ''}!</p>
       <p>Aitäh huvi eest NORVO pergolate vastu. Sinu hinnapakkumine nr <b>${esc(no)}</b> on selle kirja manuses PDF-failina.</p>
-      ${linesHtml}${totalsHtml}
-      <p style="font-size:13px;color:#555">Hinnad real on ilma käibemaksuta. Pakkumine kehtib kuni ${esc(txt(b.valid, 20))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Soovi korral saab tasuda ka ESTO järelmaksuga.</p>
-      ${link ? `<p><a href="${esc(link)}">Ava pakkumine veebis</a></p>` : ''}
+      <p>Pakkumine kehtib kuni ${esc(txt(b.valid, 20))}. Soovi korral saab tasuda ka ESTO järelmaksuga.</p>
       <p>Võtame sinuga peagi ühendust. Küsimuste korral vasta lihtsalt sellele kirjale.</p>${sign}`),
     attachments
   };

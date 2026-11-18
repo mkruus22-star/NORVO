@@ -346,6 +346,8 @@ function modules(len){
   }
   return best.mods;
 }
+// katuse lamellide suund: lamellid jooksevad lühema külje suunas (ruudul piki esikülge)
+function louvreAlongFront(L, W){ return L <= W + 1e-6; }
 function panelFit(len){ return modules(len).reduce((s, x) => s + x, 0); }
 function accOK(a, len){ return (!a.motorOnly || MODELS[st.model].motor) && modules(len).every(w => a.p[w] != null); }
 function accWhy(a, len){ if (a.motorOnly && !MODELS[st.model].motor) return 'Ainult mootoriga mudelitel (N4, N7)'; return 'Selle külje pikkusele pole saadaval'; }
@@ -572,7 +574,7 @@ async function submitOffer(){
 function specList(){
   const m = MODELS[st.model], {L, W} = sizeLW(st.model, curSize());
   return [['Mudel', `NORVO ${st.model}`], ['Tüüp', st.mount === 'W' ? 'Seinakinnitusega' : 'Eraldiseisev'],
-    ['Lamellide juhtimine', m.motor ? 'Mootoriga' : 'Käsitsi'], ['Lamellide suund', 'Paralleelselt esiküljega'],
+    ['Lamellide juhtimine', m.motor ? 'Mootoriga' : 'Käsitsi'], ['Lamellide suund', louvreAlongFront(L, W) ? 'Paralleelselt esiküljega' : 'Risti esiküljega (sügavuse suunas)'],
     ['Konstruktsiooni värv', COLORS[st.color].name], ['Pikkus (cm)', Math.round(L*100)], ['Laius (cm)', Math.round(W*100)], ['Kõrgus (cm)', m.h]]
     .concat(sidesList().map(s => [`${s.lbl} – sulgemine`, sideText(s)]))
     .concat([['Vihmaandur', m.rain === 'incl' ? 'Kaasas' : st.rain ? 'Jah' : 'Ei'], ['Infrapunasoojendid', st.heaters ? st.heaters + ' tk' : 'Ei'], ['Paigaldus', st.install ? 'Jah' : 'Ei']]);
@@ -874,20 +876,33 @@ if (linkMeta) addEventListener('load', () => { render(); openOffer(linkMeta, nul
     }
 
     // lamellid
-    // lamellid jooksevad paralleelselt esiküljega (piki L), reas sügavuse (W) suunas; keskmise tala korral kaks sektsiooni
-    const sw = 0.2, n = Math.floor((W - 2*BD) / sw);
-    const bays = L >= 5.9 ? [[-L/2 + BD, -BD/2], [BD/2, L/2 - BD]] : [[-L/2 + BD, L/2 - BD]];
-    bays.forEach(([a, b]) => {
-      const len = b - a, cx = (a + b)/2;
+    // lamellid jooksevad lühema külje suunas: ruudul ja kui esikülg on lühem, piki esikülge; muidu sügavuse suunas
+    const sw = 0.2, ys = y0 + H - BH*.45, ledSlat = (g, len, i) => { if (st.model === 'N7' && i % 2 === 0){ const mat = new THREE.MeshBasicMaterial({color:0xD8D4CC}); mats.push(mat); ledMats.push(mat); g.add(at(new THREE.Mesh(new THREE.BoxGeometry(len - .2, .01, .018), mat), 0, -.016, 0)); } };
+    if (louvreAlongFront(L, W)){
+      const n = Math.floor((W - 2*BD) / sw);
+      const bays = L >= 5.9 ? [[-L/2 + BD, -BD/2], [BD/2, L/2 - BD]] : [[-L/2 + BD, L/2 - BD]];
+      bays.forEach(([a, b]) => {
+        const len = b - a, cx = (a + b)/2;
+        for (let i = 0; i < n; i++){
+          const z = -W/2 + BD + sw/2 + i*sw + ((W - 2*BD) - n*sw)/2;
+          const g = new THREE.Group(); g.position.set(cx, ys, z); g.userData.ax = 'x';
+          g.add(box(len - .01, .022, sw*.93, slatMat));
+          g.add(at(box(len - .01, .03, .02, slatMat), 0, .01, sw*.45));
+          ledSlat(g, len, i); slats.push(g); group.add(g);
+        }
+      });
+    } else {
+      const n = Math.floor((L - 2*BD) / sw), len = W - 2*BD;
       for (let i = 0; i < n; i++){
-        const z = -W/2 + BD + sw/2 + i*sw + ((W - 2*BD) - n*sw)/2;
-        const g = new THREE.Group(); g.position.set(cx, y0 + H - BH*.45, z);
-        g.add(box(len - .01, .022, sw*.93, slatMat));
-        g.add(at(box(len - .01, .03, .02, slatMat), 0, .01, sw*.45));
-        if (st.model === 'N7' && i % 2 === 0){ const mat = new THREE.MeshBasicMaterial({color:0xD8D4CC}); mats.push(mat); ledMats.push(mat); g.add(at(new THREE.Mesh(new THREE.BoxGeometry(len - .2, .01, .018), mat), 0, -.016, 0)); }
+        const x = -L/2 + BD + sw/2 + i*sw + ((L - 2*BD) - n*sw)/2;
+        if (L >= 5.9 && Math.abs(x) < BD) continue;             // keskmine tala
+        const g = new THREE.Group(); g.position.set(x, ys, 0); g.userData.ax = 'z';
+        g.add(box(sw*.93, .022, len - .01, slatMat));
+        g.add(at(box(.02, .03, len - .01, slatMat), sw*.45, .01, 0));
+        if (st.model === 'N7' && i % 2 === 0){ const mat = new THREE.MeshBasicMaterial({color:0xD8D4CC}); mats.push(mat); ledMats.push(mat); g.add(at(new THREE.Mesh(new THREE.BoxGeometry(.018, .01, len - .2), mat), 0, -.016, 0)); }
         slats.push(g); group.add(g);
       }
-    });
+    }
     setAngle(ang);
 
     // küljed
@@ -989,7 +1004,7 @@ if (linkMeta) addEventListener('load', () => { render(); openOffer(linkMeta, nul
       el.style.display = vis ? '' : 'none'; el.style.transform = `translate(${(tmp.x*.5+.5)*w}px,${(-tmp.y*.5+.5)*h}px) translate(-50%,-50%)`; });
   }
 
-  function setAngle(a){ slats.forEach(g => g.rotation.x = -a * Math.PI/180); }
+  function setAngle(a){ slats.forEach(g => { if (g.userData.ax === 'z') g.rotation.z = a * Math.PI/180; else g.rotation.x = -a * Math.PI/180; }); }
   function applyLight(){
     scene.background = night ? SKY.night : SKY.day;
     scene.fog = new THREE.Fog(night ? 0x1D2833 : 0xE4E8EA, 40, 110);

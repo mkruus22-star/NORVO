@@ -1,6 +1,6 @@
-// Cloudflare Pages Function: POST /api/pakkumine
+// Cloudflare Worker: POST /api/pakkumine (kutsutakse worker/index.js-ist)
 // Saadab konfiguraatori hinnapakkumise PDF-manusega kliendile ja koopia NORVO-le (Resend API).
-// Vajalikud seaded Cloudflare Pages → Settings → Variables and Secrets:
+// Vajalikud seaded Cloudflare → Workers & Pages → norvo → Settings → Variables and Secrets:
 //   RESEND_API_KEY (Secret)          – Resendi API-võti
 //   MAIL_FROM      (valikuline)      – vaikimisi "NORVO Outdoor Living <info@norvo.ee>"
 //   OFFICE_EMAIL   (valikuline)      – vaikimisi "info@norvo.ee"

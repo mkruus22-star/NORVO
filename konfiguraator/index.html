@@ -1,0 +1,1089 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NORVO konfiguraator</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F4F1EB;--paper-2:#E9E4DA;--ink:#1B2420;--forest:#26372F;--graphite:#30343A;
+  --mist:#5F625C;--stone:#B9B3A6;--line:rgba(27,36,32,.14);--line-d:rgba(233,228,218,.18);
+  --good:#2F7A4F;--warn:#B7791F;--bad:#B23A3A;--sel:#26372F;
+  --f-d:"Cormorant Garamond",Garamond,serif;--f-b:"Manrope","Helvetica Neue",Arial,sans-serif;--f-m:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 var(--f-b);-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}
+.mono{font-family:var(--f-m);font-variant-numeric:tabular-nums}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+/* top */
+.top{background:var(--ink);color:var(--paper);position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;min-height:60px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.38em}
+.logo i{font-style:normal;width:32px;height:32px;border:1.5px solid currentColor;display:grid;place-items:center;letter-spacing:0}
+.tabs{display:flex;gap:4px;margin-left:auto}
+.tab{background:none;border:1px solid var(--line-d);padding:8px 14px;cursor:pointer;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.tab[aria-selected=true]{background:var(--paper);color:var(--ink)}
+.vbar{background:var(--graphite);color:var(--paper);font-size:.85rem}
+.vbar .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-block:8px}
+.vbar label.mm{margin-left:auto;display:flex;gap:6px;align-items:center;cursor:pointer}
+.pill{border:1px solid var(--line-d);background:none;padding:6px 12px;cursor:pointer;border-radius:999px;font-size:.82rem}
+.pill[aria-pressed=true]{background:#E9E4DA;color:var(--ink);border-color:#E9E4DA}
+.tagint{font-family:var(--f-m);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--stone)}
+h1,h2,h3{font-family:var(--f-d);font-weight:500;margin:0;line-height:1.05}
+h1{font-size:clamp(2.2rem,1.4rem + 3vw,3.6rem)}
+h2{font-size:1.7rem}
+.eyebrow{font-family:var(--f-m);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.hero{padding:40px 0 24px}
+.hero p{color:var(--mist);max-width:60ch;margin:10px 0 0}
+/* layout */
+.cfg{display:grid;gap:28px;grid-template-columns:1fr;padding-bottom:60px}
+@media(min-width:1000px){.cfg{grid-template-columns:minmax(0,1.3fr) minmax(380px,1fr);align-items:start}}
+.viewer-col{position:sticky;top:104px;z-index:6;height:42vh;min-height:280px}
+@media(min-width:1000px){.viewer-col{height:calc(100vh - 128px);top:112px}}
+.viewer{position:relative;width:100%;height:100%;background:#E2DED5;overflow:hidden;border:1px solid var(--line)}
+.viewer canvas{display:block;width:100%!important;height:100%!important;cursor:grab;touch-action:none}
+.viewer canvas:active{cursor:grabbing}
+.v-top,.v-bot{position:absolute;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;pointer-events:none;z-index:2;flex-wrap:wrap}
+.v-top{top:12px}.v-bot{bottom:12px}
+.v-views{position:absolute;left:12px;top:52px;z-index:2;display:flex;background:rgba(255,255,255,.85);padding:3px}
+.v-views [hidden]{display:none!important}
+.v-top>*,.v-bot>*{pointer-events:auto}
+.v-dims{background:rgba(255,255,255,.85);padding:5px 10px;font-size:.78rem}
+.v-btns{display:flex;background:rgba(255,255,255,.85);padding:3px}
+.v-btn{border:0;background:none;padding:5px 12px;font-size:.78rem;cursor:pointer}
+.v-btn[aria-pressed=true]{background:var(--forest);color:var(--paper)}
+.v-ang{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.85);padding:5px 10px;font-size:.78rem}
+.v-ang input{width:90px;accent-color:var(--forest)}
+.v-ang b{min-width:3.2em}
+.v-bot{justify-content:flex-start}
+.v-bot .v-hint{margin-left:auto}
+#vSunOut{min-width:6.5em}
+.v-ang small{font-size:.66rem;color:var(--mist)}
+.v-hint{font-size:.72rem;color:var(--mist);background:rgba(255,255,255,.7);padding:4px 8px}
+@media(max-width:640px){.v-hint{display:none}}
+.v-lbls{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.v-lbl{position:absolute;left:0;top:0;background:#fff;color:var(--ink);font-size:.72rem;padding:3px 7px;box-shadow:0 1px 3px rgba(0,0,0,.2);white-space:nowrap}
+.v-fail{position:absolute;inset:0;display:grid;place-items:center;color:var(--mist)}
+.steps-col .sum{position:static;margin-top:10px}
+.custom-dims{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;background:#fff;border:1px solid var(--line);padding:14px}
+.custom-dims label{display:grid;gap:4px;font-size:.8rem;color:var(--mist)}
+.custom-dims input{padding:9px;border:1px solid var(--line);background:var(--paper);font-family:var(--f-m)}
+.custom-dims p{grid-column:1/-1;margin:0;font-size:.8rem;color:var(--mist)}
+.cpills{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.cpill{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;padding:8px 12px;cursor:pointer;font-size:.85rem}
+.cpill[aria-pressed=true]{box-shadow:inset 0 0 0 1px var(--sel);border-color:var(--sel)}
+.cpill i{width:16px;height:16px;border:1px solid rgba(0,0,0,.2);display:block}
+.step{border-top:1px solid var(--line);padding:26px 0}
+.step-h{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.step-h .n{font-family:var(--f-m);font-size:.8rem;color:var(--mist)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.card{position:relative;text-align:left;background:#fff;border:1px solid var(--line);padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--stone)}
+.card[aria-pressed=true]{border-color:var(--sel);box-shadow:inset 0 0 0 1px var(--sel)}
+.card[disabled]{opacity:.45;cursor:not-allowed}
+.card b{font-size:1.05rem}
+.card small{color:var(--mist);font-size:.82rem}
+.card .pr{margin-top:auto;padding-top:8px;font-family:var(--f-m);font-size:.85rem}
+.card .badge{position:absolute;top:10px;right:10px;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;background:var(--forest);color:var(--paper);padding:3px 7px}
+.card ul{margin:4px 0 0;padding-left:16px;color:var(--mist);font-size:.82rem}
+.range{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);padding:16px}
+.range input{flex:1;accent-color:var(--forest)}
+.sides{display:grid;gap:10px}
+.side{display:grid;grid-template-columns:1fr;gap:10px;background:#fff;border:1px solid var(--line);padding:14px}
+.side-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.side-h .mono{font-size:.75rem;color:var(--mist)}
+.side-sel{margin-left:auto;font-size:.8rem;color:var(--forest);font-weight:600}
+.mats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.mt{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px 7px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:.7rem;line-height:1.2;text-align:center;transition:border-color .15s}
+.mt svg{width:100%;max-width:72px;height:auto}
+.mt em{font-style:normal;font-family:var(--f-m);font-size:.66rem;color:var(--mist)}
+.mt:hover{border-color:var(--stone)}
+.mt[aria-pressed=true]{border-color:var(--sel);box-shadow:inset 0 0 0 1px var(--sel);background:#fff}
+.mt[disabled]{opacity:.35;cursor:not-allowed}
+.side select{padding:9px 10px;border:1px solid var(--line);background:var(--paper);width:100%}
+.side .sp{font-family:var(--f-m);font-size:.85rem;text-align:right;min-width:90px}
+.side.na{opacity:.6}
+.plan{background:#fff;border:1px solid var(--line);padding:12px;margin-bottom:12px}
+.plan svg{width:100%;height:auto;max-height:260px;display:block}
+.extras{display:grid;gap:10px}
+.extra{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);padding:12px 14px}
+.extra .sp{margin-left:auto;font-family:var(--f-m);font-size:.85rem}
+.extra input[type=checkbox]{width:18px;height:18px;accent-color:var(--forest)}
+.qty{display:flex;align-items:center;border:1px solid var(--line)}
+.qty button{width:32px;height:32px;border:0;background:var(--paper);cursor:pointer}
+.qty span{width:32px;text-align:center}
+/* summary */
+.sum{background:var(--forest);color:var(--paper);padding:24px;position:sticky;top:120px}
+.sum h2{margin-bottom:4px}
+.sum .lines{margin:16px 0;border-top:1px solid var(--line-d)}
+.sum .ln{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 0;border-bottom:1px solid var(--line-d);font-size:.88rem}
+.sum .ln .v{font-family:var(--f-m);text-align:right}
+.sum .ln .mg{grid-column:1/-1;font-family:var(--f-m);font-size:.72rem;color:var(--stone)}
+.sum .ln .mg.bad{color:#F2A9A9}
+.sum .tot{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.sum .old{text-decoration:line-through;color:var(--stone);font-family:var(--f-m)}
+.sum .big{font-family:var(--f-d);font-size:2.6rem;line-height:1}
+.sum .save{background:#E9E4DA;color:var(--ink);display:inline-block;padding:3px 8px;font-size:.75rem;font-weight:700;letter-spacing:.06em}
+.sum .vat{color:var(--stone);font-size:.78rem}
+.sum .int{margin-top:16px;padding:12px;background:rgba(0,0,0,.22);font-family:var(--f-m);font-size:.78rem;display:grid;grid-template-columns:1fr auto;gap:4px 10px}
+.sum .int .h{grid-column:1/-1;color:var(--stone);letter-spacing:.12em;text-transform:uppercase;font-size:.66rem}
+.btn{display:block;width:100%;margin-top:18px;padding:15px;background:#E9E4DA;color:var(--ink);border:0;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;cursor:pointer}
+.btn:hover{background:#fff}
+.note{font-size:.75rem;color:var(--stone);margin-top:10px}
+.rq{display:grid;gap:10px;grid-template-columns:1fr 1fr;margin-top:16px}
+.rq label{display:grid;gap:4px;font-size:.75rem;color:var(--stone);letter-spacing:.04em}
+.rq .full{grid-column:1/-1}
+.rq input,.rq textarea{width:100%;padding:10px;border:1px solid var(--line-d);background:rgba(255,255,255,.06);color:var(--paper);font-size:.9rem}
+.rq input:focus,.rq textarea:focus{outline:1px solid #E9E4DA}
+.rq .btn{margin-top:6px}
+.rq .btn:disabled{opacity:.6;cursor:wait}
+@media(max-width:420px){.rq{grid-template-columns:1fr}}
+.err{grid-column:1/-1;margin:0;color:#F2A9A9;font-size:.82rem}
+.sent{display:grid;gap:8px;margin-top:16px;padding:14px;background:rgba(0,0,0,.22);font-size:.88rem}
+.sent b{color:#BFE3C8}
+.ghostbtn{background:transparent!important;color:var(--paper)!important;border:1px solid var(--line-d)!important;margin-top:4px!important}
+body:not(.show-m) .m-only{display:none!important}
+/* pricing tab */
+.pt{padding:30px 0 60px}
+.settings{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));background:#fff;border:1px solid var(--line);padding:18px;margin:18px 0}
+.settings label{display:grid;gap:4px;font-size:.78rem;color:var(--mist)}
+.settings input,.settings select{padding:8px;border:1px solid var(--line);background:var(--paper);font-family:var(--f-m);font-size:.9rem;color:var(--ink)}
+.settings .chk{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink)}
+.vcards{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));margin-bottom:18px}
+.vc{background:#fff;border:1px solid var(--line);padding:16px}
+.vc.on{box-shadow:inset 0 0 0 2px var(--forest)}
+.vc h3{font-size:1.4rem}
+.vc .kpi{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:.84rem;margin-top:10px}
+.vc .kpi b{font-family:var(--f-m)}
+.vc label{display:flex;gap:8px;align-items:center;font-size:.8rem;color:var(--mist);margin-top:10px}
+.vc input{width:90px;padding:6px;border:1px solid var(--line);font-family:var(--f-m)}
+.tw{overflow-x:auto;background:#fff;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:.8rem;min-width:960px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{position:sticky;top:0;background:var(--paper-2);font-weight:600;font-size:.72rem;letter-spacing:.04em}
+td:first-child,th:first-child{text-align:left}
+td.n{font-family:var(--f-m)}
+tr.grp td{background:var(--paper);font-weight:700;text-align:left;font-family:var(--f-b)}
+.ok{color:var(--good)}.lo{color:var(--warn)}.neg{color:var(--bad);font-weight:700}
+th.vsel,td.vsel{background:rgba(38,55,47,.06)}
+.legend{font-size:.8rem;color:var(--mist);margin:10px 0 0}
+.assume{background:#FFF8E8;border:1px solid #EBD9A8;padding:14px 16px;font-size:.85rem;margin-top:14px}
+.assume b{display:block;margin-bottom:4px}
+dialog{border:0;padding:0;max-width:560px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(27,36,32,.55)}
+dialog .in{padding:22px}
+dialog pre{white-space:pre-wrap;background:var(--paper);padding:12px;font:12px/1.5 var(--f-m);max-height:50vh;overflow:auto}
+[hidden]{display:none!important}
+/* pakkumise dokument */
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+.pdf-box{position:fixed;left:-12000px;top:0;width:820px;background:#fff;z-index:-1}
+.pdf-box .sheet{width:820px;max-width:none;margin:0 0 20px;padding:44px 48px;box-shadow:none;font-size:12.5px}
+.pdf-box .sh-head{grid-template-columns:auto 1fr auto;gap:28px}
+.pdf-box .sh-meta{grid-template-columns:1fr auto}
+.pdf-box .sh-spec{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto}
+.pdf-box .sh-scroll{overflow:visible}
+body.offer-open{overflow:hidden}
+.offer{position:fixed;inset:0;z-index:100;background:#E4E2DD;overflow:auto;padding:18px 12px 60px}
+.offer-bar{max-width:820px;margin:0 auto 14px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.offer-bar .b{padding:11px 16px;border:1px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.offer-bar .b.alt{background:#fff;color:var(--ink)}
+.offer-bar .proto{font-size:.8rem;color:var(--mist);flex-basis:100%}
+.sheet{max-width:820px;margin:0 auto 18px;background:#fff;padding:44px 48px;box-shadow:0 2px 14px rgba(0,0,0,.08);color:#1B2420;font-size:12.5px;line-height:1.5}
+@media(max-width:640px){.sheet{padding:22px 16px;font-size:11.5px}}
+.sheet a{color:#26372F}
+.sh-head{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:start}
+@media(max-width:640px){.sh-head{grid-template-columns:1fr;gap:10px}}
+.sh-logo{display:flex;align-items:center;gap:10px}
+.sh-logo i{font-style:normal;width:40px;height:40px;border:1.6px solid #1B2420;display:grid;place-items:center;font-weight:700;font-size:15px}
+.sh-logo b{display:block;letter-spacing:.38em;font-size:17px;line-height:1.1}.sh-logo small{display:block;letter-spacing:.3em;font-size:8.5px;color:var(--mist)}
+.sh-co b{color:#26372F}
+.sh-ct{font-size:11.5px}
+.sh-meta{display:grid;grid-template-columns:1fr auto;gap:24px;margin-top:34px}
+@media(max-width:640px){.sh-meta{grid-template-columns:1fr}}
+.sh-k{color:#8A8C86;font-size:11px}
+.sh-scroll{overflow-x:auto;margin-top:26px}
+.sh-tbl{width:100%;border-collapse:collapse;min-width:560px;font-size:12px}
+.sh-tbl th{position:static;background:#EDEEEB;font-weight:700;text-align:right;padding:8px;font-size:11.5px;letter-spacing:0;white-space:nowrap}
+.sh-tbl td{padding:9px 8px;text-align:right;vertical-align:top;border-bottom:1px solid #E4E5E1;white-space:normal}
+.sh-tbl td:nth-child(n+3){white-space:nowrap}
+.sh-tbl th:nth-child(2),.sh-tbl td:nth-child(2){text-align:left}
+.sh-tbl .sub{display:block;color:#6B6E68;font-size:11px;margin-top:1px}
+.disc{color:#2F7A4F;font-weight:600}
+.sh-tot{margin:20px 0 0 auto;max-width:360px;display:grid;grid-template-columns:1fr auto;gap:8px 20px}
+.sh-tot .k{color:#6B6E68}
+.sh-tot .grand{border-top:2px solid #26372F;padding-top:8px;font-weight:700;font-size:15px}
+.sh-note{color:#6B6E68;font-size:11px;margin:22px 0 0}
+.sh-h{font-family:var(--f-b);font-weight:700;font-size:15px;margin:30px 0 12px}
+.sh-img{display:block;width:100%;height:auto;border:1px solid #E4E5E1}
+.sh-spec{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto;gap:8px 18px;margin-top:22px}
+.sh-spec .k{color:#6B6E68}
+.sh-spec span:nth-child(4n+2),.sh-spec span:nth-child(4n){text-align:right}
+@media(max-width:640px){.sh-spec{grid-template-columns:1fr auto}}
+@media print{
+  @page{size:A4;margin:12mm}
+  body.offer-open>*:not(#offer){display:none!important}
+  body.offer-open{overflow:visible;background:#fff}
+  .offer{position:static;padding:0;background:#fff;overflow:visible}
+  .offer-bar{display:none!important}
+  .sheet{box-shadow:none;max-width:none;margin:0;padding:0;font-size:11px;break-after:page}
+  .sheet:last-child{break-after:auto}
+  .sh-scroll{overflow:visible}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" style="color:inherit;text-decoration:none"><i>N.</i>NORVO</a>
+  </div>
+</header>
+
+<!-- ============ CONFIGURATOR ============ -->
+<main id="tab-cfg">
+  <div class="wrap">
+    <div class="hero">
+      <div class="eyebrow">NORVO · Konfiguraator</div>
+      <h1>Pane kokku <em>oma pergola.</em></h1>
+      <p>Vali mudel, paigaldusviis, suurus ja küljed ning vaata 3D-s, kuidas pergola sinu kodu juures välja näeb. Hinnapakkumise saadame sulle e-postile.</p>
+    </div>
+    <div class="cfg">
+      <div class="viewer-col">
+        <div class="viewer" id="viewer">
+          <div class="v-top"><span class="v-dims mono" id="vDims"></span>
+            <div class="v-btns"><button class="v-btn" id="vDay" aria-pressed="true">Päev</button><button class="v-btn" id="vNight" aria-pressed="false">Õhtu</button></div></div>
+          <div class="v-views"><button class="v-btn" data-view="out" aria-pressed="true">Väljast</button><button class="v-btn" data-view="house" id="vHouse" aria-pressed="false" hidden>Maja seest</button><button class="v-btn" data-view="pergola" aria-pressed="false">Pergola seest</button></div>
+          <div class="v-bot"><label class="v-ang">Lamellid <input type="range" id="vAng" min="0" max="90" value="45"><b class="mono" id="vAngOut">45°</b></label>
+            <label class="v-ang">Päike <small>hommik</small><input type="range" id="vSun" min="360" max="1260" step="15" value="840"><small>õhtu</small><b class="mono" id="vSunOut">14:00</b></label>
+            <label class="v-ang">Põhja suund <input type="range" id="vNorth" min="0" max="359" value="0"><b class="mono" id="vNorthOut">0°</b></label><span class="v-hint">Lohista, et pöörata · keri, et suumida</span></div>
+          <div class="v-fail" id="vFail" hidden>3D-vaadet ei õnnestunud laadida.</div>
+        </div>
+      </div>
+      <div class="steps-col">
+        <section class="step"><div class="step-h"><span class="n">01</span><h2>Mudel</h2></div><div class="grid" id="models"></div></section>
+        <section class="step"><div class="step-h"><span class="n">02</span><h2>Paigaldusviis</h2></div><div class="grid" id="mounts"></div></section>
+        <section class="step"><div class="step-h"><span class="n">03</span><h2>Suurus ja värv</h2></div><div id="sizes"></div><div id="colors" style="margin-top:14px"></div></section>
+        <section class="step"><div class="step-h"><span class="n">04</span><h2>Küljed</h2></div>
+          <div class="sides" id="sides"></div></section>
+        <section class="step"><div class="step-h"><span class="n">05</span><h2>Lisad ja paigaldus</h2></div><div class="extras" id="extras"></div></section>
+        <aside class="sum" id="sum"></aside>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="offer" class="offer" hidden></div>
+
+<script>
+/* ===================== HINNAKIRI (Norvo_hinnakiri.csv · hinnad km-ta) ===================== */
+const VAT = 0.24, FRAME_DISC = 0.30, WALL_DISC = 0.20, VALID_DAYS = 14;   // soodustused: pergola raam −30%, seinamaterjalid (küljed) −20%
+const CO = {name:'NORVO Outdoor Living', legal:'Lavrek Solutions OÜ', phone:'+372 5345 0781', tel:'+37253450781', email:'info@norvo.ee', web:'norvo.ee'};
+// suuruse võti 'PxL' = pikkus (esikülg) × laius (sügavus) meetrites; [hind km-ta, mõõdud vaba (mm), mõõdud seinale (mm)]
+const MODELS = {
+  N2S:{ title:'N2S käsitsi reguleeritav pergola', tag:'Parim hinna ja kvaliteedi suhe', feats:['Käsitsi reguleeritavad lamellid','Töötab ilma elektrita','3 standardsuurust'],
+        motor:false, rain:'no', h:275, inst:['Pergola paigaldus', 661.00],
+        sizes:{'3x3':[2360.33,'2997×2997×2750','2849×2997×2750'], '4x3':[2738.13,'2997×3997×2750','2849×3997×2750'], '6x3':[4013.23,'2997×5797×2750','2849×5797×2750']} },
+  N4:{  title:'N4 automaatne pergola LED-valgustusega', tag:'Populaarseim', badge:'Populaarseim', feats:['Mootoriga lamellid','LED-valgustus','5 standardsuurust'],
+        motor:true, rain:'opt', h:275, inst:['Pergola paigaldus', 661.00],
+        sizes:{'3x3':[2974.26,'3038×3038×2750','2869×3038×2750'], '4x3':[4199.00,'3038×4038×2750','2869×4038×2750'], '4x4':[4910.50,'4038×4038×2750','3869×4038×2750'],
+               '6x3':[5666.12,'3038×5858×2750','2869×5858×2750'], '6x4':[7555.13,'4038×5858×2750','3869×5858×2750']} },
+  N7:{  title:'N7 automaatne pergola LED-valgustuse ja vihmaanduriga', tag:'Eritellimus sinu mõõtudes', feats:['Mootoriga lamellid','Lamellide LED-valgustus','Vihmaandur kaasas','Kuni 800 × 400 × 320 cm','3 värvi'],
+        motor:true, rain:'incl', h:320, inst:['N7 pergola paigaldus', 700.00], custom:true, perM2:454.84 }
+};
+// küljed: hind mooduli laiuse järgi (3 m / 4 m); inst = paigaldusteenus
+const ACC = [
+  {id:'zipM',  short:'ZIP-ruloo',              name:'ZIP-rulookardin käsitsi',        p:{3:565.76, 4:811.33},  inst:'ZIP'},
+  {id:'zipA',  short:'ZIP automaatne',         name:'ZIP-rulookardin automaatne',     p:{4:998.97},            inst:'ZIP'},
+  {id:'fixF',  short:'Fikseeritud lamellsein', name:'Fikseeritud lamellsein',         p:{3:1226.92, 4:1472.48}, inst:'SEIN'},
+  {id:'slide', short:'Liigutatav lamellsein',  name:'Liigutatav lamellsein',          p:{3:1321.77},           inst:'KLAAS', motorOnly:true},
+  {id:'glassF',short:'Klaas, raamita',         name:'Raamita lükandklaasuksed',       p:{3:1226.92, 4:1415.82}, inst:'KLAAS', motorOnly:true, glass:true},
+  {id:'glassR',short:'Klaas, raamiga',         name:'Raamiga lükandklaasuksed',       p:{3:1321.49, 4:1528.10}, inst:'KLAAS', motorOnly:true, glass:true}
+];
+const PX = {rain:114.88, heat:206.45, tint:200.00, wallMat:111.50};
+const INST = {KLAAS:['Klaasuste paigaldus', 99.00], ZIP:['ZIP-rulookardina paigaldus', 80.00], SEIN:['Fikseeritud seina paigaldus', 120.00]};
+
+/* ===================== ABI ===================== */
+const $ = s => document.querySelector(s);
+const r2 = v => Math.round(v * 100) / 100;
+const money = v => r2(v).toLocaleString('et-EE', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' €';
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmtD = iso => { const [y,m,d] = iso.split('-'); return `${+d}.${m}.${y}`; };
+const addDays = (iso, n) => { const d = new Date(iso + 'T12:00:00'); d.setDate(d.getDate() + n); return d.toISOString().slice(0, 10); };
+function sizeLW(model, size){ if (size === 'custom') return {L:st.cL/100, W:st.cW/100}; const [l, w] = size.split('x').map(Number); return {L:l, W:w}; }
+const sizeLabel = (model, size) => { const {L, W} = sizeLW(model, size); return `${Math.round(L*100)} × ${Math.round(W*100)} cm`; };
+// külje katmine 3 m ja 4 m moodulitega (eritellimusel väikseim kombinatsioon, mis katab külje)
+function modules(len){
+  const r = Math.round(len * 100) / 100, fixed = {3:[3], 4:[4], 6:[3,3], 7:[3,4], 8:[4,4]};
+  if (fixed[r]) return fixed[r];
+  let best = null;
+  for (let a = 0; a <= 3; a++) for (let b = 0; b <= 3; b++){
+    const s = 3*a + 4*b; if (!s || s + 0.001 < r) continue;
+    if (!best || s < best.s || (s === best.s && a + b < best.n)) best = {s, n:a + b, mods:[...Array(a).fill(3), ...Array(b).fill(4)]};
+  }
+  return best.mods;
+}
+function panelFit(len){ return modules(len).reduce((s, x) => s + x, 0); }
+function accOK(a, len){ return (!a.motorOnly || MODELS[st.model].motor) && modules(len).every(w => a.p[w] != null); }
+function accWhy(a, len){ if (a.motorOnly && !MODELS[st.model].motor) return 'Ainult mootoriga mudelitel (N4, N7)'; return 'Selle külje pikkusele pole saadaval'; }
+
+/* ===================== OLEK ===================== */
+const st = {model:'N4', mount:'F', size:'4x3', custom:false, cL:500, cW:400, sides:{}, rain:false, heaters:0, tint:false, install:true, color:'anth'};
+const COLORS = {anth:{name:'Antratsiit RAL 7016', hex:'#3A3F44'}, brown:{name:'Pruun', hex:'#4A3B30'}, white:{name:'Valge', hex:'#ECEBE6'}};
+function curSize(){ return st.custom ? 'custom' : st.size; }
+function sidesList(){
+  const {L, W} = sizeLW(st.model, curSize());
+  const s = [{k:'front',lbl:'Esikülg',len:L},{k:'back',lbl:'Tagakülg',len:L},{k:'left',lbl:'Vasak külg',len:W},{k:'right',lbl:'Parem külg',len:W}];
+  return s.map(x => ({...x, wall: st.mount === 'W' && x.k === 'back'}));
+}
+
+/* ===================== HINNA ARVUTUS ===================== */
+function calc(){
+  const m = MODELS[st.model], {L, W} = sizeLW(st.model, curSize()), R = [];
+  const area = r2(L * W);
+  const frame = m.custom ? r2(m.perM2 * area) : m.sizes[st.size][0];
+  const sub = [['Mõõdud', `${Math.round(L*100)} × ${Math.round(W*100)} × ${m.h} cm` + (m.custom ? ` (${area.toLocaleString('et-EE')} m² × ${money(m.perM2)})` : ` · ${m.sizes[st.size][st.mount === 'W' ? 2 : 1]} mm`)],
+               ['Paigaldusviis', st.mount === 'W' ? 'seinakinnitusega' : 'eraldiseisev'], ['Värv', COLORS[st.color].name]];
+  if (m.rain === 'incl') sub.push(['Vihmaandur', 'hinna sees']);
+  R.push({name:`NORVO ${m.title}`, sub, unit:frame, qty:1, disc:FRAME_DISC});
+  const cnt = {KLAAS:0, ZIP:0, SEIN:0}; let glassMods = 0;
+  sidesList().forEach(s => {
+    const v = st.sides[s.k]; if (s.wall || !v || v === 'none') return;
+    const a = ACC.find(x => x.id === v), mods = modules(s.len), grp = {};
+    mods.forEach(w => grp[w] = (grp[w] || 0) + 1);
+    Object.keys(grp).forEach(w => R.push({name:`${a.name} ${w} m`, sub:[['Külg', s.lbl]], unit:a.p[w], qty:grp[w], side:s.lbl, disc:WALL_DISC, wall:true}));
+    cnt[a.inst] += mods.length; if (a.glass) glassMods += mods.length;
+  });
+  if (st.tint && glassMods) R.push({name:'Toonitud klaas (lisa)', unit:PX.tint, qty:glassMods, disc:WALL_DISC, wall:true});
+  if (m.rain === 'opt' && st.rain) R.push({name:'Vihmaandur', unit:PX.rain, qty:1});
+  if (st.heaters) R.push({name:'Infrapunasoojendi 2,4 kW', unit:PX.heat, qty:st.heaters});
+  if (st.mount === 'W') R.push({name:'Seinapaigalduse materjalid', unit:PX.wallMat, qty:1, u:'kompl'});
+  if (st.install){
+    R.push({name:m.inst[0], unit:m.inst[1], qty:1});
+    Object.keys(cnt).forEach(k => { if (cnt[k]) R.push({name:INST[k][0], unit:INST[k][1], qty:cnt[k]}); });
+  }
+  R.push({name:'Transport üle Eesti', unit:0, qty:1, free:true});
+  R.forEach(r => { r.list = r2(r.unit * r.qty); r.discAmt = r.disc ? r2(r.list * r.disc) : 0; r.net = r2(r.list - r.discAmt); });
+  const list = r2(R.reduce((s, r) => s + r.list, 0)), disc = r2(R.reduce((s, r) => s + r.discAmt, 0));
+  const discFrame = r2(R.filter(r => !r.wall).reduce((s, r) => s + r.discAmt, 0)), discWall = r2(disc - discFrame);
+  const net = r2(list - disc), vat = r2(net * VAT);
+  return {R, list, disc, discFrame, discWall, net, vat, total:r2(net + vat)};
+}
+
+/* ===================== KONFIGURAATOR ===================== */
+function renderModels(){
+  $('#models').innerHTML = Object.entries(MODELS).map(([id, m]) =>
+    `<button class="card" data-model="${id}" aria-pressed="${st.model===id}">${m.badge?`<span class="badge">${m.badge}</span>`:''}
+      <small>${m.tag}</small><b>NORVO ${id}</b><ul>${m.feats.map(f => `<li>${f}</li>`).join('')}</ul></button>`).join('');
+}
+function renderMounts(){
+  const opts = [['F','Eraldiseisev','Avatud aeda või eraldi õuealale'],['W','Seinakinnitusega','Maja külge, tagakülg jääb vastu seina']];
+  $('#mounts').innerHTML = opts.map(([id, t, d]) => `<button class="card" data-mount="${id}" aria-pressed="${st.mount===id}"><b>${t}</b><small>${d}</small></button>`).join('');
+}
+function renderSizes(){
+  const m = MODELS[st.model];
+  if (m.custom){
+    $('#sizes').innerHTML = `<div class="custom-dims">
+      <label>Pikkus / esikülg (cm)<input type="number" id="cL" min="300" max="800" step="10" value="${st.cL}"></label>
+      <label>Laius / sügavus (cm)<input type="number" id="cW" min="300" max="400" step="10" value="${st.cW}"></label>
+      <p>N7 tehakse sinu mõõtudes: pikkus 300–800 cm, laius 300–400 cm, kõrgus kuni 320 cm. Standardmõõtudes pergolad leiad mudelitelt N2S ja N4.</p></div>`;
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, Math.round(v/10)*10 || a));
+    $('#cL').onchange = e => { st.cL = clamp(+e.target.value, 300, 800); render(); };
+    $('#cW').onchange = e => { st.cW = clamp(+e.target.value, 300, 400); render(); };
+    return;
+  }
+  $('#sizes').innerHTML = `<div class="grid">${Object.keys(m.sizes).map(sz => { const {L, W} = sizeLW(st.model, sz);
+      return `<button class="card" data-size="${sz}" aria-pressed="${st.size===sz}"><b>${sizeLabel(st.model, sz)}</b><small>Kõrgus ${m.h} cm · ${L*W} m²</small></button>`; }).join('')}
+    <button class="card" data-model="N7"><b>Eritellimus</b><small>Sinu mõõdud kuni 800 × 400 cm – mudel N7</small></button></div>`;
+}
+function renderColors(){
+  const keys = st.custom ? ['anth','brown','white'] : ['anth'];
+  $('#colors').innerHTML = `<div class="cpills"><span style="font-size:.85rem;color:var(--mist);margin-right:4px">Värv</span>${keys.map(k => `<button class="cpill" data-color="${k}" aria-pressed="${st.color===k}"><i style="background:${COLORS[k].hex}"></i>${COLORS[k].name}</button>`).join('')}${st.custom?'':'<span style="font-size:.78rem;color:var(--mist)">Pruun ja valge värv eritellimusel (N7)</span>'}</div>`;
+}
+function renderSides(){
+  $('#sides').innerHTML = sidesList().map(s => {
+    if (s.wall) return `<div class="side na"><b>${s.lbl}</b><span style="color:var(--mist);font-size:.85rem">Maja sein</span><span></span></div>`;
+    const mods = modules(s.len), val = st.sides[s.k] || 'none';
+    const tiles = [{id:'none', short:'Avatud'}].concat(ACC).map(a => {
+      const dis = a.id !== 'none' && !accOK(a, s.len);
+      return `<button class="mt" type="button" data-side="${s.k}" data-acc="${a.id}" aria-pressed="${val===a.id}" ${dis?`disabled title="${accWhy(a, s.len)}"`:''} aria-label="${a.name || 'Avatud külg'}">${matIcon(a.id)}<span>${a.short}</span></button>`;
+    }).join('');
+    const sel = ACC.find(a => a.id === val);
+    return `<div class="side"><div class="side-h"><b>${s.lbl}</b><span class="mono">${Math.round(s.len*100)} cm${mods.length>1?` · ${mods.length} moodulit (${mods.join(' + ')} m)`:''}</span><span class="side-sel">${sel ? sel.name : 'Avatud külg'}</span></div><div class="mats">${tiles}</div></div>`;
+  }).join('');
+}
+/* külje materjali ikoon (pergola eestvaade) */
+function matIcon(id){
+  const fr = '<rect x="4" y="4" width="56" height="5" fill="#3A3F44"/><rect x="4" y="4" width="4" height="36" fill="#3A3F44"/><rect x="56" y="4" width="4" height="36" fill="#3A3F44"/><rect x="2" y="40" width="60" height="2" fill="#B9B3A6"/>';
+  let in_ = '';
+  const hl = (x0, x1) => { let s=''; for (let y = 12; y < 39; y += 3.2) s += `<rect x="${x0}" y="${y}" width="${x1-x0}" height="1.8" fill="#5A6066"/>`; return s; };
+  if (id === 'zipM' || id === 'zipA') in_ = `<rect x="8" y="9" width="48" height="3" fill="#2A2D30"/><rect x="9" y="12" width="46" height="28" fill="#55595C" opacity=".85"/>${id==='zipA'?'<circle cx="52" cy="10.5" r="1.4" fill="#E9E4DA"/>':''}`;
+  const pn = {fixF:4, slide:4}[id];
+  if (pn){ for (let i = 0; i < pn; i++){ const x0 = 8 + i*12; in_ += hl(x0 + .8, x0 + 11.2) + `<rect x="${x0 + 11.2}" y="9" width="1" height="31" fill="#3A3F44"/><rect x="${x0}" y="9" width="1" height="31" fill="#3A3F44"/>`; } }
+  if (id === 'glassF' || id === 'glassR'){ in_ = '<rect x="8" y="9" width="48" height="31" fill="#BFD6DD" opacity=".55"/><path d="M14 36 L22 14 M30 36 L38 14 M46 36 L52 20" stroke="#fff" stroke-width="1" opacity=".8"/>';
+    const w = id === 'glassR' ? 1.8 : .6; [23.5, 39.5].forEach(x => in_ += `<rect x="${x}" y="9" width="${w}" height="31" fill="#3A3F44"/>`);
+    if (id === 'glassR') in_ += '<rect x="8" y="9" width="48" height="1.8" fill="#3A3F44"/><rect x="8" y="38" width="48" height="1.8" fill="#3A3F44"/>'; }
+  return `<svg viewBox="0 0 64 44" aria-hidden="true">${in_}${fr}</svg>`;
+}
+function renderExtras(){
+  const m = MODELS[st.model], rows = [];
+  if (m.rain === 'opt') rows.push(`<label class="extra"><input type="checkbox" id="xRain" ${st.rain?'checked':''}><span>Vihmaandur<br><small style="color:var(--mist)">Sulgeb lamellid vihma korral automaatselt</small></span></label>`);
+  if (m.rain === 'incl') rows.push(`<div class="extra"><span>Vihmaandur</span><span class="sp">kaasas</span></div>`);
+  const hasGlass = sidesList().some(s => !s.wall && ACC.some(a => a.glass && a.id === st.sides[s.k]));
+  if (hasGlass) rows.push(`<label class="extra"><input type="checkbox" id="xTint" ${st.tint?'checked':''}><span>Toonitud klaas<br><small style="color:var(--mist)">Klaasuste lisavalik</small></span></label>`);
+  rows.push(`<div class="extra"><span>Infrapunasoojendi 2,4 kW</span><span class="sp" style="display:flex;gap:12px;align-items:center"><span class="qty"><button data-h="-1" aria-label="Vähem">−</button><span>${st.heaters}</span><button data-h="1" aria-label="Rohkem">+</button></span></span></div>`);
+  rows.push(`<label class="extra"><input type="checkbox" id="xInst" ${st.install?'checked':''}><span>Professionaalne paigaldus<br><small style="color:var(--mist)">Pergola ja valitud külgede paigaldus</small></span></label>`);
+  rows.push(`<div class="extra"><span>Transport üle Eesti</span><span class="sp">tasuta</span></div>`);
+  $('#extras').innerHTML = rows.join('');
+  const r = $('#xRain'); if (r) r.onchange = e => { st.rain = e.target.checked; render(); };
+  const t = $('#xTint'); if (t) t.onchange = e => { st.tint = e.target.checked; render(); };
+  $('#xInst').onchange = e => { st.install = e.target.checked; render(); };
+  document.querySelectorAll('[data-h]').forEach(b => b.onclick = () => { st.heaters = Math.max(0, Math.min(6, st.heaters + +b.dataset.h)); render(); });
+}
+function renderSum(){
+  const o = calc();
+  $('#sum').innerHTML = `<div class="eyebrow" style="color:var(--stone)">Sinu pergola</div><h2>Sinu valikud</h2>
+    <div class="lines">${o.R.map(r => `<div class="ln"><span>${r.name}${r.side?` · ${r.side.toLowerCase()}`:''}</span><span class="v">${r.free?'tasuta':r.qty>1?`${r.qty} tk`:''}</span></div>`).join('')}</div>
+    ${st.sent ? '' : `<p style="margin:0 0 6px"><span class="save">PERGOLA RAAMILE −${Math.round(FRAME_DISC*100)}%</span> <span class="save">SEINAMATERJALIDELE −${Math.round(WALL_DISC*100)}%</span></p>
+      <p style="color:var(--stone);font-size:.9rem;margin:0">Sisesta oma andmed ja vajuta „Loo pakkumine“. Näed hinnapakkumist kohe ja saadame selle ka sinu e-postile.</p>`}
+    ${requestBlock()}
+    <p class="note">Lõplik hind kinnitatakse pärast objekti täpsustamist.</p>`;
+  bindRequest();
+}
+
+/* ===================== PAKKUMINE ===================== */
+const LIVE = !/^(localhost|127\.0\.0\.1|)$/.test(location.hostname) || new URLSearchParams(location.search).has('saada');   // päris saatmine live-lehel või ?saada testimiseks
+const FORM_URL = 'https://formsubmit.co/ajax/info@norvo.ee';
+const API_URL = '/api/pakkumine';
+st.form = {name:'', email:'', phone:'', city:'', msg:'', website:''}; st.sent = null;
+function requestBlock(){
+  if (st.sent) return `<div class="sent"><b>✓ Pakkumine on saadetud</b><span>Saatsime hinnapakkumise nr ${esc(st.sent.meta.no)} aadressile ${esc(st.sent.meta.client.e)}. Kui kirja ei tule paari minuti jooksul, vaata ka rämpsposti kausta. Võtame sinuga peagi ühendust.</span>
+    ${st.sent.mailed ? '' : `<span style="color:var(--stone);font-size:.8rem">Prototüüp: e-kirja ei saadetud (saadetakse ainult kodulehel). Allolev nupp on ainult sulle kontrolliks.</span>
+    <button class="btn" id="reopen" type="button">Eelvaade: ava pakkumine</button>`}
+    <button class="btn ghostbtn" id="resend" type="button">Muutsin valikuid – loo uus pakkumine</button></div>`;
+  const f = st.form;
+  return `<form class="rq" id="rq" novalidate>
+    <label>Nimi<input name="name" autocomplete="name" value="${esc(f.name)}"></label>
+    <label>E-post *<input name="email" type="email" autocomplete="email" required value="${esc(f.email)}"></label>
+    <label>Telefon *<input name="phone" type="tel" autocomplete="tel" required value="${esc(f.phone)}"></label>
+    <label>Linn / asukoht<input name="city" autocomplete="address-level2" value="${esc(f.city)}"></label>
+    <label class="full">Kommentaar<textarea name="msg" rows="2">${esc(f.msg)}</textarea></label>
+    <label class="hp" aria-hidden="true">Veebileht<input name="website" tabindex="-1" autocomplete="off"></label>
+    <p class="err" id="rqErr" hidden></p>
+    <button class="btn full" type="submit" id="rqBtn">Loo pakkumine</button>
+  </form>`;
+}
+function bindRequest(){
+  const ro = $('#reopen'); if (ro) ro.onclick = () => openOffer(st.sent.meta, st.sent.link);
+  const rs = $('#resend'); if (rs) rs.onclick = () => { st.sent = null; render(); };
+  const form = $('#rq'); if (!form) return;
+  form.oninput = e => { if (e.target.name) st.form[e.target.name] = e.target.value; };
+  form.onsubmit = e => { e.preventDefault(); submitOffer(); };
+}
+function newNo(){ const d = new Date(), p = n => String(n).padStart(2, '0'); return `${String(d.getFullYear()).slice(2)}${p(d.getMonth()+1)}${p(d.getDate())}-${Math.floor(1000 + Math.random()*9000)}`; }
+function today(){ const d = new Date(), p = n => String(n).padStart(2, '0'); return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`; }
+function encodeOffer(meta){
+  const d = {v:1, m:st.model, mo:st.mount, s:st.size, cL:st.cL, cW:st.cW, sd:st.sides, r:st.rain?1:0, h:st.heaters, t:st.tint?1:0, i:st.install?1:0, c:st.color, no:meta.no, d:meta.date, f:meta.client};
+  return btoa(unescape(encodeURIComponent(JSON.stringify(d)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function decodeOffer(code){
+  try {
+    const d = JSON.parse(decodeURIComponent(escape(atob(code.replace(/-/g, '+').replace(/_/g, '/')))));
+    if (!d || !MODELS[d.m]) return null;
+    Object.assign(st, {model:d.m, mount:d.mo === 'W' ? 'W' : 'F', size:d.s, cL:+d.cL || 500, cW:+d.cW || 400, sides:d.sd || {}, rain:!!d.r, heaters:+d.h || 0, tint:!!d.t, install:!!d.i, color:COLORS[d.c] ? d.c : 'anth'});
+    return {no:String(d.no), date:/^\d{4}-\d\d-\d\d$/.test(d.d) ? d.d : today(), client:d.f || {}};
+  } catch(e){ return null; }
+}
+function sideText(s){ if (s.wall) return 'Maja sein'; const a = ACC.find(x => x.id === st.sides[s.k]); return a ? a.name : 'Avatud'; }
+function offerEmail(o, meta, link){
+  const c = meta.client;
+  const rows = o.R.map(r => `• ${r.name}${r.side ? ' · ' + r.side.toLowerCase() : ''}${r.qty > 1 ? ' × ' + r.qty : ''}: ${r.free ? 'tasuta' : r.disc ? `${money(r.list)} −${Math.round(r.disc*100)}% = ${money(r.net)}` : money(r.net)}`).join('\n');
+  return `Tere${c.n ? ', ' + c.n : ''}!\n\nAitäh huvi eest NORVO pergolate vastu. Sinu hinnapakkumine nr ${meta.no} on valmis.\n\nVaata pakkumist ja laadi see PDF-ina alla:\n${link}\n\nHinnad ilma käibemaksuta:\n${rows}\n\nHind ilma soodustuseta: ${money(o.list)}\nSoodustus (pergola raam −${Math.round(FRAME_DISC*100)}%): −${money(o.discFrame)}\n${o.discWall ? `Soodustus (seinamaterjalid −${Math.round(WALL_DISC*100)}%): −${money(o.discWall)}\n` : ''}Vahesumma: ${money(o.net)}\nKM ${Math.round(VAT*100)}%: ${money(o.vat)}\nKokku: ${money(o.total)}\n\nPakkumine kehtib kuni ${fmtD(addDays(meta.date, VALID_DAYS))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Soovi korral saab tasuda ka ESTO järelmaksuga.\n\n${CO.name}\n${CO.phone} · ${CO.email} · ${CO.web}`;
+}
+async function submitOffer(){
+  const f = st.form, err = $('#rqErr');
+  const bad = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email) ? 'Palun sisesta korrektne e-posti aadress.' : f.phone.replace(/\D/g,'').length < 6 ? 'Palun sisesta telefoninumber.' : '';
+  if (bad){ if (err){ err.textContent = bad; err.hidden = false; } return; }
+  const meta = {no:newNo(), date:today(), client:{n:f.name.trim(), e:f.email.trim(), p:f.phone.trim(), c:f.city.trim(), msg:f.msg.trim()}};
+  const o = calc(), link = location.origin + location.pathname + '#pakkumine=' + encodeOffer(meta);
+  const {L, W} = sizeLW(st.model, curSize());
+  const data = {
+    _subject: `NORVO pakkumine nr ${meta.no}: ${st.model} ${Math.round(L*100)}×${Math.round(W*100)} cm${meta.client.n ? ' – ' + meta.client.n : ''}`,
+    _template: 'table', _captcha: 'false', _replyto: meta.client.e,
+    _autoresponse: offerEmail(o, meta, link),
+    pakkumise_nr: meta.no, name: meta.client.n, email: meta.client.e, phone: meta.client.p, city: meta.client.c, comment: meta.client.msg,
+    konfiguratsioon: o.R.map(r => `${r.name}${r.side ? ' · ' + r.side.toLowerCase() : ''} × ${r.qty}: ${r.free ? 'tasuta' : money(r.net)}`).join('\n'),
+    hind_ilma_soodustuseta: money(o.list), soodustus: '−' + money(o.disc), kokku_km_ta: money(o.net), km_24: money(o.vat), kokku_km_ga: money(o.total),
+    pakkumise_link: link
+  };
+  const btn = $('#rqBtn'); if (btn){ btn.disabled = true; btn.textContent = 'Loon pakkumist…'; }
+  if (LIVE){
+    try {
+      // 1) PDF manusega kiri NORVO serveri kaudu (Resend); 2) varuks FormSubmit tekstikiri
+      let viaApi = false;
+      try {
+        const pdf = (await makePdf(meta)).output('datauristring').split(',')[1];
+        if (btn) btn.textContent = 'Saadan pakkumist…';
+        const payload = {no:meta.no, date:meta.date, valid:fmtD(addDays(meta.date, VALID_DAYS)), client:meta.client, website:f.website || '', link, pdf,
+          lines:o.R.map(r => ({name:r.name, side:r.side || '', qty:r.qty, list:r.list, net:r.net, discPct:r.disc ? Math.round(r.disc*100) : 0, free:!!r.free})),
+          totals:{list:o.list, discFrame:o.discFrame, discWall:o.discWall, net:o.net, vat:o.vat, total:o.total}, spec:specList().map(([k, v]) => [k, String(v)])};
+        const r = await fetch(API_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
+        const j = await r.json().catch(() => ({}));
+        viaApi = r.ok && j.ok === true;
+      } catch(e){ viaApi = false; }
+      if (!viaApi){
+        if (btn) btn.textContent = 'Saadan pakkumist… (kuni 1 minut)';
+        const r = await fetch(FORM_URL, {method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body:JSON.stringify(data)});
+        const j = await r.json().catch(() => ({}));
+        if (!r.ok || String(j.success) !== 'true') throw new Error(j.message || r.status);
+      }
+    } catch(e){
+      if (btn){ btn.disabled = false; btn.textContent = 'Loo pakkumine'; }
+      if (err){ err.textContent = 'Saatmine ebaõnnestus. Proovi uuesti või kirjuta info@norvo.ee.'; err.hidden = false; }
+      return;
+    }
+  }
+  st.sent = {meta, link, mailed:LIVE}; render();   // pakkumist ekraanil ei näidata – see läheb kliendi e-postile
+}
+function specList(){
+  const m = MODELS[st.model], {L, W} = sizeLW(st.model, curSize());
+  return [['Mudel', `NORVO ${st.model}`], ['Tüüp', st.mount === 'W' ? 'Seinakinnitusega' : 'Eraldiseisev'],
+    ['Lamellide juhtimine', m.motor ? 'Mootoriga' : 'Käsitsi'], ['Lamellide suund', 'Paralleelselt esiküljega'],
+    ['Konstruktsiooni värv', COLORS[st.color].name], ['Pikkus (cm)', Math.round(L*100)], ['Laius (cm)', Math.round(W*100)], ['Kõrgus (cm)', m.h]]
+    .concat(sidesList().map(s => [`${s.lbl} – sulgemine`, sideText(s)]))
+    .concat([['Vihmaandur', m.rain === 'incl' ? 'Kaasas' : st.rain ? 'Jah' : 'Ei'], ['Infrapunasoojendid', st.heaters ? st.heaters + ' tk' : 'Ei'], ['Paigaldus', st.install ? 'Jah' : 'Ei']]);
+}
+/* PDF brauseris (html2canvas + jsPDF, laetakse alles vajadusel) */
+const LIBS = ['https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'];
+const loadScript = src => new Promise((res, rej) => { if (document.querySelector(`script[src="${src}"]`) && (src.includes('html2canvas') ? window.html2canvas : window.jspdf)) return res(); const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+async function makePdf(meta){
+  for (const src of LIBS) await loadScript(src);
+  const box = document.createElement('div'); box.className = 'pdf-box';
+  box.innerHTML = offerDoc(calc(), meta, window.P3D && P3D.snapshot ? P3D.snapshot() : '');
+  document.body.appendChild(box);
+  try {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    await Promise.all([...box.querySelectorAll('img')].map(im => im.decode ? im.decode().catch(() => {}) : null));
+    const pdf = new window.jspdf.jsPDF({unit:'mm', format:'a4', compress:true});
+    const sheets = box.querySelectorAll('.sheet'), PW = 210, PH = 297, MG = 10;
+    for (let i = 0; i < sheets.length; i++){
+      const cv = await window.html2canvas(sheets[i], {scale:2, backgroundColor:'#ffffff', logging:false});
+      let w = PW - 2*MG, h = w * cv.height / cv.width;
+      if (h > PH - 2*MG){ h = PH - 2*MG; w = h * cv.width / cv.height; }
+      if (i) pdf.addPage();
+      pdf.addImage(cv.toDataURL('image/jpeg', .86), 'JPEG', (PW - w)/2, MG, w, h);
+    }
+    pdf.setProperties({title:`NORVO hinnapakkumine ${meta.no}`, author:CO.name});
+    return pdf;
+  } finally { box.remove(); }
+}
+function offerDoc(o, meta, img){
+  const m = MODELS[st.model], {L, W} = sizeLW(st.model, curSize()), c = meta.client || {};
+  const head = `<div class="sh-head"><div class="sh-logo"><i>N.</i><span><b>NORVO</b><small>OUTDOOR LIVING</small></span></div>
+    <div class="sh-co"><b>${CO.name}</b><br>${CO.legal}</div>
+    <div class="sh-ct">Telefon: <a href="tel:${CO.tel}">${CO.phone}</a><br>E-post: <a href="mailto:${CO.email}">${CO.email}</a><br>Veebileht: <a href="https://${CO.web}">${CO.web}</a></div></div>`;
+  const spec = specList();
+  return `<section class="sheet">${head}
+    <div class="sh-meta"><div><div class="sh-k">Klient</div><b>${esc(c.n || '—')}</b><br>E-post: ${esc(c.e)}<br>Telefon: ${esc(c.p)}${c.c ? `<br>Asukoht: ${esc(c.c)}` : ''}</div>
+      <div><b>Pakkumise nr. ${esc(meta.no)}</b><br>Pakkumise kuupäev: ${fmtD(meta.date)}<br>Pakkumise kehtivus: ${fmtD(addDays(meta.date, VALID_DAYS))}</div></div>
+    <div class="sh-scroll"><table class="sh-tbl"><thead><tr><th>#</th><th>Toode</th><th>Ühiku hind</th><th>Kogus</th><th>Allahindlus</th><th>KM</th><th>Vahesumma</th></tr></thead><tbody>
+    ${o.R.map((r, i) => `<tr><td>${i + 1}</td><td><b>${r.name}</b>${(r.sub || []).map(([k, v]) => `<span class="sub">${k}: ${v}</span>`).join('')}</td>
+      <td>${r.free ? 'tasuta' : money(r.unit)}</td><td>${r.qty}${r.u ? ' ' + r.u : ''}</td><td>${r.disc ? `<span class="disc">−${Math.round(r.disc*100)}%<br>−${money(r.discAmt)}</span>` : ''}</td><td>${Math.round(VAT*100)}%</td><td>${money(r.net)}</td></tr>`).join('')}
+    </tbody></table></div>
+    <div class="sh-tot"><span class="k">Hind ilma soodustuseta</span><span>${money(o.list)}</span>
+      <span class="k">Soodustus (pergola raam −${Math.round(FRAME_DISC*100)}%)</span><span class="disc">−${money(o.discFrame)}</span>
+      ${o.discWall ? `<span class="k">Soodustus (seinamaterjalid −${Math.round(WALL_DISC*100)}%)</span><span class="disc">−${money(o.discWall)}</span>` : ''}
+      <span class="k">Vahesumma</span><span>${money(o.net)}</span>
+      <span class="k">KM (${Math.round(VAT*100)}%)</span><span>${money(o.vat)}</span>
+      <span class="grand">Kokku:</span><span class="grand">${money(o.total)}</span></div>
+    ${c.msg ? `<p class="sh-note"><b>Kliendi kommentaar:</b> ${esc(c.msg)}</p>` : ''}
+    <p class="sh-note">Pakkumine kehtib kuni ${fmtD(addDays(meta.date, VALID_DAYS))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Tasuda saab ka ESTO järelmaksuga (3 osas 0 € lisatasuga või 3–60 kuud).</p>
+  </section>
+  <section class="sheet">${head}
+    <h3 class="sh-h">Kokkuvõte</h3>
+    ${img ? `<img class="sh-img" src="${img}" alt="NORVO pergola 3D-vaade">` : ''}
+    <div class="sh-spec">${spec.map(([k, v]) => `<span class="k">${k}</span><span>${v}</span>`).join('')}</div>
+  </section>`;
+}
+function openOffer(meta, link){
+  const el = $('#offer');
+  const img = window.P3D && P3D.snapshot ? P3D.snapshot() : '';
+  el.innerHTML = `<div class="offer-bar"><button class="b" type="button" id="oPrint">Laadi alla PDF</button><button class="b alt" type="button" id="oBack">← Tagasi konfiguraatorisse</button>
+    ${st.sent && !st.sent.mailed ? '<span class="proto">Prototüüp: e-kirja ei saadetud. Kodulehel saadetakse see pakkumine kliendile ja info@norvo.ee-le.</span>' : ''}</div>` + offerDoc(calc(), meta, img);
+  el.hidden = false; el.scrollTop = 0; document.body.classList.add('offer-open');
+  if (link && location.hash.indexOf('pakkumine=') < 0) history.replaceState(null, '', link);
+  $('#oPrint').onclick = () => window.print();
+  $('#oBack').onclick = () => { el.hidden = true; document.body.classList.remove('offer-open'); history.replaceState(null, '', location.pathname + location.search); };
+}
+
+/* ===================== RENDER ===================== */
+function render(){
+  const m = MODELS[st.model]; st.custom = !!m.custom;
+  if (!m.custom && !m.sizes[st.size]) st.size = m.sizes['4x3'] ? '4x3' : Object.keys(m.sizes)[0];
+  sidesList().forEach(s => { const a = ACC.find(x => x.id === st.sides[s.k]); if (s.wall || (a && !accOK(a, s.len))) st.sides[s.k] = 'none'; });
+  if (!st.custom) st.color = 'anth';
+  if (m.rain !== 'opt') st.rain = false;
+  renderModels(); renderMounts(); renderSizes(); renderColors(); renderSides(); renderExtras(); renderSum();
+  if (window.P3D) P3D.update();
+}
+
+/* ===================== SÜNDMUSED ===================== */
+document.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || b.closest('#offer')) return;
+  if (b.dataset.model){ st.model = b.dataset.model; render(); }
+  else if (b.dataset.mount){ st.mount = b.dataset.mount; render(); }
+  else if (b.dataset.size){ st.size = b.dataset.size; render(); }
+  else if (b.dataset.acc){ st.sides[b.dataset.side] = b.dataset.acc; render(); }
+  else if (b.dataset.color){ st.color = b.dataset.color; render(); }
+});
+const linkMeta = location.hash.indexOf('#pakkumine=') === 0 ? decodeOffer(location.hash.slice(11)) : null;
+render();
+// pakkumise link: ava pakkumine, kui 3D on valmis
+if (linkMeta) addEventListener('load', () => { render(); openOffer(linkMeta, null); });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+/* ===================== 3D VIEW ===================== */
+(function(){
+  const host = $('#viewer');
+  if (!window.THREE || !THREE.OrbitControls){ $('#vFail').hidden = false; return; }
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({antialias:true}); } catch(e){ $('#vFail').hidden = false; return; }
+  renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+  host.prepend(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 400);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08; controls.enablePan = false;
+  controls.maxPolarAngle = Math.PI * 0.47; controls.minDistance = 4; controls.maxDistance = 36;
+
+  /* ---------- tekstuurid (genereeritud) ---------- */
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  function canvasTex(w, h, draw, rep){
+    const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h);
+    const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.encoding = THREE.sRGBEncoding;
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy(); if (rep) t.repeat.set(rep[0], rep[1]); return t;
+  }
+  const deckTex = canvasTex(512, 512, (g, w, h) => {           // 1 m × 1 m, lauad mööda x-telge
+    const n = 7, ph = h / n;
+    for (let i = 0; i < n; i++){
+      let x = -rnd(0, 200);
+      while (x < w){
+        const len = rnd(220, 420), l = rnd(-5, 5);
+        g.fillStyle = `hsl(${rnd(24, 31)},${rnd(30, 40)}%,${40 + l}%)`; g.fillRect(x, i*ph, len, ph);
+        for (let k = 0; k < 16; k++){
+          g.strokeStyle = `rgba(70,40,20,${rnd(.05, .16)})`; g.lineWidth = rnd(.4, 1.4); g.beginPath();
+          const yy = i*ph + rnd(3, ph-3); g.moveTo(x, yy);
+          g.bezierCurveTo(x+len*.3, yy+rnd(-3,3), x+len*.6, yy+rnd(-3,3), x+len, yy+rnd(-2,2)); g.stroke();
+        }
+        g.fillStyle = 'rgba(30,18,10,.6)'; g.fillRect(x+len-2, i*ph, 2, ph); x += len;
+      }
+      g.fillStyle = 'rgba(20,14,9,.75)'; g.fillRect(0, i*ph+ph-4, w, 4);
+    }
+  });
+  const grassTex = canvasTex(256, 256, (g, w, h) => {
+    g.fillStyle = '#6F8A4F'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 6000; i++){ g.fillStyle = `hsla(${rnd(75, 102)},${rnd(25, 45)}%,${rnd(27, 50)}%,.55)`; g.fillRect(rnd(0, w), rnd(0, h), 1.2, rnd(1, 3.5)); }
+  }, [70, 70]);
+  const plasterTex = canvasTex(256, 256, (g, w, h) => {
+    g.fillStyle = '#EDEAE3'; g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 5000; i++){ const v = rnd(-1, 1); g.fillStyle = v > 0 ? `rgba(255,255,255,${v*.25})` : `rgba(120,112,100,${-v*.12})`; g.fillRect(rnd(0, w), rnd(0, h), 2, 2); }
+  }, [3, 2]);
+  const claddingTex = canvasTex(256, 256, (g, w, h) => {      // tume vertikaalne puitvooder
+    const n = 8, bw = w / n;
+    for (let i = 0; i < n; i++){ g.fillStyle = `hsl(25,${rnd(10,16)}%,${rnd(17,23)}%)`; g.fillRect(i*bw, 0, bw, h);
+      for (let k = 0; k < 6; k++){ g.fillStyle = 'rgba(0,0,0,.12)'; g.fillRect(i*bw + rnd(2, bw-2), 0, 1, h); }
+      g.fillStyle = 'rgba(0,0,0,.6)'; g.fillRect(i*bw, 0, 2, h); }
+  });
+  const roofTex = canvasTex(256, 64, (g, w, h) => {
+    g.fillStyle = '#3A3E42'; g.fillRect(0, 0, w, h);
+    for (let x = 0; x < w; x += 32){ g.fillStyle = '#26292C'; g.fillRect(x, 0, 3, h); g.fillStyle = 'rgba(255,255,255,.08)'; g.fillRect(x+3, 0, 2, h); }
+  });
+  const fabricTex = canvasTex(128, 128, (g, w, h) => {
+    g.fillStyle = '#4C4F52'; g.fillRect(0, 0, w, h);
+    for (let y = 0; y < h; y += 2){ g.fillStyle = 'rgba(0,0,0,.2)'; g.fillRect(0, y, w, 1); }
+    for (let x = 0; x < w; x += 2){ g.fillStyle = 'rgba(255,255,255,.06)'; g.fillRect(x, 0, 1, h); }
+  });
+  const pavingTex = canvasTex(256, 256, (g, w, h) => {
+    g.fillStyle = '#8E8B84'; g.fillRect(0, 0, w, h);
+    for (let y = 0; y < h; y += 64) for (let x = (y/64)%2 ? -64 : 0; x < w; x += 128){
+      g.fillStyle = `hsl(40,${rnd(3,7)}%,${rnd(58,68)}%)`; g.fillRect(x+2, y+2, 124, 60);
+    }
+  });
+  const skyTex = (night) => canvasTex(16, 256, (g, w, h) => {
+    const gr = g.createLinearGradient(0, 0, 0, h);
+    if (night){ gr.addColorStop(0, '#0E1620'); gr.addColorStop(.7, '#1D2833'); gr.addColorStop(1, '#2A3440'); }
+    else { gr.addColorStop(0, '#9FBFD8'); gr.addColorStop(.65, '#DCE6EC'); gr.addColorStop(1, '#ECEAE3'); }
+    g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  });
+  const SKY = {day: skyTex(false), night: skyTex(true)};
+  [SKY.day, SKY.night].forEach(t => { t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping; });
+
+  /* ---------- valgus ja maapind ---------- */
+  const hemi = new THREE.HemisphereLight(0xE4EEF5, 0x6B6E58, 0.7); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xFFF1DC, 1.7);
+  sun.position.set(9, 16, 10); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, {left:-16, right:16, top:16, bottom:-16, near:1, far:60}); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+  scene.add(sun);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(240, 240), new THREE.MeshStandardMaterial({map:grassTex, roughness:1}));
+  ground.rotation.x = -Math.PI/2; ground.receiveShadow = true; scene.add(ground);
+
+  /* ---------- abifunktsioonid ---------- */
+  let group = null, lastKey = '', night = false, ang = 45, slats = [], ledMats = [], heaterMats = [], winMats = [], fadeMats = [], nightLights = [], dims = null, fade = 1;
+  const fadeM = (o) => { const m = M(o); m.transparent = true; fadeMats.push(m); return m; };
+  const mats = [];
+  const M = (o) => { const m = new THREE.MeshStandardMaterial(o); mats.push(m); return m; };
+  const box = (w, h, d, mat, shadow = true) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat); m.castShadow = shadow; m.receiveShadow = true; return m; };
+  const at = (o, x, y, z) => { o.position.set(x, y, z); return o; };
+
+  function tree(g, x, z, s){
+    const t = new THREE.Group();
+    t.add(at(box(.14*s, 1.7*s, .14*s, fadeM({color:0x5B4636, roughness:1})), 0, .85*s, 0));
+    [[0, 2.3, 0, 1.0], [.45, 2.0, .2, .75], [-.4, 2.1, -.25, .8], [.1, 2.8, -.1, .7]].forEach(([dx, dy, dz, r], i) => {
+      const c = new THREE.Mesh(new THREE.IcosahedronGeometry(r*s, 1), fadeM({color:new THREE.Color().setHSL(.27 + i*.012, .35, .28 + i*.02), roughness:1, flatShading:true}));
+      c.position.set(dx*s, dy*s, dz*s); c.castShadow = true; t.add(c);
+    });
+    t.position.set(x, 0, z); g.add(t);
+  }
+  function hedge(g, x, z, w, d){ const h = box(w, .9, d, M({color:0x4E6B3A, roughness:1})); h.position.set(x, .45, z); g.add(h); }
+  function windowUnit(g, x, y, z, w, h, door){
+    const frame = M({color:0x2A2E32, roughness:.5, metalness:.3});
+    const glass = M({color:0x3E5360, roughness:.08, metalness:.6, emissive:0x000000}); winMats.push(glass);
+    g.add(at(box(w, h, .1, frame), x, y, z));
+    g.add(at(box(w-.12, h-.12, .02, glass, false), x, y, z + .052));
+    if (door){ g.add(at(box(.05, h-.12, .03, frame), x, y, z + .06)); }
+    else g.add(at(box(w+.1, .04, .18, M({color:0xBDB8AE})), x, y - h/2 - .02, z + .08));
+  }
+  function house(g, L, W, wall, deckH){
+    const hw = Math.max(L + 6, 11), hd = 8.5, hh = 3.1;
+    const zf = wall ? -W/2 : -W/2 - 5.5, zc = zf - hd/2;
+    const plaster = M({map:plasterTex, roughness:.95});
+    const fPlaster = fadeM({map:plasterTex, roughness:.95});   // läbipaistvaks muutuvad osad
+    const t = .25, fl = .15, dw = Math.max(3, Math.min(5, L * .75)), dh = 2.3, np = dw >= 4 ? 3 : 2;   // klaasuks vähemalt 3 m
+    // sokkel (väljast)
+    // õõnes maja: tagasein, küljed, esisein ukseavaga, põrand, lagi
+    g.add(at(box(hw, hh, t, fPlaster), 0, hh/2, zc - hd/2 + t/2));
+    [-1, 1].forEach(sg => g.add(at(box(t, hh, hd, fPlaster), sg * (hw/2 - t/2), hh/2, zc)));
+    const sideW = (hw - dw)/2;
+    [-1, 1].forEach(sg => g.add(at(box(sideW, hh, t, plaster), sg * (dw/2 + sideW/2), hh/2, zf - t/2)));
+    g.add(at(box(dw, hh - dh - fl, t, plaster), 0, fl + dh + (hh - dh - fl)/2, zf - t/2));
+    g.add(at(box(dw, fl, t, M({color:0x5A5E61, roughness:.9})), 0, fl/2, zf - t/2));
+    const floor = M({map:deckTex, color:0xE8D9C4, roughness:.7});
+    g.add(at(box(hw - 2*t, .04, hd - 2*t, floor, false), 0, fl, zc));
+    g.add(at(box(hw, .12, hd, fadeM({color:0xF4F2EE, roughness:1})), 0, hh - .06, zc));
+    // terrassiuks (klaas, avatav vaade)
+    const df = M({color:0x2A2E32, roughness:.5, metalness:.3});
+    const dglass = new THREE.MeshPhysicalMaterial({color:0xD5E6EC, transparent:true, opacity:.16, roughness:.04, clearcoat:1, side:THREE.DoubleSide, depthWrite:false}); mats.push(dglass);
+    g.add(at(box(dw, .07, .12, df), 0, fl + dh - .035, zf - t/2)); g.add(at(box(dw, .05, .12, df), 0, fl + .025, zf - t/2));
+    for (let i = 0; i <= np; i++){ const x = -dw/2 + .035 + i * (dw - .07) / np; g.add(at(box(.07, dh, .12, df), x, fl + dh/2, zf - t/2)); }
+    for (let i = 0; i < np; i++){ const pw = dw / np, x = -dw/2 + pw/2 + i * pw; g.add(at(new THREE.Mesh(new THREE.BoxGeometry(pw - .1, dh - .12, .01), dglass), x, fl + dh/2, zf - t/2)); }
+    // sisevalgus
+    const inLight = new THREE.PointLight(0xFFF1DC, .7, 9, 2); inLight.position.set(0, hh - .4, zf - 3); nightLights.push(inLight); inLight.userData.always = true; scene.add(inLight);
+    // katus (viilkatus, hari mööda x-telge)
+    const pitch = .5, half = hd/2 + .55, slope = half / Math.cos(pitch), rise = half * Math.tan(pitch);
+    const rm = fadeM({map:roofTex, roughness:.6, metalness:.3}); roofTex.repeat.set((hw + 1.2) / 2, 1);
+    [1, -1].forEach(sg => {
+      const r = box(hw + 1.2, .14, slope, rm); r.rotation.x = sg * pitch;
+      r.position.set(0, hh + rise/2 + .05, zc + sg * half/2); g.add(r);
+    });
+    const tri = new THREE.Shape(); tri.moveTo(-hd/2, 0); tri.lineTo(hd/2, 0); tri.lineTo(0, (hd/2) * Math.tan(pitch)); tri.lineTo(-hd/2, 0);
+    [-1, 1].forEach(sg => {
+      const gm = new THREE.Mesh(new THREE.ShapeGeometry(tri), fPlaster); gm.rotation.y = sg * Math.PI/2;
+      gm.position.set(sg * (hw/2 + .002), hh, zc); gm.receiveShadow = true; g.add(gm);
+    });
+    g.add(at(box(hw + 1.2, .16, .16, M({color:0x2E3135, roughness:.5})), 0, hh + .02, zf + .55));   // räästas + vihmaveerenn
+    return {zf, hw, fl};
+  }
+
+  /* ---------- pergola ehitamine ---------- */
+  function build(){
+    if (group){ scene.remove(group); group.traverse(o => { if (o.geometry) o.geometry.dispose(); }); }
+    mats.splice(0).forEach(m => m.dispose());
+    group = new THREE.Group(); slats = []; ledMats = []; heaterMats = []; winMats = []; fadeMats = []; fade = 1;
+    nightLights.forEach(l => scene.remove(l)); nightLights = [];
+    const m = MODELS[st.model], {L, W} = sizeLW(st.model, curSize()), H = m.h/100, wall = st.mount === 'W';
+    const col = new THREE.Color(COLORS[st.color].hex);
+    const frameMat = M({color:col, metalness:.45, roughness:.42});
+    const slatMat = M({color:col.clone().offsetHSL(0, 0, .03), metalness:.4, roughness:.38});
+    const P = 0.15, BH = 0.24, BD = 0.15, deckH = 0.14;
+
+    // maja ja terrass
+    const hs = house(group, L, W, wall, deckH);
+    const dx0 = -L/2 - 1.1, dx1 = L/2 + 1.1, dz0 = wall ? hs.zf + .01 : -W/2 - 1.1, dz1 = W/2 + 1.3;
+    const dW = dx1 - dx0, dD = dz1 - dz0;
+    const dTex = deckTex.clone(); dTex.needsUpdate = true; dTex.repeat.set(dW, dD);
+    const deck = box(dW, deckH, dD, M({map:dTex, roughness:.85}), false); deck.position.set((dx0+dx1)/2, deckH/2, (dz0+dz1)/2); group.add(deck);
+    const fascia = M({color:0x5E4A3A, roughness:.9});
+    group.add(at(box(dW + .04, deckH, .04, fascia, false), (dx0+dx1)/2, deckH/2, dz1 + .02));
+    [dx0 - .02, dx1 + .02].forEach(x => group.add(at(box(.04, deckH, dD, fascia, false), x, deckH/2, (dz0+dz1)/2)));
+    if (!wall){
+      group.add(at(box(dW + .04, deckH, .04, fascia, false), (dx0+dx1)/2, deckH/2, dz0 - .02));
+    }
+    // ümbrus
+
+    const y0 = deckH;
+    // postid koos alusplaadiga
+    const xs = [-L/2 + P/2, L/2 - P/2]; if (L >= 5.9) xs.splice(1, 0, 0);
+    const zs = wall ? [W/2 - P/2] : [-W/2 + P/2, W/2 - P/2];
+    xs.forEach(x => zs.forEach(z => {
+      group.add(at(box(P, H, P, frameMat), x, y0 + H/2, z));
+      group.add(at(box(P + .08, .012, P + .08, frameMat), x, y0 + .006, z));
+    }));
+    if (wall) xs.forEach(x => group.add(at(box(P, BH + .1, .06, frameMat), x, y0 + H - BH/2, -W/2 + .03)));   // seinakinnitus
+    // talad (renniga raam)
+    const yb = y0 + H - BH/2;
+    [W/2 - BD/2, -W/2 + BD/2].forEach(z => { group.add(at(box(L, BH, BD, frameMat), 0, yb, z)); group.add(at(box(L, .015, BD + .01, M({color:col.clone().offsetHSL(0,0,-.04), metalness:.5, roughness:.4})), 0, y0 + H + .007, z)); });
+    [-L/2 + BD/2, L/2 - BD/2].forEach(x => group.add(at(box(BD, BH, W, frameMat), x, yb, 0)));
+    if (L >= 5.9) group.add(at(box(BD, BH, W, frameMat), 0, yb, 0));
+
+    // LED
+    const led = (w, d, x, z) => { const mat = new THREE.MeshBasicMaterial({color:0xD8D4CC}); mats.push(mat); ledMats.push(mat); group.add(at(new THREE.Mesh(new THREE.BoxGeometry(w, .012, d), mat), x, y0 + H - BH - .007, z)); };
+    if (m.motor){
+      led(L - 2*BD, .025, 0, W/2 - BD - .02); led(L - 2*BD, .025, 0, -W/2 + BD + .02);
+      led(.025, W - 2*BD, -L/2 + BD + .02, 0); led(.025, W - 2*BD, L/2 - BD - .02, 0);
+      [[-L/4, 0], [L/4, 0]].forEach(([x, z]) => { const pl = new THREE.PointLight(0xFFD7A0, 0, 7, 2); pl.position.set(x, y0 + H - .45, z); nightLights.push(pl); scene.add(pl); });
+    }
+
+    // lamellid
+    // lamellid jooksevad paralleelselt esiküljega (piki L), reas sügavuse (W) suunas; keskmise tala korral kaks sektsiooni
+    const sw = 0.2, n = Math.floor((W - 2*BD) / sw);
+    const bays = L >= 5.9 ? [[-L/2 + BD, -BD/2], [BD/2, L/2 - BD]] : [[-L/2 + BD, L/2 - BD]];
+    bays.forEach(([a, b]) => {
+      const len = b - a, cx = (a + b)/2;
+      for (let i = 0; i < n; i++){
+        const z = -W/2 + BD + sw/2 + i*sw + ((W - 2*BD) - n*sw)/2;
+        const g = new THREE.Group(); g.position.set(cx, y0 + H - BH*.45, z);
+        g.add(box(len - .01, .022, sw*.93, slatMat));
+        g.add(at(box(len - .01, .03, .02, slatMat), 0, .01, sw*.45));
+        if (st.model === 'N7' && i % 2 === 0){ const mat = new THREE.MeshBasicMaterial({color:0xD8D4CC}); mats.push(mat); ledMats.push(mat); g.add(at(new THREE.Mesh(new THREE.BoxGeometry(len - .2, .01, .018), mat), 0, -.016, 0)); }
+        slats.push(g); group.add(g);
+      }
+    });
+    setAngle(ang);
+
+    // küljed
+    const sideH = H - BH, sides = sidesList();
+    const geo = {front:{len:L, x:0, z:W/2 - BD/2, rot:0}, back:{len:L, x:0, z:-W/2 + BD/2, rot:0}, left:{len:W, x:-L/2 + BD/2, z:0, rot:Math.PI/2}, right:{len:W, x:L/2 - BD/2, z:0, rot:Math.PI/2}};
+    const glass = new THREE.MeshPhysicalMaterial({color:0xD5E6EC, transparent:true, opacity:.2, metalness:.1, roughness:.04, clearcoat:1, clearcoatRoughness:.05, side:THREE.DoubleSide, depthWrite:false}); mats.push(glass);
+    const fTex = fabricTex.clone(); fTex.needsUpdate = true;
+    const fabric = new THREE.MeshStandardMaterial({map:fTex, transparent:true, opacity:.9, roughness:1, side:THREE.DoubleSide}); mats.push(fabric);
+    const blade = M({color:col.clone().offsetHSL(0, 0, .05), metalness:.4, roughness:.4});
+    sides.forEach(s => {
+      const v = st.sides[s.k]; if (s.wall || !v || v === 'none') return;
+      const g = geo[s.k], sg = new THREE.Group(); sg.position.set(g.x, y0, g.z); sg.rotation.y = g.rot;
+      const len = g.len - 2*P, mods = modules(s.len) || [Math.max(2, Math.round(s.len))], panels = mods.reduce((a, b) => a + b, 0);
+      const rails = (depth) => { sg.add(at(box(len, .05, depth, frameMat), 0, sideH - .025, 0)); sg.add(at(box(len, .025, depth, frameMat), 0, .012, 0)); };
+      if (v === 'zipM' || v === 'zipA'){
+        const fh = sideH - .16; fTex.repeat.set(len * 4, fh * 4);
+        sg.add(at(new THREE.Mesh(new THREE.PlaneGeometry(len - .1, fh), fabric), 0, fh/2 + .03, 0));
+        sg.add(at(box(len, .14, .14, frameMat), 0, sideH - .07, 0));               // kassett
+        [-len/2 + .025, len/2 - .025].forEach(x => sg.add(at(box(.05, sideH - .14, .07, frameMat), x, (sideH - .14)/2, 0)));   // juhtsiinid
+        sg.add(at(box(len - .1, .04, .05, frameMat), 0, .05, 0));                  // alumine liist
+      } else if (v === 'fixF'){
+        const n = panelFit(s.len), w = len / n;    // terve külg raamitud lamellpaneelidest
+        for (let i = 0; i < n; i++){
+          const x0 = -len/2 + w/2 + i*w;
+          [-w/2 + .025, w/2 - .025].forEach(dx => sg.add(at(box(.05, sideH, .07, frameMat), x0 + dx, sideH/2, 0)));
+          sg.add(at(box(w, .05, .07, frameMat), x0, sideH - .025, 0)); sg.add(at(box(w, .05, .07, frameMat), x0, .025, 0));
+          for (let y = .12; y < sideH - .06; y += .085){ const b = box(w - .1, .095, .01, blade); b.position.set(x0, y, 0); b.rotation.x = -.62; sg.add(b); }
+        }
+      } else if (v === 'slide'){
+        rails(.16); const np = panelFit(s.len), pw = len / np;
+        for (let i = 0; i < np; i++){
+          const px = -len/2 + pw/2 + i*pw, off = (i % 2 ? .045 : -.045), ph = sideH - .1;
+          [-pw/2 + .02, pw/2 - .02].forEach(dx => sg.add(at(box(.04, ph, .05, frameMat), px + dx, ph/2 + .03, off)));
+          sg.add(at(box(pw, .04, .05, frameMat), px, .05, off)); sg.add(at(box(pw, .04, .05, frameMat), px, ph + .01, off));
+          for (let y = .14; y < ph - .04; y += .085){ const b = box(pw - .1, .095, .01, blade); b.position.set(px, y, off); b.rotation.x = -.62; sg.add(b); }   // samad horisontaalsed lamellid nagu fikseeritud seinal
+        }
+      } else {
+        const framed = v === 'glassR'; rails(framed ? .16 : .14);
+        const pw = len / panels, gh = sideH - .1;
+        for (let i = 0; i < panels; i++){
+          const px = -len/2 + pw/2 + i*pw, off = ((i % 3) - 1) * .035;
+          sg.add(at(new THREE.Mesh(new THREE.BoxGeometry(pw - .012, gh, .008), glass), px, gh/2 + .05, off));
+          if (framed){
+            [-pw/2 + .018, pw/2 - .018].forEach(dx => sg.add(at(box(.036, gh, .036, frameMat), px + dx, gh/2 + .05, off)));
+            sg.add(at(box(pw, .036, .036, frameMat), px, .068, off)); sg.add(at(box(pw, .036, .036, frameMat), px, gh + .032, off));
+          } else {
+            sg.add(at(box(.012, gh, .02, M({color:0x222222, roughness:.6})), px - pw/2 + .006, gh/2 + .05, off));
+          }
+          sg.add(at(box(.02, .18, .03, frameMat), px + pw/2 - .08, 1.05, off + .02));   // käepide
+        }
+      }
+      group.add(sg);
+    });
+
+    // soojendid ja vihmaandur
+    for (let i = 0; i < st.heaters; i++){
+      const hx = -L/2 + L*(i+1)/(st.heaters+1);
+      group.add(at(box(.6, .08, .12, M({color:0x222222, metalness:.5, roughness:.4})), hx, y0 + H - BH - .1, W/2 - BD - .15));
+      const gm = new THREE.MeshBasicMaterial({color:0x553322}); mats.push(gm); heaterMats.push(gm);
+      group.add(at(new THREE.Mesh(new THREE.BoxGeometry(.5, .01, .06), gm), hx, y0 + H - BH - .145, W/2 - BD - .15));
+    }
+    if (m.rain === 'incl' || (m.rain === 'opt' && st.rain)) group.add(at(box(.08, .05, .08, frameMat), L/2 - .2, y0 + H + .03, W/2 - .2));
+
+    // mõõtjooned
+    const lm = new THREE.LineBasicMaterial({color:0x30343A}); mats.push(lm);
+    const line = (pts) => group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts.map(p => new THREE.Vector3(...p))), lm));
+    const yd = deckH + .005, zf2 = W/2 + .55, xr = L/2 + .55;
+    line([[-L/2, yd, zf2], [L/2, yd, zf2]]); line([[-L/2, yd, zf2 - .15], [-L/2, yd, zf2 + .15]]); line([[L/2, yd, zf2 - .15], [L/2, yd, zf2 + .15]]);
+    line([[xr, yd, -W/2], [xr, yd, W/2]]); line([[xr - .15, yd, -W/2], [xr + .15, yd, -W/2]]); line([[xr - .15, yd, W/2], [xr + .15, yd, W/2]]);
+    dims = [
+      {p:new THREE.Vector3(0, yd, zf2), t:`${Math.round(L*100)} cm`},
+      {p:new THREE.Vector3(xr, yd, 0), t:`${Math.round(W*100)} cm`},
+      {p:new THREE.Vector3(L/2 + .25, y0 + H/2, W/2 + .25), t:`${m.h} cm`}
+    ];
+
+    scene.add(group);
+    $('#vDims').textContent = `NORVO ${st.model} · ${Math.round(L*100)} × ${Math.round(W*100)} × ${m.h} cm${st.custom ? ' · eritellimus' : ''} · ${COLORS[st.color].name}`;
+    applyLight();
+    return {L, W, H, deckH, wall, zf:hs.zf, fl:hs.fl};
+  }
+
+  /* ---------- mõõtude sildid ---------- */
+  const lblBox = document.createElement('div'); lblBox.className = 'v-lbls'; host.appendChild(lblBox);
+  const lbls = [0, 1, 2].map(() => { const d = document.createElement('span'); d.className = 'v-lbl mono'; lblBox.appendChild(d); return d; });
+  const tmp = new THREE.Vector3();
+  /* maja muutub läbipaistvaks, kui kaamera on maja taga (pergola-poolne sein jääb terveks) */
+  function updateFade(){
+    if (!lastD || !fadeMats.length) return;
+    const behind = view === 'out' && camera.position.z < lastD.zf + .3;
+    const want = behind ? .07 : 1;
+    if (Math.abs(want - fade) < .003 && fadeMats[0].opacity === fade) return;
+    fade += (want - fade) * .15; if (Math.abs(want - fade) < .003) fade = want;
+    fadeMats.forEach(m => { m.opacity = fade; m.depthWrite = fade > .97; });
+  }
+  function placeLabels(){
+    if (!dims) return; const w = host.clientWidth, h = host.clientHeight;
+    dims.forEach((d, i) => { tmp.copy(d.p).project(camera); const el = lbls[i]; el.textContent = d.t;
+      const vis = tmp.z < 1 && Math.abs(tmp.x) < 1.1 && Math.abs(tmp.y) < 1.1;
+      el.style.display = vis ? '' : 'none'; el.style.transform = `translate(${(tmp.x*.5+.5)*w}px,${(-tmp.y*.5+.5)*h}px) translate(-50%,-50%)`; });
+  }
+
+  function setAngle(a){ slats.forEach(g => g.rotation.x = -a * Math.PI/180); }
+  function applyLight(){
+    scene.background = night ? SKY.night : SKY.day;
+    scene.fog = new THREE.Fog(night ? 0x1D2833 : 0xE4E8EA, 40, 110);
+    hemi.intensity = night ? .14 : .7; sun.intensity = night ? .12 : 1.7;
+    sun.color.set(night ? 0x9DB3D6 : 0xFFF1DC);
+    ledMats.forEach(mm => mm.color.set(night ? 0xFFE7B8 : 0xD8D4CC));
+    heaterMats.forEach(mm => mm.color.set(night ? 0xFF6A2A : 0x553322));
+    winMats.forEach(mm => { mm.emissive.set(night ? 0xC98A45 : 0x000000); mm.emissiveIntensity = night ? .55 : 0; });
+    nightLights.forEach(l => l.intensity = l.userData.always ? (night ? 1.1 : .7) : (night ? 1.7 : 0));
+  }
+
+  let fitKey = '', view = 'out', lastD = null;
+  function fovFor(v){   // sisevaates ~80° horisontaalne vaateväli
+    if (v === 'out') return 36;
+    const vf = 2 * Math.atan(Math.tan(40 * Math.PI/180) / camera.aspect) * 180/Math.PI;
+    return Math.min(85, Math.max(58, vf));
+  }
+  function setView(v){
+    if (v === 'house' && lastD && !lastD.wall) v = 'out';
+    view = v;
+    document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === v));
+    const hb = $('#vHouse'); if (hb) hb.hidden = !(lastD && lastD.wall);
+    lblBox.style.display = v === 'out' ? '' : 'none';
+    if (!lastD) return;
+    const d = lastD;
+    camera.fov = fovFor(v); camera.updateProjectionMatrix();
+    if (v === 'out'){
+      Object.assign(controls, {enableZoom:true, minDistance:4, maxDistance:36, minPolarAngle:0, maxPolarAngle:Math.PI*.47, rotateSpeed:1});
+      fitKey = ''; fit(d); return;
+    }
+    let eye, look;
+    if (v === 'house'){ eye = new THREE.Vector3(0, d.fl + 1.55, d.zf - 2.4); look = new THREE.Vector3(0, d.fl + 2.1, d.zf + 4); }
+    else { eye = new THREE.Vector3(0, d.deckH + 1.6, -d.W/2 + .45); look = new THREE.Vector3(0, d.deckH + 1.9, d.W/2 + 3); }
+    const dir = look.clone().sub(eye).normalize();
+    controls.target.copy(eye).add(dir.multiplyScalar(.05));
+    camera.position.copy(eye);
+    Object.assign(controls, {enableZoom:false, minDistance:0, maxDistance:Infinity, minPolarAngle:.35, maxPolarAngle:Math.PI*.82, rotateSpeed:-.35});
+    controls.update();
+  }
+  function fit(d){
+    lastD = d;
+    const hb = $('#vHouse'); if (hb) hb.hidden = !d.wall;
+    if (view !== 'out'){ setView(view); return; }
+    const k = [d.L, d.W, d.wall].join();
+    controls.target.set(0, d.deckH + d.H*.45, d.wall ? -.3 : 0);
+    if (k !== fitKey){
+      const dist = Math.max(d.L, d.W*1.3) * 1.5 + 6;
+      camera.position.set(dist*.62, d.H*1.35 + 2.2, dist*.82);
+      fitKey = k;
+    }
+  }
+  function resize(){ const w = host.clientWidth, h = host.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w/h; if (typeof fovFor === 'function') camera.fov = fovFor(view); camera.updateProjectionMatrix(); }
+  new ResizeObserver(resize).observe(host); resize();
+
+  window.P3D = { camera, controls, update(){
+    const key = JSON.stringify([st.model, curSize(), st.cL, st.cW, st.mount, st.sides, st.heaters, st.rain, st.color]);
+    if (key === lastKey) return; lastKey = key; fit(build());
+  },
+  // pakkumise pilt: tavaline välisvaade, päevavalgus
+  snapshot(){
+    if (!lastD) return '';
+    const prevView = view, prevNight = night, p = camera.position.clone(), t = controls.target.clone(), pr = renderer.getPixelRatio();
+    if (view !== 'out') setView('out');
+    night = false; applyLight(); fade = 1; fadeMats.forEach(mm => { mm.opacity = 1; mm.depthWrite = true; });
+    lblBox.style.display = 'none';
+    renderer.setPixelRatio(1); renderer.setSize(1400, 800, false);
+    camera.aspect = 1400/800; camera.fov = 36; camera.updateProjectionMatrix();
+    const d = lastD, dist = Math.max(d.L, d.W*1.3) * 1.45 + 5.5;
+    controls.target.set(0, d.deckH + d.H*.42, d.wall ? -.3 : 0);
+    camera.position.set(dist*.62, d.H*1.3 + 2, dist*.82); camera.lookAt(controls.target);
+    renderer.render(scene, camera);
+    const url = renderer.domElement.toDataURL('image/jpeg', .88);
+    camera.position.copy(p); controls.target.copy(t); night = prevNight; applyLight();
+    renderer.setPixelRatio(pr); resize(); if (prevView !== 'out') setView(prevView);
+    lblBox.style.display = view === 'out' ? '' : 'none';
+    return url;
+  }};
+  document.querySelectorAll('[data-view]').forEach(b => b.onclick = () => setView(b.dataset.view));
+  // päike: kellaaeg hommikust õhtuni (Eesti suvine päikesekaar) + põhja suund + kompass terrassil
+  let sunMin = 840, north = 0;
+  const compass = new THREE.Group();
+  (function(){
+    const tex = canvasTex(256, 256, (g, w, h) => {
+      g.clearRect(0, 0, w, h); g.translate(w/2, h/2);
+      g.strokeStyle = 'rgba(255,255,255,.85)'; g.lineWidth = 4; g.beginPath(); g.arc(0, 0, 100, 0, Math.PI*2); g.stroke();
+      for (let i = 0; i < 4; i++){ g.save(); g.rotate(i*Math.PI/2); g.fillStyle = 'rgba(255,255,255,.85)'; g.fillRect(-2, -112, 4, 18); g.restore(); }
+      g.fillStyle = '#C8372D'; g.beginPath(); g.moveTo(0, -78); g.lineTo(16, 0); g.lineTo(-16, 0); g.fill();
+      g.fillStyle = '#F4F1EB'; g.beginPath(); g.moveTo(0, 78); g.lineTo(16, 0); g.lineTo(-16, 0); g.fill();
+      g.fillStyle = '#fff'; g.font = 'bold 34px Manrope, Arial'; g.textAlign = 'center'; g.fillText('N', 0, -118 + 2);
+    });
+    tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
+    const pm = new THREE.Mesh(new THREE.PlaneGeometry(1.3, 1.3), new THREE.MeshBasicMaterial({map:tex, transparent:true, depthWrite:false}));
+    pm.rotation.x = -Math.PI/2; compass.add(pm); compass.position.set(0, .146, 0); scene.add(compass);
+  })();
+  function placeSun(){
+    const t = (sunMin - 360) / 900;                         // 0 = kell 6:00, 1 = kell 21:00
+    const azDeg = 65 + t * 230;                               // kompassi asimuut (idast läbi lõuna läände)
+    const elDeg = Math.max(4, 54 * Math.sin(Math.PI * Math.min(1, Math.max(0, (sunMin - 330) / 960))));
+    const a = (azDeg + north) * Math.PI/180, el = elDeg * Math.PI/180, r = 28;
+    sun.position.set(Math.sin(a) * Math.cos(el) * r, Math.sin(el) * r, -Math.cos(a) * Math.cos(el) * r);
+    compass.rotation.y = -north * Math.PI/180;
+    const hh = Math.floor(sunMin / 60), mm = sunMin % 60;
+    $('#vSunOut').textContent = `${hh}:${String(mm).padStart(2, '0')} · ${Math.round(elDeg)}°`;
+    $('#vNorthOut').textContent = north + '°';
+  }
+  $('#vSun').oninput = e => { sunMin = +e.target.value; placeSun(); };
+  $('#vNorth').oninput = e => { north = +e.target.value; placeSun(); };
+  placeSun();
+  $('#vAng').oninput = e => { ang = +e.target.value; $('#vAngOut').textContent = ang + '°'; setAngle(ang); };
+  $('#vDay').onclick = () => { night = false; $('#vDay').setAttribute('aria-pressed', true); $('#vNight').setAttribute('aria-pressed', false); applyLight(); };
+  $('#vNight').onclick = () => { night = true; $('#vNight').setAttribute('aria-pressed', true); $('#vDay').setAttribute('aria-pressed', false); applyLight(); };
+  (function loop(){ controls.update(); updateFade(); renderer.render(scene, camera); placeLabels(); requestAnimationFrame(loop); })();
+  P3D.update();
+})();
+</script>
+</body>
+</html>

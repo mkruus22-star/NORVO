@@ -784,7 +784,7 @@ if (linkMeta) addEventListener('load', () => { render(); openOffer(linkMeta, nul
     else g.add(at(box(w+.1, .04, .18, M({color:0xBDB8AE})), x, y - h/2 - .02, z + .08));
   }
   function house(g, L, W, wall, deckH){
-    const hw = Math.max(L + 6, 11), hd = 8.5, hh = 3.1;
+    const hw = Math.max(L + 6, 11), hd = 8.5, hh = 4.0;   // maja seina kõrgus vähemalt 4 m
     const zf = wall ? -W/2 : -W/2 - 5.5, zc = zf - hd/2;
     const plaster = M({map:plasterTex, roughness:.95});
     const fPlaster = fadeM({map:plasterTex, roughness:.95});   // läbipaistvaks muutuvad osad

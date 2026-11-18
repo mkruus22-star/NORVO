@@ -121,15 +121,10 @@ p{margin:0;text-wrap:pretty}
 .drawer-esto{height:.5em;width:auto;vertical-align:middle;margin-right:.1em}
 .nav .btn,.logo-word{white-space:nowrap}
 @media (min-width:1240px) and (max-width:1439px){.nav ul{gap:20px}.nav .wrap{gap:16px}.nav ul a{letter-spacing:.12em}.nav .btn{padding:12px 16px}}
-.cfg-grid{display:grid;gap:40px;align-items:center}
-@media (min-width:900px){.cfg-grid{grid-template-columns:5fr 6fr;gap:80px}}
-.cfg-pts{list-style:none;padding:0;margin:28px 0 34px;display:grid;gap:12px;color:var(--mist-d)}
-.cfg-pts li{position:relative;padding-left:26px}
-.cfg-pts li::before{content:"";position:absolute;left:0;top:.78em;width:14px;height:1px;background:currentColor}
-.cfg-shot{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--ral-2)}
-.cfg-shot img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.cfg-shot:hover img{transform:scale(1.04)}
-.cfg-shot .tag3d{position:absolute;left:16px;bottom:16px;background:var(--paper);color:var(--ink);padding:8px 12px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.cfg-frame{background:#F4F1EB;border:1px solid rgba(241,242,239,.18)}
+.cfg-frame iframe{display:block;width:100%;height:calc(100vh - 110px);height:calc(100dvh - 110px);min-height:620px;max-height:980px;border:0}
+.cfg-alt{margin:16px 0 0;font-size:var(--t-sm)}
+.cfg-alt a{color:var(--mist-d)}
 .nav-end{display:flex;align-items:center;gap:22px}
 @media (max-width:1239px){.nav-end{margin-left:auto}}
 .lang{display:flex;gap:2px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em}
@@ -513,7 +508,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
       <ul>
         <li><a href="#pergolad">Pergolad</a></li>
         <li><a href="#mudelid">Mudelid</a></li>
-        <li><a href="konfiguraator/">Konfiguraator</a></li>
+        <li><a href="#konfiguraator">Konfiguraator</a></li>
         <li><a href="#tehtud-tood">Projektid</a></li>
         <li><a href="#brand">NORVO</a></li>
         <li><a href="#jarelmaks" class="nav-esto" aria-label="ESTO järelmaks"><svg viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> järelmaks</a></li>
@@ -536,7 +531,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
   <nav aria-label="Mobiilimenüü">
     <a href="#pergolad">Pergolad</a>
     <a href="#mudelid">Mudelid</a>
-    <a href="konfiguraator/">Konfiguraator</a>
+    <a href="#konfiguraator">Konfiguraator</a>
     <a href="#tehtud-tood">Projektid</a>
     <a href="#brand">NORVO</a>
     <a href="#jarelmaks" aria-label="ESTO järelmaks"><svg class="drawer-esto" viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> järelmaks</a>
@@ -699,22 +694,22 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
     <div class="models">
       <article class="model rv">
         <span class="tier">Parim hinna ja kvaliteedi suhe</span>
-        <h3>Z188</h3>
-        <ul><li>Manuaalne lamellide juhtimine</li><li>Töötab ilma elektrita</li><li>5 standardsuurust</li><li>Seinale kinnitatud või eraldiseisev</li></ul>
-        <a class="btn line" href="#kontakt" data-model="Z188">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+        <h3>N2</h3>
+        <ul><li>Manuaalne lamellide juhtimine</li><li>Töötab ilma elektrita</li><li>3 standardsuurust</li><li>Seinale kinnitatud või eraldiseisev</li></ul>
+        <a class="btn line" href="#kontakt" data-model="N2">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
       </article>
       <article class="model pick rv" style="--rd:.08s">
         <span class="badge">Populaarseim</span>
         <span class="tier">Premium-klassi valik</span>
-        <h3>Z128</h3>
+        <h3>N4</h3>
         <ul><li>Automaatne lamellide juhtimine</li><li>Perimeetri LED-valgustus</li><li>5 standardsuurust</li><li>Seinale kinnitatud või eraldiseisev</li></ul>
-        <a class="btn glow" href="#kontakt" data-model="Z128">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+        <a class="btn glow" href="#kontakt" data-model="N4">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
       </article>
       <article class="model rv" style="--rd:.16s">
         <span class="tier">Eritellimus</span>
-        <h3>Z168</h3>
+        <h3>N7</h3>
         <ul><li>Ultra-premium mudel</li><li>Automaatne juhtimine</li><li>Integreeritud lamellide LED-valgustus</li><li>Vihmaandur</li><li>Mootoriga võrkrulood ja soojendid</li><li>Mõõdud kuni <span class="mono">400 × 800 cm</span></li><li>Modulaarne disain</li></ul>
-        <a class="btn line" href="#kontakt" data-model="Z168">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+        <a class="btn line" href="#kontakt" data-model="N7">Küsi hinnapakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
       </article>
     </div>
     <div class="techline rv">
@@ -727,15 +722,13 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
 
 <!-- CONFIGURATOR -->
 <section id="konfiguraator" class="dark pad" aria-labelledby="cfg-h">
-  <div class="wrap cfg-grid">
-    <div class="rv">
-      <p class="eyebrow" style="margin-bottom:22px">Konfiguraator</p>
-      <h2 id="cfg-h">Pane kokku <em>oma pergola.</em></h2>
-      <p class="lead" style="margin-top:22px">Vali mudel, suurus, paigaldusviis ja küljed ning vaata kohe 3D-s, kuidas pergola sinu kodu juures välja näeb. Hinnapakkumise saadame PDF-ina sinu e-postile.</p>
-      <ul class="cfg-pts"><li>3D-vaade väljast, maja seest ja pergola alt</li><li>Päikese asend ja lamellide nurk</li><li>Klaasuksed, ZIP-rulood ja lamellseinad igale küljele</li></ul>
-      <a class="btn glow" href="konfiguraator/">Loo oma pergola <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Konfiguraator</p><h2 id="cfg-h">Pane kokku <em>oma pergola.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Vali mudel, suurus, paigaldusviis ja küljed ning vaata kohe 3D-s, kuidas pergola sinu kodu juures välja näeb. Hinnapakkumise saadame PDF-ina sinu e-postile.</p>
     </div>
-    <a class="cfg-shot img-rv rv" style="--rd:.1s" href="konfiguraator/" aria-label="Ava pergola konfiguraator"><img src="img/p6.webp" alt="Klaasseintega NORVO pergola" loading="lazy"><span class="tag3d">3D konfiguraator</span></a>
+    <div class="cfg-frame"><iframe src="konfiguraator/?embed=1" title="NORVO pergola konfiguraator" loading="lazy"></iframe></div>
+    <p class="cfg-alt"><a href="konfiguraator/">Ava konfiguraator täisekraanil →</a></p>
   </div>
 </section>
 
@@ -895,7 +888,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
       <div class="field"><label for="f-phone">Telefoninumber <span class="req">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="+372 5xxx xxxx"><span class="err" aria-live="polite"></span></div>
       <div class="field"><label for="f-city">Linn</label><input id="f-city" name="city" autocomplete="address-level2" placeholder="Tallinn"></div>
       <div class="field"><label for="f-model">Pergola mudel</label>
-        <select id="f-model" name="model"><option value="">Pole veel kindel</option><option>Z188</option><option>Z128</option><option>Z168</option></select></div>
+        <select id="f-model" name="model"><option value="">Pole veel kindel</option><option>N2</option><option>N4</option><option>N7</option></select></div>
       <div class="field"><label for="f-size">Pergola suurus <span class="req">*</span></label>
         <select id="f-size" name="size" required><option value="">Vali soovitud mõõdud</option><option>300×300×275 cm</option><option>400×300×275 cm</option><option>600×300×275 cm</option><option>400×400×275 cm</option><option>600×400×275 cm</option><option>Eritellimus</option></select><span class="err" aria-live="polite"></span></div>
       <fieldset class="field full"><legend>Paigalduskoht</legend>
@@ -930,7 +923,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
     <div class="foot">
       <div><span class="logo"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></span><p>Põhjamaine disain, kvaliteetsed materjalid ja kaasaegne välielu.</p></div>
       <div><p class="k">Kontakt</p><p><a href="tel:+37253450781">+372 5345 0781</a><br><a href="mailto:info@norvo.ee">info@norvo.ee</a></p></div>
-      <div><p class="k">Pergolad</p><p><a href="#mudelid">Mudelid</a><br><a href="konfiguraator/">Konfiguraator</a><br><a href="#pergolad">Paigaldusviisid</a><br><a href="#tehtud-tood">Projektid</a></p></div>
+      <div><p class="k">Pergolad</p><p><a href="#mudelid">Mudelid</a><br><a href="#konfiguraator">Konfiguraator</a><br><a href="#pergolad">Paigaldusviisid</a><br><a href="#tehtud-tood">Projektid</a></p></div>
       <div><p class="k">Jälgi meid</p><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></p></div>
     </div>
     <div class="foot-bot"><span>© 2026 NORVO Outdoor Living · Lavrek Solutions OÜ</span><a href="#top" style="text-decoration:none">Privaatsuspoliitika</a></div>
@@ -964,7 +957,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
   if ('IntersectionObserver' in window){
     var links = $$('.nav ul a');
     var so = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){ a.toggleAttribute('aria-current', a.getAttribute('href') === '#' + e.target.id); }); } }); }, {rootMargin:'-45% 0px -50% 0px'});
-    ['pergolad','mudelid','tehtud-tood','brand','jarelmaks','kontakt'].forEach(function(id){ so.observe(document.getElementById(id)); });
+    ['pergolad','mudelid','konfiguraator','tehtud-tood','brand','jarelmaks','kontakt'].forEach(function(id){ so.observe(document.getElementById(id)); });
   }
 
   /* ---- drawer ---- */
@@ -1044,7 +1037,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
     sz.appendChild(b);
   });
   var cb = document.createElement('button'); cb.type = 'button'; cb.className = 'size custom rv'; cb.style.setProperty('--rd', '.12s');
-  cb.innerHTML = '<div class="plan">Sinu mõõdud.<br>Kuni 400 × 800 cm</div><span class="dim">Eritellimus</span><span class="row"><span>Mudel Z168, modulaarne</span><b>→</b></span>';
+  cb.innerHTML = '<div class="plan">Sinu mõõdud.<br>Kuni 400 × 800 cm</div><span class="dim">Eritellimus</span><span class="row"><span>Mudel N7, modulaarne</span><b>→</b></span>';
   cb.addEventListener('click', function(){ pickSize('Eritellimus'); });
   sz.appendChild(cb);
   function goForm(){ $('#kontakt').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); }

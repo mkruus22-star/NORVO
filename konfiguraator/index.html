@@ -178,6 +178,25 @@ dialog::backdrop{background:rgba(27,36,32,.55)}
 dialog .in{padding:22px}
 dialog pre{white-space:pre-wrap;background:var(--paper);padding:12px;font:12px/1.5 var(--f-m);max-height:50vh;overflow:auto}
 [hidden]{display:none!important}
+/* telefon: kompaktsed 3D-nupud */
+@media(max-width:640px){
+  .viewer-col{height:50vh;min-height:300px}
+  .v-dims,.v-ang small{display:none}
+  .v-top{justify-content:flex-end;top:8px;left:8px;right:8px}
+  .v-views{top:8px;left:8px}
+  .v-bot{left:8px;right:8px;bottom:8px;gap:6px}
+  .v-ang{padding:4px 8px;gap:6px;font-size:.72rem}
+  .v-ang input{width:64px}
+  .v-ang b{min-width:0}
+  #vSunOut{min-width:0}
+  .v-btn{padding:5px 9px;font-size:.74rem}
+}
+/* kodulehe sisse põimitud (iframe, ?embed) */
+.embed .top,.embed .hero{display:none!important}
+.embed body{background:var(--paper)}
+.embed .cfg{padding-top:12px;padding-bottom:24px}
+.embed .viewer-col{top:0}
+@media(min-width:1000px){.embed .viewer-col{top:12px;height:calc(100vh - 24px)}}
 /* pakkumise dokument */
 .hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
 .pdf-box{position:fixed;left:-12000px;top:0;width:820px;background:#fff;z-index:-1}
@@ -236,6 +255,7 @@ body.offer-open{overflow:hidden}
 </style>
 </head>
 <body>
+<script>if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embed');</script>
 
 <header class="top">
   <div class="wrap">
@@ -284,7 +304,7 @@ const VAT = 0.24, FRAME_DISC = 0.30, WALL_DISC = 0.20, VALID_DAYS = 14;   // soo
 const CO = {name:'NORVO Outdoor Living', legal:'Lavrek Solutions OÜ', phone:'+372 5345 0781', tel:'+37253450781', email:'info@norvo.ee', web:'norvo.ee'};
 // suuruse võti 'PxL' = pikkus (esikülg) × laius (sügavus) meetrites; [hind km-ta, mõõdud vaba (mm), mõõdud seinale (mm)]
 const MODELS = {
-  N2S:{ title:'N2S käsitsi reguleeritav pergola', tag:'Parim hinna ja kvaliteedi suhe', feats:['Käsitsi reguleeritavad lamellid','Töötab ilma elektrita','3 standardsuurust'],
+  N2:{  title:'N2 käsitsi reguleeritav pergola', tag:'Parim hinna ja kvaliteedi suhe', feats:['Käsitsi reguleeritavad lamellid','Töötab ilma elektrita','3 standardsuurust'],
         motor:false, rain:'no', h:275, inst:['Pergola paigaldus', 661.00],
         sizes:{'3x3':[2360.33,'2997×2997×2750','2849×2997×2750'], '4x3':[2738.13,'2997×3997×2750','2849×3997×2750'], '6x3':[4013.23,'2997×5797×2750','2849×5797×2750']} },
   N4:{  title:'N4 automaatne pergola LED-valgustusega', tag:'Populaarseim', badge:'Populaarseim', feats:['Mootoriga lamellid','LED-valgustus','5 standardsuurust'],
@@ -360,12 +380,12 @@ function calc(){
   if (st.tint && glassMods) R.push({name:'Toonitud klaas (lisa)', unit:PX.tint, qty:glassMods, disc:WALL_DISC, wall:true});
   if (m.rain === 'opt' && st.rain) R.push({name:'Vihmaandur', unit:PX.rain, qty:1});
   if (st.heaters) R.push({name:'Infrapunasoojendi 2,4 kW', unit:PX.heat, qty:st.heaters});
-  if (st.mount === 'W') R.push({name:'Seinapaigalduse materjalid', unit:PX.wallMat, qty:1, u:'kompl'});
   if (st.install){
-    R.push({name:m.inst[0], unit:m.inst[1], qty:1});
+    // seinapaigalduse materjalid sisalduvad paigalduse hinnas (eraldi rida pakkumises ei ole)
+    R.push({name:m.inst[0], unit:r2(m.inst[1] + (st.mount === 'W' ? PX.wallMat : 0)), qty:1});
     Object.keys(cnt).forEach(k => { if (cnt[k]) R.push({name:INST[k][0], unit:INST[k][1], qty:cnt[k]}); });
   }
-  R.push({name:'Transport üle Eesti', unit:0, qty:1, free:true});
+
   R.forEach(r => { r.list = r2(r.unit * r.qty); r.discAmt = r.disc ? r2(r.list * r.disc) : 0; r.net = r2(r.list - r.discAmt); });
   const list = r2(R.reduce((s, r) => s + r.list, 0)), disc = r2(R.reduce((s, r) => s + r.discAmt, 0));
   const discFrame = r2(R.filter(r => !r.wall).reduce((s, r) => s + r.discAmt, 0)), discWall = r2(disc - discFrame);
@@ -389,7 +409,7 @@ function renderSizes(){
     $('#sizes').innerHTML = `<div class="custom-dims">
       <label>Pikkus / esikülg (cm)<input type="number" id="cL" min="300" max="800" step="10" value="${st.cL}"></label>
       <label>Laius / sügavus (cm)<input type="number" id="cW" min="300" max="400" step="10" value="${st.cW}"></label>
-      <p>N7 tehakse sinu mõõtudes: pikkus 300–800 cm, laius 300–400 cm, kõrgus kuni 320 cm. Standardmõõtudes pergolad leiad mudelitelt N2S ja N4.</p></div>`;
+      <p>N7 tehakse sinu mõõtudes: pikkus 300–800 cm, laius 300–400 cm, kõrgus kuni 320 cm. Standardmõõtudes pergolad leiad mudelitelt N2 ja N4.</p></div>`;
     const clamp = (v, a, b) => Math.max(a, Math.min(b, Math.round(v/10)*10 || a));
     $('#cL').onchange = e => { st.cL = clamp(+e.target.value, 300, 800); render(); };
     $('#cW').onchange = e => { st.cW = clamp(+e.target.value, 300, 400); render(); };
@@ -492,6 +512,7 @@ function encodeOffer(meta){
 function decodeOffer(code){
   try {
     const d = JSON.parse(decodeURIComponent(escape(atob(code.replace(/-/g, '+').replace(/_/g, '/')))));
+    if (d && d.m === 'N2S') d.m = 'N2';
     if (!d || !MODELS[d.m]) return null;
     Object.assign(st, {model:d.m, mount:d.mo === 'W' ? 'W' : 'F', size:d.s, cL:+d.cL || 500, cW:+d.cW || 400, sides:d.sd || {}, rain:!!d.r, heaters:+d.h || 0, tint:!!d.t, install:!!d.i, color:COLORS[d.c] ? d.c : 'anth'});
     return {no:String(d.no), date:/^\d{4}-\d\d-\d\d$/.test(d.d) ? d.d : today(), client:d.f || {}};
@@ -501,7 +522,7 @@ function sideText(s){ if (s.wall) return 'Maja sein'; const a = ACC.find(x => x.
 function offerEmail(o, meta, link){
   const c = meta.client;
   const rows = o.R.map(r => `• ${r.name}${r.side ? ' · ' + r.side.toLowerCase() : ''}${r.qty > 1 ? ' × ' + r.qty : ''}: ${r.free ? 'tasuta' : r.disc ? `${money(r.list)} −${Math.round(r.disc*100)}% = ${money(r.net)}` : money(r.net)}`).join('\n');
-  return `Tere${c.n ? ', ' + c.n : ''}!\n\nAitäh huvi eest NORVO pergolate vastu. Sinu hinnapakkumine nr ${meta.no} on valmis.\n\nVaata pakkumist ja laadi see PDF-ina alla:\n${link}\n\nHinnad ilma käibemaksuta:\n${rows}\n\nHind ilma soodustuseta: ${money(o.list)}\nSoodustus (pergola raam −${Math.round(FRAME_DISC*100)}%): −${money(o.discFrame)}\n${o.discWall ? `Soodustus (seinamaterjalid −${Math.round(WALL_DISC*100)}%): −${money(o.discWall)}\n` : ''}Vahesumma: ${money(o.net)}\nKM ${Math.round(VAT*100)}%: ${money(o.vat)}\nKokku: ${money(o.total)}\n\nPakkumine kehtib kuni ${fmtD(addDays(meta.date, VALID_DAYS))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Soovi korral saab tasuda ka ESTO järelmaksuga.\n\n${CO.name}\n${CO.phone} · ${CO.email} · ${CO.web}`;
+  return `Tere${c.n ? ', ' + c.n : ''}!\n\nAitäh huvi eest NORVO pergolate vastu. Sinu hinnapakkumine nr ${meta.no} on valmis.\n\nVaata pakkumist ja laadi see PDF-ina alla:\n${link}\n\nHinnad ilma käibemaksuta:\n${rows}\n\nHind ilma soodustuseta: ${money(o.list)}\nSoodustus (pergola raam −${Math.round(FRAME_DISC*100)}%): −${money(o.discFrame)}\n${o.discWall ? `Soodustus (seinamaterjalid −${Math.round(WALL_DISC*100)}%): −${money(o.discWall)}\n` : ''}Vahesumma: ${money(o.net)}\nKM ${Math.round(VAT*100)}%: ${money(o.vat)}\nKokku: ${money(o.total)}\n\nTransport üle Eesti on tasuta. Pakkumine kehtib kuni ${fmtD(addDays(meta.date, VALID_DAYS))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Soovi korral saab tasuda ka ESTO järelmaksuga.\n\n${CO.name}\n${CO.phone} · ${CO.email} · ${CO.web}`;
 }
 async function submitOffer(){
   const f = st.form, err = $('#rqErr');
@@ -600,7 +621,7 @@ function offerDoc(o, meta, img){
       <span class="k">KM (${Math.round(VAT*100)}%)</span><span>${money(o.vat)}</span>
       <span class="grand">Kokku:</span><span class="grand">${money(o.total)}</span></div>
     ${c.msg ? `<p class="sh-note"><b>Kliendi kommentaar:</b> ${esc(c.msg)}</p>` : ''}
-    <p class="sh-note">Pakkumine kehtib kuni ${fmtD(addDays(meta.date, VALID_DAYS))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Tasuda saab ka ESTO järelmaksuga (3 osas 0 € lisatasuga või 3–60 kuud).</p>
+    <p class="sh-note">Transport üle Eesti on tasuta. Pakkumine kehtib kuni ${fmtD(addDays(meta.date, VALID_DAYS))}. Lõplik hind kinnitatakse pärast objekti täpsustamist. Tasuda saab ka ESTO järelmaksuga (3 osas 0 € lisatasuga või 3–60 kuud).</p>
   </section>
   <section class="sheet">${head}
     <h3 class="sh-h">Kokkuvõte</h3>

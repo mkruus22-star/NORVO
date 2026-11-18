@@ -115,12 +115,23 @@ p{margin:0;text-wrap:pretty}
 .menu-btn span{display:block;width:24px;height:1.5px;background:currentColor;position:relative;transition:transform .3s}
 .menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:24px;height:1.5px;background:currentColor}
 .menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
-@media (min-width:1080px){.nav ul{display:flex}.nav .btn{display:inline-flex}.menu-btn{display:none}}
+@media (min-width:1240px){.nav ul{display:flex}.nav .btn{display:inline-flex}.menu-btn{display:none}}
 .nav-esto{display:inline-flex;align-items:center;gap:8px}
 .nav-esto svg{height:11px;width:auto;margin-top:-1px}
 .drawer-esto{height:.5em;width:auto;vertical-align:middle;margin-right:.1em}
+.nav .btn,.logo-word{white-space:nowrap}
+@media (min-width:1240px) and (max-width:1439px){.nav ul{gap:20px}.nav .wrap{gap:16px}.nav ul a{letter-spacing:.12em}.nav .btn{padding:12px 16px}}
+.cfg-grid{display:grid;gap:40px;align-items:center}
+@media (min-width:900px){.cfg-grid{grid-template-columns:5fr 6fr;gap:80px}}
+.cfg-pts{list-style:none;padding:0;margin:28px 0 34px;display:grid;gap:12px;color:var(--mist-d)}
+.cfg-pts li{position:relative;padding-left:26px}
+.cfg-pts li::before{content:"";position:absolute;left:0;top:.78em;width:14px;height:1px;background:currentColor}
+.cfg-shot{display:block;position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--ral-2)}
+.cfg-shot img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.cfg-shot:hover img{transform:scale(1.04)}
+.cfg-shot .tag3d{position:absolute;left:16px;bottom:16px;background:var(--paper);color:var(--ink);padding:8px 12px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em;text-transform:uppercase}
 .nav-end{display:flex;align-items:center;gap:22px}
-@media (max-width:1079px){.nav-end{margin-left:auto}}
+@media (max-width:1239px){.nav-end{margin-left:auto}}
 .lang{display:flex;gap:2px;font-size:var(--t-xs);font-weight:600;letter-spacing:.16em}
 .lang a{text-decoration:none;padding:8px 6px;opacity:.55;transition:opacity .2s}
 .lang a:hover{opacity:1}
@@ -502,6 +513,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
       <ul>
         <li><a href="#pergolad">Pergolas</a></li>
         <li><a href="#mudelid">Models</a></li>
+        <li><a href="../konfiguraator/">Configurator</a></li>
         <li><a href="#tehtud-tood">Projects</a></li>
         <li><a href="#brand">NORVO</a></li>
         <li><a href="#jarelmaks" class="nav-esto" aria-label="ESTO instalments"><svg viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> instalments</a></li>
@@ -524,6 +536,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
   <nav aria-label="Mobile menu">
     <a href="#pergolad">Pergolas</a>
     <a href="#mudelid">Models</a>
+    <a href="../konfiguraator/">Configurator</a>
     <a href="#tehtud-tood">Projects</a>
     <a href="#brand">NORVO</a>
     <a href="#jarelmaks" aria-label="ESTO instalments"><svg class="drawer-esto" viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> instalments</a>
@@ -709,6 +722,20 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
       <div><span class="k">Wind resistance</span><span class="v">Model-specific<small>m/s</small></span></div>
       <div><span class="k">Snow load</span><span class="v">Model-specific<small>kg/m²</small></span></div>
     </div>
+  </div>
+</section>
+
+<!-- CONFIGURATOR -->
+<section id="konfiguraator" class="dark pad" aria-labelledby="cfg-h">
+  <div class="wrap cfg-grid">
+    <div class="rv">
+      <p class="eyebrow" style="margin-bottom:22px">Configurator</p>
+      <h2 id="cfg-h">Build <em>your own pergola.</em></h2>
+      <p class="lead" style="margin-top:22px">Choose the model, size, mounting and sides, and see right away in 3D how the pergola looks at your home. We send the quote to your email as a PDF. The configurator is currently in Estonian.</p>
+      <ul class="cfg-pts"><li>3D view from outside, from the house and from under the pergola</li><li>Sun position and louvre angle</li><li>Glass doors, ZIP screens and louvre walls for every side</li></ul>
+      <a class="btn glow" href="../konfiguraator/">Build your pergola <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a>
+    </div>
+    <a class="cfg-shot img-rv rv" style="--rd:.1s" href="../konfiguraator/" aria-label="Open the pergola configurator"><img src="../img/p6.webp" alt="NORVO pergola with glass walls" loading="lazy"><span class="tag3d">3D configurator</span></a>
   </div>
 </section>
 
@@ -903,7 +930,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
     <div class="foot">
       <div><span class="logo"><span class="logo-mark">N.</span><span class="logo-word"><b>NORVO</b><small>OUTDOOR LIVING</small></span></span><p>Nordic design, quality materials and modern outdoor living.</p></div>
       <div><p class="k">Contact</p><p><a href="tel:+37253450781">+372 5345 0781</a><br><a href="mailto:info@norvo.ee">info@norvo.ee</a></p></div>
-      <div><p class="k">Pergolas</p><p><a href="#mudelid">Models</a><br><a href="#pergolad">Mounting options</a><br><a href="#tehtud-tood">Projects</a></p></div>
+      <div><p class="k">Pergolas</p><p><a href="#mudelid">Models</a><br><a href="../konfiguraator/">Configurator</a><br><a href="#pergolad">Mounting options</a><br><a href="#tehtud-tood">Projects</a></p></div>
       <div><p class="k">Follow us</p><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></p></div>
     </div>
     <div class="foot-bot"><span>© 2026 NORVO Outdoor Living · Lavrek Solutions OÜ</span><a href="#top" style="text-decoration:none">Privacy policy</a></div>

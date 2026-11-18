@@ -146,6 +146,11 @@ p{margin:0;text-wrap:pretty}
 @media (min-width:900px){.esto-about{grid-template-columns:minmax(0,15rem) 1fr}}
 .esto-about p{color:var(--mist);max-width:70ch}
 .esto-about a{color:var(--ink)}
+.esto-about a.btn-esto{color:#fff}
+.btn-esto{--b:var(--ral);--c:#fff;padding:20px 30px;font-size:var(--t-sm);box-shadow:0 10px 26px -12px rgba(38,55,47,.6)}
+.btn-esto:hover{--b:#3A5446}
+.btn-esto .em{height:15px;width:auto;margin-top:-2px}
+@media (max-width:640px){.btn-esto{width:100%;justify-content:center}}
 
 .drawer{position:fixed;inset:0;z-index:70;background:var(--ink);color:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 20px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 32px) var(--gut-l);display:flex;flex-direction:column;gap:40px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
 .drawer.open{clip-path:inset(0 0 0 0);visibility:visible}
@@ -859,7 +864,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
       <div class="rv" style="display:grid;gap:14px">
         <p>ESTO is the most preferred payment solutions provider in the Baltics, making selling simple for merchants and buying smooth for consumers. ESTO has nearly 700,000 active customers and more than 6,000 partner stores across the Baltics.</p>
         <p>If you need help, contact ESTO AS: <a href="mailto:info@esto.ee">info@esto.ee</a> or <a href="https://www.esto.ee" target="_blank" rel="noopener">www.esto.ee</a> (live chat).</p>
-        <div style="margin-top:8px"><a class="btn" href="#kontakt">Request a quote with instalments <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
+        <div style="margin-top:8px"><a class="btn btn-esto" href="#kontakt"><svg class="em" viewBox="0 0 277 97" aria-hidden="true"><use href="#esto-mark"/></svg> Request a quote with instalments <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a></div>
       </div>
     </div>
   </div>

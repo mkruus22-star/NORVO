@@ -21,7 +21,7 @@
 
 ## Pages
 
-- [Home (Estonian)](https://norvo.ee/): models, sizes, accessories, projects, FAQ and contact form
+- [Home (Estonian)](https://norvo.ee/): full service, models, sizes, accessories, projects and contact form
 - [Home (English)](https://norvo.ee/en/): English version of the site
 - [Pergola configurator](https://norvo.ee/konfiguraator/): build a pergola in 3D and receive a PDF quote
 - [Privacy policy (Estonian)](https://norvo.ee/privaatsus/) and [English](https://norvo.ee/en/privacy/)

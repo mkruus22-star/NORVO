@@ -15,6 +15,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://norvo.ee/"/>
   </url>
   <url>
+    <loc>https://norvo.ee/privaatsus/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="et" href="https://norvo.ee/privaatsus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://norvo.ee/en/privacy/"/>
+  </url>
+  <url>
+    <loc>https://norvo.ee/en/privacy/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="et" href="https://norvo.ee/privaatsus/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://norvo.ee/en/privacy/"/>
+  </url>
+  <url>
     <loc>https://norvo.ee/konfiguraator/</loc>
     <lastmod>2026-11-20</lastmod>
   </url>

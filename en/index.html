@@ -515,8 +515,8 @@ p{margin:0;text-wrap:pretty}
 .lb-top .mono{font-size:var(--t-xs);letter-spacing:.14em;color:var(--mist-d)}
 .lb-x,.lb-nav button{background:none;border:1px solid var(--line-d);color:var(--paper);width:48px;height:48px;display:grid;place-items:center;cursor:pointer;transition:background .3s}
 .lb-x:hover,.lb-nav button:hover{background:rgba(241,242,239,.1)}
-.lb-img{display:grid;place-items:center;min-height:0;padding-block:12px}
-.lb-img img{max-height:100%;max-width:100%;object-fit:contain}
+.lb-img{position:relative;min-height:0;min-width:0}
+.lb-img img{position:absolute;top:12px;left:0;width:100%;height:calc(100% - 24px);max-width:none;object-fit:contain}
 .lb-bot p{font-size:var(--t-sm);color:var(--mist-d)}
 .lb-bot b{color:var(--paper);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:var(--t-xs);margin-right:10px}
 .lb-nav{display:flex;gap:8px}

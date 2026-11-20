@@ -1,0 +1,8 @@
+# NORVO Outdoor Living – norvo.ee
+# Otsingumootorid ja AI-otsingud on teretulnud.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+Disallow: /api/
+
+Sitemap: https://norvo.ee/sitemap.xml

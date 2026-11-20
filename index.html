@@ -59,7 +59,9 @@
         "Aluminium pergolas",
         "Louvred roofs",
         "ZIP screens",
-        "Sliding glass doors"
+        "Sliding glass doors",
+        "Terrace renovation",
+        "Electrical installation for pergolas"
       ],
       "paymentAccepted": "ESTO",
       "sameAs": [
@@ -172,6 +174,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Jah. Toimetame pergolad üle Eesti ja pakume professionaalset paigaldust, nii et saad kogu lahenduse ühest kohast."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kas aitate ka terrassi ja elektritöödega?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jah. Kui terrass vajab uuendamist või kohandamist, et pergola sinna ära mahuks, teeme selle töö ära. Samuti teeme pergola valgustuse, mootorite ja lisaseadmete jaoks vajalikud elektritööd. Nii saad kõik tööd tellida ühest kohast."
           }
         },
         {
@@ -503,6 +513,11 @@ p{margin:0;text-wrap:pretty}
 .bene h3{font-size:1.6rem}
 .bene p{color:var(--mist);font-size:var(--t-sm)}
 .bene .hl h3{color:var(--glow-ink)}
+.bene.two{margin-bottom:clamp(36px,5vw,56px)}
+@media (min-width:1080px){.bene.two{grid-template-columns:1fr 1fr}}
+.svc-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.svc-cta a.tel{color:var(--mist);text-decoration:none;font-size:var(--t-sm)}
+.svc-cta a.tel:hover{color:var(--ink)}
 
 /* ---------- MODELS ---------- */
 .models{display:grid;grid-template-columns:1fr;gap:20px;align-items:stretch}
@@ -951,6 +966,23 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
   </div>
 </section>
 
+<!-- FULL SERVICE -->
+<section id="taisteenus" class="pad" style="background:var(--paper-2)" aria-labelledby="svc-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><p class="eyebrow">Täisteenus</p><h2 id="svc-h">Ära muretse – <em>teeme kõik ära.</em></h2></div>
+      <p class="lead rv" style="--rd:.1s">Kui terrass vajab uuendamist või kohandamist, et pergola sinna ära mahuks, aitame sellega. Samamoodi teeme ära vajalikud elektritööd. Võta meiega ühendust ja telli kõik tööd ühest kohast.</p>
+    </div>
+    <div class="bene two">
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 22h28M3 26h28M3 30h28"/><path d="M7 22V10M27 22V10M5 10h24"/></svg><h3>Terrassi uuendamine</h3><p>Kui olemasolev terrass vajab uuendamist või kohandamist, et pergola sinna sobiks, teeme selle töö ära.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M19 3L8 19h8l-2 12 12-17h-8z"/></svg><h3>Elektritööd</h3><p>Teeme ära pergola valgustuse, mootorite ja lisaseadmete jaoks vajalikud elektritööd.</p></article>
+      <article class="rv"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 29l11-11M14 9l11 11M18 5l11 11-4 4-11-11z"/></svg><h3>Pergola paigaldus</h3><p>Paigaldame pergola ja valitud külgseinad professionaalselt ja kiirelt.</p></article>
+      <article class="rv" style="--rd:.06s"><svg class="ico" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="17" cy="17" r="12"/><path d="M11 17l4 4 8-8"/></svg><h3>Kõik ühest kohast</h3><p>Üks kontakt, üks pakkumine ja üks ajakava – sina ei pea eri tegijaid koordineerima.</p></article>
+    </div>
+    <div class="svc-cta rv"><a class="btn" href="#kontakt">Küsi täisteenuse pakkumist <svg viewBox="0 0 18 10" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M0 5h17M13 1l4 4-4 4"/></svg></a><a class="tel" href="tel:+37253450781">või helista +372 5345 0781</a></div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="tehtud-tood" class="pad night">
   <div class="wrap">
@@ -1076,6 +1108,7 @@ footer{background:var(--ink);color:var(--mist-d);font-size:var(--t-sm)}
       <details><summary><h3>Mis värvides pergolad on saadaval?</h3></summary><p>Standardvärv on antratsiithall (RAL 7016). Eritellimusel on saadaval ka pruun ja valge.</p></details>
       <details><summary><h3>Milliseid lisasid saab pergolale tellida?</h3></summary><p>Pergolat saab täiendada ZIP-sirmide (ruloode), raamita või raamiga lükandklaasuste, lamell-lükanduste ja fikseeritud lamellustega. N7 mudelile saab lisada ka soojendid ja mootoriga võrkrulood.</p></details>
       <details><summary><h3>Kas tarnite ja paigaldate pergolaid üle Eesti?</h3></summary><p>Jah. Toimetame pergolad üle Eesti ja pakume professionaalset paigaldust, nii et saad kogu lahenduse ühest kohast.</p></details>
+      <details><summary><h3>Kas aitate ka terrassi ja elektritöödega?</h3></summary><p>Jah. Kui terrass vajab uuendamist või kohandamist, et pergola sinna ära mahuks, teeme selle töö ära. Samuti teeme pergola valgustuse, mootorite ja lisaseadmete jaoks vajalikud elektritööd. Nii saad kõik tööd tellida ühest kohast.</p></details>
       <details><summary><h3>Kuidas saada pergola hinnapakkumist?</h3></summary><p>Koosta pergola meie veebikonfiguraatoris: vali mudel, suurus, paigaldusviis ja külgseinad ning näed lahendust kohe 3D-s. Hinnapakkumise saadame PDF-failina sinu e-postile. Samuti võid helistada numbril +372 5345 0781 või kirjutada aadressil info@norvo.ee.</p></details>
       <details><summary><h3>Kas pergola eest saab maksta osade kaupa?</h3></summary><p>Jah, ESTO kaudu. ESTO 3 võimaldab tasuda kolmes võrdses osas ilma lisatasuta ning ESTO järelmaksuga saab makse jagada 3–60 kuu peale.</p></details>
     </div>

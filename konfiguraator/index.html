@@ -347,7 +347,7 @@ body.offer-open{overflow:hidden}
 <div id="offer" class="offer" hidden></div>
 
 <script>
-/* ===================== HINNAKIRI (Norvo_hinnakiri.csv · hinnad km-ta) ===================== */
+/* ===================== HINNAKIRI (NORDIN price-list 10-01 EE · hinnad km-ta) ===================== */
 const VAT = 0.24, FRAME_DISC = 0.30, WALL_DISC = 0.20, VALID_DAYS = 14;   // soodustused: pergola raam −30%, seinamaterjalid (küljed) −20%
 const CO = {name:'NORVO Outdoor Living', legal:'Lavrek Solutions OÜ', phone:'+372 5345 0781', tel:'+37253450781', email:'info@norvo.ee', web:'norvo.ee'};
 // suuruse võti 'PxL' = pikkus (esikülg) × laius (sügavus) meetrites; [hind km-ta, mõõdud vaba (mm), mõõdud seinale (mm)]
@@ -357,8 +357,8 @@ const MODELS = {
         sizes:{'3x3':[2360.33,'2997×2997×2750','2849×2997×2750'], '4x3':[2738.13,'2997×3997×2750','2849×3997×2750'], '6x3':[4013.23,'2997×5797×2750','2849×5797×2750']} },
   N4:{  title:'N4 automaatne pergola LED-valgustusega', tag:'Populaarseim', badge:'Populaarseim', feats:['Mootoriga lamellid','LED-valgustus','5 standardsuurust'],
         motor:true, rain:'opt', h:275, inst:['Pergola paigaldus', 661.00],
-        sizes:{'3x3':[2974.26,'3038×3038×2750','2869×3038×2750'], '4x3':[4199.00,'3038×4038×2750','2869×4038×2750'], '4x4':[4910.50,'4038×4038×2750','3869×4038×2750'],
-               '6x3':[5666.12,'3038×5858×2750','2869×5858×2750'], '6x4':[7555.13,'4038×5858×2750','3869×5858×2750']} },
+        sizes:{'3x3':[2974.27,'3038×3038×2750','2869×3038×2750'], '4x3':[3966.00,'3038×4038×2750','2869×4038×2750'], '4x4':[4910.51,'4038×4038×2750','3869×4038×2750'],
+               '6x3':[5666.11,'3038×5858×2750','2869×5858×2750'], '6x4':[7555.13,'4038×5858×2750','3869×5858×2750']} },
   N7:{  title:'N7 automaatne pergola LED-valgustuse ja vihmaanduriga', tag:'Eritellimus sinu mõõtudes', feats:['Mootoriga lamellid','Lamellide LED-valgustus','Vihmaandur kaasas','Kuni 800 × 400 × 320 cm','3 värvi'],
         motor:true, rain:'incl', h:320, inst:['N7 pergola paigaldus', 700.00], custom:true, perM2:454.84 }
 };
@@ -367,11 +367,11 @@ const ACC = [
   {id:'zipM',  short:'ZIP-ruloo',              name:'ZIP-rulookardin käsitsi',        p:{3:565.76, 4:811.33},  inst:'ZIP'},
   {id:'zipA',  short:'ZIP automaatne',         name:'ZIP-rulookardin automaatne',     p:{4:998.97},            inst:'ZIP'},
   {id:'fixF',  short:'Fikseeritud lamellsein', name:'Fikseeritud lamellsein',         p:{3:1226.92, 4:1472.48}, inst:'SEIN'},
-  {id:'slide', short:'Liigutatav lamellsein',  name:'Liigutatav lamellsein',          p:{3:1321.77},           inst:'KLAAS', motorOnly:true},
-  {id:'glassF',short:'Klaas, raamita',         name:'Raamita lükandklaasuksed',       p:{3:1226.92, 4:1415.82}, inst:'KLAAS', motorOnly:true, glass:true},
-  {id:'glassR',short:'Klaas, raamiga',         name:'Raamiga lükandklaasuksed',       p:{3:1321.49, 4:1528.10}, inst:'KLAAS', motorOnly:true, glass:true}
+  {id:'slide', short:'Liigutatav lamellsein',  name:'Liigutatav lamellsein',          p:{3:1321.77, 4:1652.42}, inst:'KLAAS', motorOnly:true},
+  {id:'glassF',short:'Klaas, raamita',         name:'Raamita lükandklaasuksed',       p:{3:1226.92, 4:1415.81}, inst:'KLAAS', motorOnly:true, glass:true},
+  {id:'glassR',short:'Klaas, raamiga',         name:'Raamiga lükandklaasuksed',       p:{3:1321.77, 4:1619.35}, inst:'KLAAS', motorOnly:true, glass:true}
 ];
-const PX = {rain:114.88, heat:206.45, tint:200.00, wallMat:111.50};
+const PX = {rain:115.32, heat:206.45, tint:200.00, wallMat:111.50};
 const INST = {KLAAS:['Klaasuste paigaldus', 99.00], ZIP:['ZIP-rulookardina paigaldus', 80.00], SEIN:['Fikseeritud seina paigaldus', 120.00]};
 
 /* ===================== ABI ===================== */
